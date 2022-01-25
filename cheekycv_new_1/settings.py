@@ -1,6 +1,10 @@
 from pathlib import Path
 import os
 
+import django_heroku
+import dj_database_url
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +33,8 @@ INSTALLED_APPS = [
     'app',
     'user_auth',
     'widget_tweaks',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
 
 ]
@@ -133,4 +139,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'cvcheeky@gmail.com'
 EMAIL_HOST_PASSWORD = '134Hdmoloko'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+django_heroku.settings(locals())
 
