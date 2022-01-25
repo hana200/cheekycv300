@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'user_auth',
     'widget_tweaks',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     
 
 ]
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cheekycv_new_1.urls'
