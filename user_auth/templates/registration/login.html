@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %} CHEEKY | Login {% endblock %}
+{% block content %}
+
+<style type="text/css">
+.hana_div{
+    display: flex;
+    justify-content: center;
+    width: 27rem;
+    padding: 10px;
+    box-shadow: 10px 10px 30px 10px #3333;
+    margin-bottom: 100px;
+}
+
+@media (max-width: 576px) {
+  .hana_div {
+  	margin-left: 2rem;
+    max-width: 540px;
+  }
+}
+</style>
+<div class="hana_div text-center">
+    <div class="card-body">
+        <h4>Login</h4>
+        <hr>
+        <div class ="form-group">
+			<form method = "POST" enctype="multipart/form-data" >
+				{% csrf_token %}
+				<div class = "hana_div1" style="text-align:left"><br/>
+				<p><label for="id_username">Username:</label> <br/>
+					<input style="width:275pt" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username...">
+				</p><!--
+                <p><label for="id_email">Email:</label> <br/>
+                    <input style="width:275pt" type="text" name="email" autofocus autocapitalize="none" autocomplete="email" maxlength="150" required id="id_email" placeholder="email...">
+                </p>-->
+
+				<p><label for="id_password">Password:</label> <br/>
+					<input style="width:275pt" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password...">
+				</p><br>
+		</div>
+        
+        <button href = "{% url 'login' %}"class ="btn btn-dark" type="submit" name="login" value="login">Login</button>
+        
+        <br/>
+        <hr>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

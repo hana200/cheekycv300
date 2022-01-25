@@ -1,0 +1,321 @@
+{% block nav_menu%} 
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Roboto&family=Roboto+Mono&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Roboto+Mono&display=swap');*/
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
+
+  /*font-family: 'Roboto Mono', monospace;*/
+  /*font-family: 'Bebas Neue', cursive;*/
+}
+
+/*CHANGE*/
+
+.cheeky-toggler{
+  position: fixed;
+  float:right;
+  text-align: center;
+  padding-top: 20px;
+  padding-right:40px;
+  padding-left: 40px;
+  padding-bottom: 30px;
+  right:0;
+  top:0;
+  height: 100px
+  width: 100px;
+  justify-content:center;
+  color: rgb(229, 236, 238);
+/*  background-color: #FFF;*/
+}
+
+
+/* CHEEKY-MENU */
+.cheeky-menu {
+  position: fixed;
+  float:right;
+  text-align: center;
+  margin-top: 100px;
+  padding-right:40px;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  right:0;
+  top:0;
+  height: 100px
+  width: 100px;
+  justify-content:center;
+  text-align: right;
+/*  background-color: #FFF;*/
+  font-family: 'Staatliches', cursive;
+  font-size: 22px;
+  list-style:none;
+  display: none;
+}
+
+.cheeky-menu li {
+  color: #000;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+.cheeky-menu li a{
+  color: #000;
+  text-decoration: none;
+}
+.cheeky-menu li a:hover{
+  color: rgb(158, 158, 158);
+}
+
+
+
+/* NO CHANGE*/
+.cheeky-toggler-nochange{
+  position: fixed;
+  float:right;
+  text-align: center;
+  padding-top: 20px;
+  padding-right:40px;
+  padding-left: 40px;
+  padding-bottom: 30px;
+  right:0;
+  top:0;
+  height: 100px
+  width: 100px;
+  justify-content:center;
+  color: rgb(229, 236, 238);
+/*  background-color: #FFF;*/
+}
+
+/* CHEEKY-MENU-NOCHANGE */
+.cheeky-menu-nochange {
+  position: fixed;
+  float:right;
+  text-align: center;
+  margin-top: 100px;
+  padding-right:40px;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  right:0;
+  top:0;
+  height: 100px
+  width: 100px;
+  justify-content:center;
+  text-align: right;
+/*  background-color: #FFF;*/
+  font-family: 'Staatliches', cursive;
+  font-size: 22px;
+  list-style:none;
+  display: none;
+}
+
+.cheeky-menu-nochange li {
+  color: #000;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+.cheeky-menu-nochange li a{
+  color: #000;
+  text-decoration: none;
+}
+.cheeky-menu-nochange li a:hover{
+  color: rgb(158, 158, 158);
+}
+
+
+@media screen and (min-width:768px) {
+  /*CHANGE*/
+  .cheeky-menu {
+    background-color: #000;
+    color:#FFF;
+  }
+  .cheeky-menu li a{
+
+    color:#FFF;
+  }
+  .cheeky-toggler a{
+    color: #000;
+  }
+
+  .open2{
+    display:flex;
+
+    margin-top: 25px;
+  }
+  .close2{
+    display: none;
+
+    margin-top: 25px;
+  }
+  /* NOCHANGE */
+  .cheeky-menu-nochange {
+    background-color: #000;
+    color:#FFF;
+  }
+  .cheeky-menu-nochange li a{
+
+    color:#FFF;
+  }
+  .cheeky-toggler-nochange a{
+    color: #000;
+  }
+
+
+  .menu-toggle{
+    display: block;
+  }
+
+  .open2-nochange{
+    display:flex;
+
+    margin-top: 25px;
+  }
+  .close2-nochange{
+    display: none;
+
+    margin-top: 25px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  /*CHANGE*/
+  .cheeky-toggler{
+    color: rgb(229, 236, 238);
+    background-color: rgb(158, 158, 158);
+  }
+  .cheeky-toggler a{
+    color: rgb(229, 236, 238);
+  }
+  .cheeky-menu{
+    color: rgb(229, 236, 238);
+    background-color: rgb(158, 158, 158);
+  }
+  .cheeky-menu li a{
+    color: rgb(211,211,211);
+  }
+  .cheeky-menu li a:hover{
+    color:rgb(229, 236, 238);
+  }
+
+  .open2{
+    display:flex;
+    margin-top: 25px;
+  }
+  .close2{
+    display: none;
+    margin-top: 25px;
+  }
+  /* NOCHANGE */
+  .cheeky-toggler-nochange{
+    color: #000;
+  }
+  .cheeky-menu-nochange{
+    color: #FFF;
+    background-color:#000;
+  }
+  .cheeky-menu-nochange li a{
+    color: #FFF;
+  }
+  .cheeky-menu-nochange li a:hover{
+   color: rgb(158, 158, 158);
+  }
+  .open2-nochange{
+    display:flex;
+    margin-top: 25px;
+    color: #000;
+  }
+  .close2-nochange{
+    display: none;
+    margin-top: 25px;
+    color: #000;
+  }
+}
+
+/* NEW END --------------------------------------------------------------- */
+
+</style>
+  
+{%if show%}
+    <div class="cheeky-toggler" >
+        <div class="cheeky-toggle" id = "cheeky-toggle" onclick="openMenu">
+             <a href="javascript:void(0)" onclick="openMenu()" id = "open2"><div class="open2" id = "open2_img"><i class="fas fa-plus fa-2x" ></i></div></a>
+             <a href="javascript:void(0)" onclick="closeMenu()" id="close2"><div class="close2" id = "close2_img"><i class="fa fa-times fa-2x"></i></div></a>
+        </div>
+    </div>
+    {% if user.is_authenticated %}  
+      <div class="cheeky-menu" id="cheeky-menu">
+        <li onclick="closeMenu()"><a href="{% url 'home' %}">Home</a></li>
+        {%if cv_ != 0%}
+        <li onclick="closeMenu()"><a href="{% url 'cv_show' user %}">My CV</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'cv_show_edit' user %}">Edit CV</a></li>     
+        {%else%}
+        <li onclick="closeMenu()"><a href = "{% url 'add_bio' user %}">NEW CV</a></li>
+        {%endif%}
+
+        {%if user.pimg.id%}
+        <li onclick="closeMenu()"><a href="{% url 'show_profile_page' user.pimg.id %}">My Pic</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">Edit Pic</a></li>
+        {%else%}
+        <li onclick="closeMenu()"><a href="{% url 'create_profile_page'%}">Add Pic</a></li>
+        {%endif%}
+        <hr style="background-color: #FFF;">
+        <li onclick="closeMenu()"><a href="{% url 'password_reset_req' %}">SETTINGS</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'logout' %}">Log Out</a></li>
+      </div>
+    {%else%}
+      <div class="cheeky-menu" id="cheeky-menu">
+        <li onclick="closeMenu()"><a href="{% url 'login' %}">Log In</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'register' %}">Register</a></li>
+      </div>
+    {%endif%}
+
+{%else%}
+    <div class="cheeky-toggler-nochange" >
+        <div class="cheeky-toggle" id = "cheeky-toggle" onclick="openMenu">
+             <a href="javascript:void(0)" onclick="openMenu()" id = "open2"><div class="open2-nochange" id = "open2_img"><i class="fas fa-plus fa-2x" ></i></div></a>
+             <a href="javascript:void(0)" onclick="closeMenu()" id="close2"><div class="close2-nochange" id = "close2_img"><i class="fa fa-times fa-2x"></i></div></a>
+        </div>
+    </div>
+    {% if user.is_authenticated %}  
+      <div class="cheeky-menu-nochange" id="cheeky-menu">
+        <li onclick="closeMenu()"><a href="{% url 'home' %}">Home</a></li>
+       {%if cv_ != 0%}
+        <li onclick="closeMenu()"><a href="{% url 'cv_show' user %}">My CV</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'cv_show_edit' user %}">Edit CV</a></li>     
+        {%else%}
+        <li onclick="closeMenu()"><a href = "{% url 'add_bio' user %}">NEW CV</a></li>
+        {%endif%}
+
+        {%if user.pimg.id%}
+        <li onclick="closeMenu()"><a href="{% url 'show_profile_page' user.pimg.id %}">My Pic</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">Edit Pic</a></li>
+        {%else%}
+        <li onclick="closeMenu()"><a href="{% url 'create_profile_page'%}">Add Pic</a></li>
+        {%endif%}
+        <hr style="background-color: #FFF;">
+        <li onclick="closeMenu()"><a href="{% url 'password_reset_req' %}">SETTINGS</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'logout' %}">Log Out</a></li>
+      </div>
+    {%else%}
+      <div class="cheeky-menu-nochange" id="cheeky-menu">
+        <li onclick="closeMenu()"><a href="{% url 'login' %}">Log In</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'register' %}">Register</a></li>
+      </div>
+    {%endif%}
+{%endif%}
+
+
+  
+{% endblock nav_menu%}

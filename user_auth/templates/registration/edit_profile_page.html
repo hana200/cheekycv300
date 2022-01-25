@@ -1,0 +1,88 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Edit Profile Pic {% endblock %}
+
+{% block content %}
+<style type="text/css">
+.hana_div{
+    margin: auto;
+    margin-top: 30px;
+    width: 27rem;
+    padding: 10px;
+    box-shadow: 10px 10px 30px 10px #3333;
+    text-align: center;
+
+}
+.hana_div .container{
+	margin-top: 10pt;
+  	align-items: center;
+}
+.hana_div_box {
+  font-size: 14pt;
+  inline-size: 25rem;
+  padding-right: 20pt;
+  padding-left: 10pt;
+  padding-top: 20pt;
+  padding-bottom: 20pt;
+  overflow-wrap: break-word;
+}
+.hana_div_name {
+  color:#000;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+@media (max-width: 576px) {
+  .hana_div-sm, .hana_div {
+    margin: auto;
+    margin-left: 2rem;
+    margin-top: 50px;
+    max-width: 540px;
+  }
+}
+</style>
+
+{% if user.is_authenticated and user == user_ %}
+	{% if user.id == pimg.user.id %}
+	<h2 style="text-align: center;">Edit PIC</h2>
+		<div class = "hana_div">
+			<div class="container" >
+				<img src="{{ img }}" class = card-img>
+				<!--<img src="http://cheekycv.com/hana/assets/img/0.jpg" class = card-img >-->
+			</div><br/><br/>
+			 <div class ="form-group">
+				<form method = "POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<!--{{ form.as_p}}-->
+          				<input class ="btn btn-dark" type="file" name="image" accept="image/*" id="id_image"><br/><br/><br/>
+						<button class ="btn btn-dark">Update</button> &nbsp;
+						<a href="{% url 'delete_pic' pimg.id %}" class ="btn btn-light"> Delete</a> &nbsp;
+						<a href="{% url 'home' %}" class ="btn btn-light"> Home </a> 
+				</form>
+			</div>
+		</div><br><br><br><br><br>
+
+
+		<script>
+
+			var name = "{{user.id}}";
+			document.getElementById("uname").value = name;
+
+		</script>
+
+	{% else %}
+
+		<h1> Ups, you kinda wandered off there into the unknown :) </h1> 
+
+	{% endif %}
+
+{% else %}
+
+	<h1> Ups, you kinda wandered off there into the unknown :)<br/>
+    Please <a href = "{% url 'login' %}">log in</a> or <a href = "{% url 'register' %}">register</a> to edit your CV </h1><br/>
+    <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
+
+{% endif %}
+
+
+{% endblock %}

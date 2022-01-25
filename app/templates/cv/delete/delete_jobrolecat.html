@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %} CHEEKY | Delete Projects {% endblock %}
+{% block content %}
+<style type="text/css">
+.hana_div{
+    margin: auto;
+    margin-top: 30px;
+    width: 27rem;
+    padding: 10px;
+    box-shadow: 10px 10px 40px 10px #3333;
+    text-align: center;
+
+}
+.hana_div .container{
+    margin-top: 10pt;
+    align-items: center;
+}
+.hana_div_box {
+  font-size: 14pt;
+  inline-size: 25rem;
+  padding-right: 20pt;
+  padding-left: 10pt;
+  padding-top: 20pt;
+  padding-bottom: 20pt;
+  overflow-wrap: break-word;
+}
+.hana_div_name {
+  color:#000;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+@media (max-width: 576px) {
+  .hana_div-sm, .hana_div {
+    margin: auto;
+    margin-left: 2rem;
+    margin-top: 50px;
+    max-width: 540px;
+  }
+}
+</style>
+{% if user.is_authenticated and user == user_jobrolecat %}
+
+<h2 style="text-align: center;">Delete Projects</h2>
+<div class = "hana_div">
+    <div class ="form-group">
+        <form method = "POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br/><br/>
+                Are you sure?<br/> You are about to delete one of the Job-Role-Category sections from your CV
+                <br/><br/>
+                <input type="submit" value="Delete" class ="btn btn-dark">  &nbsp;
+                <a href="{% url 'cv_show_edit' user %}#experience" class ="btn btn-light"> Cancel</a> <br/>  &nbsp; 
+        </form>
+    </div>
+</div>
+
+{%else%}
+
+
+    <h1> Ups, you kinda wandered off there into the unknown :)<br/>
+    Please <a href = "{% url 'login' %}">log in</a> or <a href = "{% url 'register' %}">register</a> to edit your CV </h1><br/>
+    <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
+
+{%endif%}
+
+{% endblock %} 

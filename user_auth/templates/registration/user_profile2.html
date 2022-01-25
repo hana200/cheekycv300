@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% block title %} Show Profile Pic {% endblock %}
+
+{% load static %}
+{% block content %}
+
+
+
+{% if user.is_authenticated and pimg_user == user%}
+
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="{{ img }}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">{{pimg.user.username}}</h4>
+    <p class="card-text"> Email: <a href="mailto: {{pimg.user.email}}}" >{{pimg.user.email}}</a></p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+
+{%endif%}
+
+{% endblock %} 

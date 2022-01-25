@@ -1,0 +1,240 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- NAV2-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="sideNav">
+	<a class="navbar-brand js-scroll-trigger" href="#page-top">  
+                {% if img_p == 1 %}           
+                <span class="d-block d-lg-none" ><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{img_url.url}}" alt="" width="70rem"/></span>
+                {%endif%}
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{img_url.url}}" alt="" /></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+
+    </nav>
+
+
+
+<!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- ADDON -->
+
+
+            <!-- About-->
+            <section class="resume-section" id="about" >
+                <div class="resume-section-content">
+                    
+                
+<!-- NAME -->       <h1 class="mb-0"> {{bio.name}}  <span class="text-primary"> {{bio.surname}} </span> </h1>
+
+<!-- LOCATION -->   <div class="subheading mb-5"> {{bio.location}}  <br/>
+<!-- PHONE -->   		<a href="tel:+971562340350">{{bio.phone}}  </a> | 
+<!-- EMAIL -->   		<a href="mailto:  thedarkoorko@gmail.com">  {{bio.email}} </a>
+                    </div>
+
+                    <ul class="fa-ul mb-0">
+
+<!-- INTRO -->          <p class="lead mb-5">
+                        <!--{{intro.intro_text}} -->
+                    </p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/darko-krstevski-9422a834/" target="_blank"><i class="fab fa-linkedin-in" ></i></a>
+                        <a class="social-icon" href="assets/Darko_Krstevski_Pf_21_s.pdf" target="_blank"><i class="fas fa-file-pdf" ></i></a>
+                    </div>
+                </ul>    
+                </div>
+            </section>
+            <hr class="m-0" />
+
+
+<!-- JOBS --> 
+            <!-- Experience-->
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+             	<h2 class="mb-5">Experience</h2>
+                    <ul class="fa-ul mb-0">
+
+{%for job in jobs%}
+                     <!-- City Creative Network-->
+ <!-- OFFICE2 -->                 
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">{{job.job_o}} / 
+<!-- WEBSITE -->
+                            	<a href="{{job.job_ws}}" style="font-size: smaller" target="_blank">{{job.job_ws}} </a>
+                            </h3>
+<!-- TITLE -->
+                            <!--<div class="subheading mb-3">{{job.job_r}} </div>-->
+                            <br/>
+                                <ul class="fa-ul mb-0">
+                                    <div class="subheading1 mb-0">Responsibilities </div>
+<!-- DESCRIPTION -->
+                                    <!--{{job.job_sdm}} -->
+                                    <br/>                                              
+                                     
+                                </ul>
+                        </div>
+<!-- START DATE / END DATE --> 
+                        <div class="flex-shrink-0" style ="text-align: right;"><span class="text-primary">
+                            {% if job.job_sdm != 'Present'%}
+                            {{job.job_sdm}} <b>{{job.job_sdy}}</b>
+                            {% else %}
+                            <b>Present </b>
+                            {% endif %} 
+                            {% if job.job_edm != 'Present'%}
+                            - {{job.job_edm}} <b>{{job.job_edy}}</b>
+                            {% else %}
+                             - <b>Present</b>
+                            {% endif %}
+                                                                
+                             <br/>
+                           
+<!-- LOCATION -->
+                        {{job.job_l | title}} </span></div>
+                    </div>
+                    <br/>
+{% endfor %}
+                    </ul>
+                 
+                </div>
+            </section>
+
+<!-- END Experience-->   
+
+
+            <hr class="m-0" />
+<!-- Skills-->
+<!-- SKILLS WORKFLOW -->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+
+                    <h2 class="mb-5">Skills</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <div class="subheading mb-3">Workflow</div>
+                        <ul class="fa-ul mb-0">
+                            <!--{%for skill in skills_w%} -->
+                            
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check"></i></span>
+                                <!--{{skill}}-->
+                            </li>
+                            {% endfor %}
+                                             
+                        </ul>
+                        <br/>
+<!-- SKILLS TOOLS -->
+
+                        <div class="subheading mb-3">Tools</div>
+                        <ul class="fa-ul mb-0">
+                            <!--{%for skill in skills_t%} -->
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check"></i></span>
+                                <!--{{skill}}-->
+
+                            </li>
+                            {% endfor %}
+                            
+                        </ul><br/>
+
+<!-- SKILLS LANGUAGES -->
+                        <div class="subheading mb-3">Languages</div>
+                        <ul class="fa-ul mb-0"> 
+                            <!--{% for lang in langs %} -->
+                            
+                            <li>
+                                <span class="fa-li"><i class="fas fa-check"></i></span>
+                                 <!-- {{lang}}-->
+                               
+
+                            </li>
+                           {% endfor %} 
+                        </ul>
+                    </ul>
+
+                </div>
+            </section>
+             <hr class="m-0" />
+<!-- EDUCATION -->
+            <!-- Education-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Education</h2>
+                    <ul class="fa-ul mb-0">
+                        {% for edu in edus %}
+
+
+	                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+	                        <div class="flex-grow-1">
+<!-- SCHOOL -->
+	                            <h3 class="mb-0">{{edu.edu_s}}</h3>
+<!-- DEPARTMENT -->
+	                            <div class="subheading mb-3">{{edu.edu_d}}</div>
+<!-- DEGREE -->
+	                            <div> {{edu.edu_d}} </div>
+	                        </div>
+<!-- SRTART / END DATE -->
+	                        <div class="flex-shrink-0" style ="text-align: right;><span class="text-primary">{{edu.edu_sdy}} - {{edu.edu_edy}} <br/>
+<!-- LOCATION -->
+	                         Dubai, UAE</span></div>
+	                    </div>  
+                        {% endfor %}               
+                	</ul>                  
+                </div>
+            </section>
+
+
+            <hr class="m-0" />
+
+<!-- OUTRO -->
+            <!-- Interests-->
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Interests</h2>
+                    <ul class="fa-ul mb-0">
+                    <!--<p>{{intro.outro_text}}</p>-->
+                </ul>
+                </div>
+            </section>
+           
+            <hr class="m-0" />
+            
+<!-- CONTACT -->            
+            <!-- Contact-->
+            <section class="resume-section" id="contact">
+                <div class="resume-section-content" >
+                    <h2 class="mb-5">FEEL FREE TO CONTACT ME ANYTIME :)</h2>
+                    <ul class="fa-ul mb-0">
+                        
+                            <a href="tel:+971562340350" >{{bio.phone}}</a>
+                             | 
+                            <a href="mailto: thedarkoorko@gmail.com" > thedarkoorko (at) gmail . com</a>
+                            <br/><br/>
+                    Please see the links below for my linkedin profile and full PDF portfolio download. Scroll further down for my web resume :)</p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/darko-krstevski-9422a834/" target="_blank"><i class="fab fa-linkedin-in" ></i></a>
+                        <a class="social-icon" href="assets/Darko_Krstevski_Pf_21_s.pdf" target="_blank"><i class="fas fa-file-pdf" ></i></a>
+                    
+                       
+                    
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+{% endblock %} 

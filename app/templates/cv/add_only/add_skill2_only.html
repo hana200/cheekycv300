@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}CHEEKY | Add Skills {% endblock %}
+{% block content %}
+
+<style type="text/css">
+.hana_div{
+	margin: auto;
+  margin-top: 30px;
+  width: 27rem;
+  padding: 10px;
+  box-shadow: 10px 10px 30px 10px #3333;
+}
+.hana_div .container{
+    margin-top: 10pt;
+    align-items: center;
+}
+.hana_div_box {
+  font-size: 14pt;
+  inline-size: 25rem;
+  padding-right: 20pt;
+  padding-left: 10pt;
+  padding-top: 20pt;
+  padding-bottom: 20pt;
+  overflow-wrap: break-word;
+}
+.hana_div_name {
+  color:#000;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+
+@media (max-width: 576px) {
+  .hana_div-sm, .hana_div {
+  	margin: auto;
+  	margin-left: 2rem;
+  	margin-top: 50px;
+    max-width: 540px;
+  }
+}
+.subheading.hana_div_s{
+	line-height: 10pt;
+	font-size: 1.2rem; 
+	margin-left: 1.2rem;
+	margin-right: 1.2rem;
+}
+.subheading.hana_div_s.p_h{
+	font-size: 1.2rem; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+</style>
+
+{% if user.is_authenticated and user == skill2_user %}
+<div class = "hana_div1">
+	<h2 style="text-align: center;">Add Skills-Tools</h2>
+	<div class ="form-group">
+		<form method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class = "hana_div">
+			{{ skill2_form.as_p }}
+			</div><br>
+			<div class="subheading " >
+				<div class="container" style="margin-left: auto;display: flex; justify-content: center;">
+					<button class ="btn btn-dark" type="submit" name="save_next" value="save_next">&nbsp;Save&Back</button>
+					&nbsp;&nbsp;
+					<a href="{% url 'cv_show_edit' user %}#skills" class ="btn btn-light">&nbsp;CANCEL</a>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+</div>
+<br/><br/>
+
+{% else %}
+
+	<h1> Ups, you kinda wandered off there into the unknown :)<br/>
+    Please <a href = "{% url 'login' %}">log in</a> or <a href = "{% url 'register' %}">register</a> to edit your CV </h1><br/>
+    <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
+</div>
+{% endif %}
+
+
+
+{% endblock %}

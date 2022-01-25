@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Bio{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+.hana_div{
+    margin: auto;
+    margin-top: 100px;
+    width: 27rem;
+    padding: 10px;
+    box-shadow: 10px 10px 30px 10px #3333;
+}
+@media (max-width: 576px) {
+  .hana_div-sm, .hana_div {
+    margin: auto;
+    margin-left: 2rem;
+    margin-top: 50px;
+    max-width: 540px;
+  }
+}
+.subheading.hana_div_s{
+    line-height: 10pt;
+    font-size: 1.2rem; 
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+.subheading.hana_div_s.p_h{
+    font-size: 1.2rem; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+}
+</style>
+
+{% if user.is_authenticated and user == user_bio %}
+
+<div class = "hana_div">
+    <h1> Create CV</h1>
+    <br/><br/>
+
+    <!-- Create a Form -->
+    <div class ="form-group">
+        <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+            <h3> CV title:</h1><br>
+                {{ form_cv.as_p}}<br>
+            <h3> Bio:</h1><br>
+                {{ form_bio.as_p}}
+            
+            <br/>
+
+            <div class="subheading " >
+                    <div class="container" style="margin-left: auto;display: flex; justify-content: center;">
+
+                         <button class ="btn btn-dark" type="submit" name="back" value="back">&nbsp;BACK TO JOB</button>
+                         &nbsp;&nbsp;
+
+                        <a href="{% url 'cv_show_edit' user %}" class ="btn btn-light">&nbsp;HOME</a>
+
+                    </div>
+            </div>
+        </form>
+    </div>
+ 
+</div>
+
+{%else%}
+
+
+    <h1> Ups, you kinda wandered off there into the unknown :)<br/>
+    Please <a href = "{% url 'login' %}">log in</a> or <a href = "{% url 'register' %}">register</a> to edit your CV </h1><br/>
+    <a href="{% url 'home' %}" class ="btn btn-dark"> Back</a> <br/> 
+
+{%endif%}
+
+
+{% endblock %} 

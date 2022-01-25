@@ -1,0 +1,105 @@
+
+{% extends 'base.html' %}
+{% block title %} CHEEKY | Register {% endblock %}
+{% block content %}
+
+<style type="text/css">
+.hana_div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 27rem;
+    padding: 10px;
+    box-shadow: 10px 10px 30px 10px #3333; 
+}
+.hana_div1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 24rem;
+    padding: 10px;
+
+}
+
+
+@media (max-width: 576px) {
+  .hana_div {
+  	margin-left: 2rem;
+    max-width: 540px;
+  }
+}
+</style>
+
+
+
+
+<div class="hana_div text-center">
+    <div class="card-body">
+	<h4>Register</h4>
+        <hr>
+        <div class ="form-group">
+		<form method = "POST" enctype="multipart/form-data">
+			{% csrf_token %}
+{%if form.non_field_errors %}
+			<div class="alert alert-danger" style="z-index: -20; ">
+				 <strong><ul style="list-style-type:none">{{ form.non_field_errors }}</ul></strong>
+			</div>
+			{%endif%} 
+
+    {% if form.errors %}
+       {% for field in form %}
+           {% for error in field.errors %} 
+              <div class="alert alert-secondary" style="z-index: -20;">
+                   <strong>{{ error|escape }}</strong>
+              </div>
+           {% endfor %}
+       {% endfor %}
+    {% endif %}
+
+
+			<div class = "hana_div1" style="list-style-type: none;font-style: none;text-align:left"><br/>
+					<p><label for="id_username">Username:</label> <input type="text" name="username" maxlength="150" autofocus class="form-control" placeholder="user name..." required id="id_username"> 
+					</p>
+					<div class="alert alert-info" style="background-color:blue_hana_light;z-index: -20; ">
+						<span class="helptext">
+						<ul>
+							<li style="list-style-type:none">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</li>
+						</ul>
+						</span>
+					</div>
+
+						<p><label for="id_email">Email:</label> <input type="email" name="email" class="form-control" placeholder="email..." required id="id_email"></p>
+
+						<p><label for="id_password1">Password:</label> <input type="password" name="password1" autocomplete="new-password" class="form-control" placeholder="password..." required id="id_password1"> </p>
+
+						<p><label for="id_password2">Password confirmation:</label> <input type="password" name="password2" autocomplete="new-password" class="form-control" placeholder="type the password again..." required id="id_password2"> </p><br>
+
+
+						<div class="alert alert-info" style="background-color:blue_hana_light;z-index: -20;">
+							<span class="helptext">
+							<ul style="list-style-type:none">
+								<li><b>*</b> Your password can’t be entirely numeric</li>
+								<li><b>*</b> Your password can’t be too similar to your other personal information.</li>
+								<li><b>*</b> Your password must contain at least 8 characters</li>
+								<li><b>*</b> Your password can’t be a commonly used password</li>
+								<li><b>*</b> Your password can’t be entirely numeric</li></ul>
+							</span>
+						</div>
+			</div>
+			<br/>
+			<div class="subheading " >
+				<div class="container" style="margin-left: auto;display: flex; justify-content: center;">
+
+						<button href = "/user_auth/login/"class ="btn btn-dark" type="submit" name="register" value="Save&Home">Register</button>
+
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+</div><br/><br/><br/><br/><br/><br/>
+
+
+{% endblock %}
+

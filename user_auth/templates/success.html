@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} CHEEKY | Success! {% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+.hana_div2{
+    margin: auto;
+    margin-top: 100px;
+    width: 27rem;
+    padding: 10px;
+    font-size: 25pt;
+    color: #ff59a8;
+    text-align: center;
+
+}
+.hana_div .container{
+    margin-top: 10pt;
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+  .hana_div-sm, .hana_div {
+    margin: auto;
+    margin-left: 2rem;
+    margin-top: 50px;
+    max-width: 540px;
+  }
+}
+</style>
+
+
+{% if user.is_authenticated %}
+<div class = "hana_div2">
+    <div class="container" >       
+    <b>Success!</b><br/> <br/>  <i  style="font-size: 50pt"class='fas'>&#xf580;</i> <br/> <br/> 
+    </div>
+</div>
+
+{%else%}
+
+    <h1> Ups, you kinda wandered off there into the unknown :)<br/>
+    Please <a href = "{% url 'login' %}">log in</a> or <a href = "{% url 'register' %}">register</a> to edit your CV </h1><br/>
+    <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
+
+{%endif%}
+
+
+<script>
+  window.setTimeout(function(){
+    window.location.href = "{% url 'home' %}";
+  }, 1000);
+</script>
+
+{% endblock %} 

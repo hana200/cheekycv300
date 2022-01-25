@@ -1,0 +1,577 @@
+
+{% extends 'base.html' %}
+{% block title %} CHEEKY | {{user}} CV{% endblock %}
+
+{% block content %}
+<style type="text/css">
+
+
+    
+.list-none{
+    margin-left:2pt;
+    list-style-type: none;
+}
+.list-none-check{
+    margin-left:2pt;
+    list-style-type: none;
+}
+.list-none-scheck li:before {
+  content: '✓';
+}
+.try:before {
+  content: '✓';
+}
+
+.blockquote-footer::before {
+  content: "— ";
+}
+
+</style>
+
+<!-- CV TITLE ---->
+
+        <div class="container-fluid p-0" style="flex-wrap: nowrap;">
+            <!-- ADDON -->
+            <!-- About-->
+            <section class="resume-section" id="about" >
+                <div class="resume-section-content">
+                    
+                
+<!-- NAME -->       <h1 class="mb-0"> {{bio.name}}  <span class="text-primary"> {{bio.surname}} </span> </h1>
+
+<!-- LOCATION -->   <div class="subheading mb-5"> {{bio.location}}  <br/>
+<!-- PHONE -->          <a href="tel:{{bio.phone}} ">{{bio.phone}}  </a> | 
+<!-- EMAIL -->          <a href="mailto:  {{bio.email}}">  {{bio.email}} </a>
+                    </div>
+            {%if intro.intro_text%}
+
+            <p class="lead mb-5">{{intro.intro_text}}</p>
+            {%endif%}
+                    
+            {%if web%}            
+                
+                    <div class="social-icons">
+                        {%if web.wl1%}
+                        <a class="social-icon" href="{{ web.wl1}}" target="_blank">
+                            <i class="fab fa-linkedin-in" ></i>
+                        </a>
+                        {%else%}{%endif%}
+
+                        {%if web.wl2%}
+                        <a class="social-icon" href="{{ web.wl2}}" target="_blank">
+                            <i class="fas fa-file-pdf" ></i>
+                        </a>
+                        {%else%}{%endif%}
+
+                        {%if web.wl3%}
+                        <a class="social-icon" href="{{ web.wl3}}" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                        {%else%}{%endif%}
+
+                        {%if web.wl4%}
+                        <a class="social-icon" href="{{ web.wl4}}" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                        {%else%}{%endif%}
+                    </div>
+                    <br/><br/>
+
+            {% endif %}
+
+                        
+
+                    
+     
+     </div>
+</section>
+            
+
+    
+<!-- JOBS --> 
+{%if zipp%}
+<hr class="m-0" />
+<section class="resume-section" id="experience">
+<div class="resume-section-content">
+<h2 class="mb-5">Experience</h2>   
+
+{% for z in zipp%}
+    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" >
+        <div class="flex-grow-1" >
+
+
+<!-- OFFICE + WEBSITE --------------------------->
+            <h3 class="mb-0">{{z.0.job_o | title}} 
+            {% if z.0.job_ws %}  
+            <a href="{{job.job_ws}}" style="font-size: smaller" target="_blank">| {{z.0.job_ws}} </a>
+            {%endif%}
+            </h3><br/><br/>
+
+<!-- ROLE -->   
+            {% if z.1 %}
+            {% for role in z.1%}
+            <ul class="fa-ul mb-0"style="margin-left:10pt"><br/>
+
+<!-- ROLE TITLE -->
+                <h4 class="mb-0">  {{ role.0.role_r | title}} </h3>
+<!-- ROLE DATE AND LOCATION -->
+
+                <div  style="font-size: small; ">                    
+                                
+                                {%if role.0.role_sdm and role.0.role_sdy and role.0.role_edm and role.0.role_edy%}
+
+                                    {% if role.0.role_sdm != 'Present' and role.0.role_sdy != 'Present'%}
+                                    {{role.0.role_sdm}} {{role.0.role_sdy}}
+                                    {% else %}
+                                    Present 
+                                    {% endif %} 
+
+                                    {% if role.0.role_edm != 'Present' and role.0.role_edy != 'Present'%}
+                                    - {{role.0.role_edm}} {{role.0.role_edy}}
+                                    {% else %}
+                                    - Present
+                                    {% endif %} 
+
+                                {% endif %}
+
+                                {%if role.0.role_l%}
+                                    | {{role.0.role_l | title}}
+                                {%endif%}
+
+                </div><br/>
+
+
+<!-- ROLE PROJECTS --->
+                {% if role.1 %}
+                {% for cat in role.1 %}
+                <div style="margin-left: 10pt;position:static;">
+                            <div class="subheading1 mb-0">{{ cat.cat }} </div>
+                            
+                                  
+                               <ul  class="list-none">
+            <!-- DESCRIPTION -->        {% if cat.cat_p1  %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p1 | title}}</li>
+                                        {%endif%} 
+
+                                        {%  if cat.cat_p2 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p2| title }}</li>
+                                        {%endif%}
+
+                                        {%  if cat.cat_p3 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p3 | title}}</li>  
+                                        {%endif%}
+
+                                        {%  if cat.cat_p4 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p4 | title}}</li>   
+                                        {%endif%}
+                                        
+                                        {%  if cat.cat_p5 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p5 | title}}</li>
+                                        {%endif%}
+
+                                        {%  if cat.cat_p6 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p6 | title}}</li>
+                                        {%endif%}
+
+                                        {%  if cat.cat_p7 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p7 | title}}</li>
+                                        {%endif%}
+
+                                        {%  if cat.cat_p8 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p8 | title}}</li>
+                                        {%endif%}
+
+                                        {%  if cat.cat_p9 %}
+                                        <li> / &nbsp;&nbsp;{{ cat.cat_p9 | title}}</li>
+                                        {%endif%}
+
+                                        {%  if cat.cat_p10 %}
+                                         <li>/ &nbsp;&nbsp;{{ cat.cat_p10 | title}}</li>
+                                        {%endif%}                     
+                                    </ul> 
+                                    <br/>
+                             </div>
+                {% endfor %}
+                 {%endif%}
+            </ul>
+            {%endfor%}
+            {%endif%}
+
+
+        </div>
+        <div class="flex-shrink-0" style ="text-align: right;">
+            <span class="text-primary">
+                {% if z.0.job_sdm != 'Present' and z.0.job_sdy != 'Present'%}
+                    {{z.0.job_sdm}} {{z.0.job_sdy}}
+                    {% else %}
+                    Present 
+                    {% endif %} 
+
+                    {% if z.0.job_edm != 'Present' and z.0.job_edy != 'Present'%}
+                    - {{z.0.job_edm}} {{z.0.job_edy}}
+                    {% else %}
+                     - Present
+                {% endif %}
+                <br/>
+
+                {% if z.0.job_l %} 
+                    {{z.0.job_l | title}} 
+                    {% endif %}
+                <br/>
+
+
+
+            </span>
+        </div>
+
+
+    </div><br>
+            
+    {% endfor %}  
+    </ul>          
+    </div>
+</section>
+{%endif%}
+
+
+<!-- START DATE / END DATE 
+                <div class="flex-shrink-0" style ="text-align: right;"><span class="text-primary">
+                    {% if z.0.job_sdm != 'Present' and z.0.job_sdy != 'Present'%}
+                    {{z.0.job_sdm}} {{z.0.job_sdy}}
+                    {% else %}
+                    Present 
+                    {% endif %} 
+
+                    {% if z.0.job_edm != 'Present' and z.0.job_edy != 'Present'%}
+                    - {{z.0.job_edm}} {{z.0.job_edy}}
+                    {% else %}
+                     - Present
+                    {% endif %}
+
+                    <br/>--> 
+<!-- LOCATION 
+                    {% if z.0.job_l %} 
+                    {{z.0.job_l | title}} 
+                    {% endif %}
+                    <br/>
+
+                </div>
+            -->
+
+<!-- END Experience-->   
+
+
+           
+<!-- Skills-->
+<!-- SKILLS WORKFLOW -->
+{% if skill1 or skill2 %}
+ <hr class="m-0" />
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+
+                    <h2 class="mb-5">Skills</h2>
+{%endif%}
+{% if skill1 %}
+                    <ul class="fa-ul mb-0" style="margin-left:7pt">
+
+                        <div class="subheading mb-3">Workflow</div>
+                         <ul class="list-none" ml-1>                        
+                            
+                            <li >{%if skill1.skill_w1%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill1.skill_w1}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w2%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w2}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w3%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w3}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w4%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill1.skill_w4}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w5%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                              {{ skill1.skill_w5}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w6%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w6}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w7%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                              {{ skill1.skill_w7}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w8%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w8}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w9%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w9}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w10%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill1.skill_w10}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w11%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill1.skill_w11}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w12%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w12}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w13%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w13}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w14%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                             {{ skill1.skill_w14}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill1.skill_w15%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill1.skill_w15}}{%else%}{%endif%}
+                            </li>  
+                                                                 
+                        </ul><br/>
+    
+    {% endif %}
+
+<!-- SKILLS TOOLS -->
+{% if skill2 %}
+
+                        <div class="subheading mb-3">Tools</div>
+                        <ul class="list-none">
+
+                            <li>{%if skill2.skill_w1%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w1}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w2%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w2}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w3%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w3}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w4%}
+                               <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w4}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w5%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w5}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w6%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w6}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w7%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w7}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w8%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w8}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w9%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w9}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w10%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w10}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w11%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w11}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w13%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w12}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w13%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w13}}{%else%}{%endif%}
+                            </li>
+                            <li> {%if skill2.skill_w14%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ skill2.skill_w14}}{%else%}{%endif%}
+                            </li>
+                            <li>{%if skill2.skill_w15%}
+                                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                               {{ skill2.skill_w15}}{%else%}{%endif%}
+                            </li>                           
+                        </ul><br/>
+                       
+                        
+    {% endif %}
+<!-- SKILLS LANGUAGES -->
+{%if lang%}
+                        <div class="subheading mb-3">Languages</div>
+                         <ul class="list-none">
+                            {%if lang.l1%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l1}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l2%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l2}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l3%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l3}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l4%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l4}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l5%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l5}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l6%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l6}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l7%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l7}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l8%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l8}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l9%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l9}}</li>
+                            {%else%}{%endif%}
+
+                            {%if lang.l10%}                           
+                            <li><i class="fas fa-check"></i>&nbsp;&nbsp;
+                                {{ lang.l10}}</li>
+                            {%else%}{%endif%}
+                        </ul>
+                    </ul>  <br/>
+    {% endif %}
+
+                </div>
+            </section>
+             
+
+<!-- EDUCATION -->
+
+{% if edus %}
+<hr class="m-0" />
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Education</h2>                   
+                    <ul class="fa-ul mb-0" style="margin-left:7pt">
+                        {% for edu in edus %}                       
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                            <div class="flex-grow-1">
+<!-- SCHOOL -->
+                                <h3 class="mb-0">{{edu.edu_s}}</h3>
+<!-- DEPARTMENT -->
+                                <div class="subheading mb-3">{{edu.edu_d}}</div>
+
+                            </div>
+<!-- SRTART / END DATE -->
+                            <div class="flex-shrink-0" style ="text-align: right;><span class="text-primary">{{edu.edu_sdy}} - {{edu.edu_edy}} <br/>
+<!-- LOCATION -->
+                             {{edu.edu_l}}</span></div>
+                        </div>             
+                    {% endfor %}               
+                    
+     
+    {% endif %}  </ul>                  
+                </div>
+               
+            </section>
+
+
+            <hr class="m-0" />
+
+<!-- OUTRO -->
+{% if intro.outro_text %}
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Interests</h2>
+                    <ul class="fa-ul mb-0" style="margin-left:7pt">
+                        <p class="lead mb-5">
+                        {{intro.outro_text}}
+                        </p>
+                   
+     
+    {% endif %} </ul>
+                </div>
+                
+            </section> 
+
+            <hr class="m-0" />
+            
+<!-- CONTACT -->            
+    <!-- Contact-->
+    <section class="resume-section" id="contact">
+        <div class="resume-section-content" >
+            <h2 class="mb-5">FEEL FREE TO CONTACT ME ANYTIME :)</h2>
+            <ul class="fa-ul mb-0" style="margin-left:7pt">
+                
+                    <a href="tel:{{bio.phone}}" >{{bio.phone}}</a>
+                     | 
+                    <a href="mailto: {{bio.email}}" > {{bio.email}}</a>
+                    <br/><br/>
+                    
+ <!-- WEB -->
+ {%if web%}            
+                    <p>Please see the links below for my linkedin profile and full PDF portfolio download. Scroll further down for my web resume :)</p><br/>
+                    <div class="social-icons">
+                        {%if web.wl1%}
+                        <a class="social-icon" href="{{ web.wl1}}" target="_blank">
+                            <i class="fab fa-linkedin-in" ></i>
+                        </a>
+                        {%else%}{%endif%}
+                        {%if web.wl2%}
+                        <a class="social-icon" href="{{ web.wl2}}" target="_blank">
+                            <i class="fas fa-file-pdf" ></i>
+                        </a>
+                        {%else%}{%endif%}
+                        {%if web.wl3%}
+                        <a class="social-icon" href="{{ web.wl3}}" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                        {%else%}{%endif%}
+                        {%if web.wl4%}
+                        <a class="social-icon" href="{{ web.wl4}}" target="_blank">
+                            <i class="fas fa-link"></i>
+                        </a>
+                        {%else%}{%endif%}
+                    </div>
+                    
+            {%else%}
+            {%endif%}
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+
+
+
+
+{% endblock %} 
