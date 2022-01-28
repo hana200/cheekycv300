@@ -1,4 +1,5 @@
 import os
+from django.conf import settings
 from django import forms
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -58,6 +59,10 @@ def home(request):
     context["cv_"] = 0
     context["img_p"] = 0
     context["home"] = 1
+    css_=os.path.join(settings.STATIC_ROOT, 'css')
+    js_=os.path.join(settings.STATIC_ROOT, 'js')
+    context["css_"] = css_
+    context["js_"] = js_
 
     if request.user.is_authenticated:
         img_p = model_check(request,PImg)
