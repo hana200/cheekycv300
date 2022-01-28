@@ -99,7 +99,7 @@ def current_y1():
     CH_Y[-1] = ('Present', 'Present')
     return CH_Y
 def current_y():
-    CH_Y = [(str(i), str(i)) for i in range(1950,date.today().year+1)]
+    CH_Y = [(i, i) for i in range(1950,date.today().year+1)]
     return CH_Y
 
 # ------------------- MODELS ------------------------------------------------------------
