@@ -124,11 +124,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#MEDIA_URL = '/img/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-# MEDIA_ROOT = os.path.join(BASE_DIR, "img")
-MEDIA_ROOT = 'http://cheekycv.com/hana/assets/img'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,"static"),
+    )
+STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files","static-root")
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+MEDIA_URL = '/img/'
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+## MEDIA_ROOT = os.path.join(BASE_DIR, "img")
+#MEDIA_ROOT = 'http://cheekycv.com/hana/assets/img'
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files","media-root")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -146,7 +152,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'cvcheeky@gmail.com'
 EMAIL_HOST_PASSWORD = '134Hdmoloko'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
