@@ -127,14 +127,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
     )
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files","static-root")
+STATIC_ROOT = os.path.join(BASE_DIR, "live-static","static-root")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/img/'
 #STATIC_ROOT = os.path.join(BASE_DIR, "static")
 ## MEDIA_ROOT = os.path.join(BASE_DIR, "img")
 #MEDIA_ROOT = 'http://cheekycv.com/hana/assets/img'
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files","media-root")
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static","media-root")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
