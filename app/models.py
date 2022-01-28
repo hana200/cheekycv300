@@ -94,9 +94,12 @@ def ch_y():
     return [(r,r) for r in range(1950, date.today().year+1)]
 def current_m():
     pass
-def current_y():
+def current_y1():
     CH_Y = [(str(i), str(i)) for i in range(1950,date.today().year+2)]
     CH_Y[-1] = ('Present', 'Present')
+    return CH_Y
+def current_y():
+    CH_Y = [(str(i), str(i)) for i in range(1950,date.today().year+1)]
     return CH_Y
 
 # ------------------- MODELS ------------------------------------------------------------
