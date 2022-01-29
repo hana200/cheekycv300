@@ -102,10 +102,19 @@ img#utas {
     <h2 style="text-align: center;">My Profile</h2>
     <div class = "hana_div" >
       <div class="container">
+        {% if img%}
           <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
             <img src="{{ img }}" id="utas">
           </a>
-          <!--<img src="http://cheekycv.com/hana/assets/img/0.jpg" class = card-img >-->
+        {%else%}
+        <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
+            <img src="../assets/img/img0.jpg" id="utas">
+        </a>
+        {%endif%}
+          <!-- <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
+            <img src="{{ img }}" id="utas">
+          </a> -->
+        
       </div><br/><p> <b>{{pimg.user.username}}</b><br/><br/> Email: <a href="mailto: {{pimg.user.email}}}" >{{pimg.user.email}}</a></p>
         <br/>
     </div>
@@ -125,10 +134,15 @@ img#utas {
     <div class = "hana_div" >
       
       <div class="container" >
-          <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank">
+         {% if img%}
+          <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
             <img src="{{ img }}" id="utas">
           </a>
-          <!--<img src="http://cheekycv.com/hana/assets/img/0.jpg" class = card-img >-->
+        {%else%}
+        <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
+            <img src="../assets/img/img0.jpg" id="utas">
+        </a>
+        {%endif%}
         </div><br/><p> <b>{{pimg.user.username}}</b><br/><br/> Email: <a href="mailto: {{pimg.user.email}}}" >{{pimg.user.email}}</a></p>
         <br/>
     </div>

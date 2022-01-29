@@ -47,8 +47,11 @@
 	<h2 style="text-align: center;">Edit PIC</h2>
 		<div class = "hana_div">
 			<div class="container" >
-				<img src="{{ img }}" class = card-img>
-				<!--<img src="http://cheekycv.com/hana/assets/img/0.jpg" class = card-img >-->
+				{% if img%}
+					<img src="{{ img }}" class = card-img>
+				{%else%}
+				<img src="../assets/img/img0.jpg" class = card-img>
+				{%endif%}
 			</div><br/><br/>
 			 <div class ="form-group">
 				<form method = "POST" enctype="multipart/form-data">
