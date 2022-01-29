@@ -65,15 +65,16 @@ img#utas {
     }
 }
 </style>
+<div class = "hana_div1">
 {% if user.is_authenticated and user == user_ %}
  <h2 style="text-align: center;">Create PIC</h2>
 	<div class = "hana_div">
 			
 			<div class="container" >
 				{% if img %}
-					<img src="{{ img }}" id="utas">
+					<img src="{{ img }}" class="img-change">
 				{%else%}
-				<img src="../static/assets/img/img0.jpg" id="utas">
+				<img src="../static/assets/img/img0.jpg" class="img-change">
 				{%endif%}
 			</div><br/><br/>
 			 <div class ="form-group">
@@ -96,6 +97,7 @@ img#utas {
     <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
 
 {% endif %}
+</div>
 
 
 {% endblock %}

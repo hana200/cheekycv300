@@ -94,9 +94,9 @@ img#utas {
 */
 </style>
 
+<div class = "hana_div1">
 
 {% if user.is_authenticated and pimg_user == user%}
-
 
   {% if exists == 1 %}
     <h2 style="text-align: center;">My Profile</h2>
@@ -104,11 +104,11 @@ img#utas {
       <div class="container">
         {% if img %}
           <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
-            <img src="{{ img }}" id="utas">
+            <img src="{{ img }}" class="img-change">
           </a>
         {%else%}
         <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
-            <img src="../static/assets/img/img0.jpg" id="utas">
+            <img src="../static/assets/img/img0.jpg" class="img-change">
         </a>
         {%endif%}
           <!-- <a href="http://hana.cheekycv.com/" value = "HANA CV" target = "blank" >
@@ -120,7 +120,7 @@ img#utas {
     </div>
 <br><br><br><br><br>
   {%else%}
-  <h1>  User's profile pic might have existed once upon a time<br/>
+  <h1>  User's profile pic might have existed once upon a time<br/></h1>
 
     <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
 
@@ -130,7 +130,7 @@ img#utas {
 
 
   {% if exists == 1 %}
-    <h2 style="text-align: center;">{{pimg.user.username}}'s profile</h2>
+  <h2 style="text-align: center;">{{pimg.user.username}}'s profile</h2>
     <div class = "hana_div" >
       
       <div class="container" >
@@ -147,12 +147,14 @@ img#utas {
         <br/>
     </div>
   {%else%}
-  <h1>  User's profile pic might have existed once upon a time<br/>
+  <h1>  User's profile pic might have existed once upon a time<br/></h1>
 
     <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
 
   {%endif%}
 
+
 {%endif%}
+</div>
 
 {% endblock %} 
