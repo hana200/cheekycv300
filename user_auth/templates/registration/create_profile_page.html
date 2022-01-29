@@ -1,8 +1,24 @@
-/img0.jpg
 {% extends 'base.html' %}
 {% block title %} Create Profile Pic{% endblock %}
 {% block content %}
 <style type="text/css">
+div#container1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    height: auto;
+}
+
+img#utas {
+    width: 100%;
+    height: 100%;
+}
+
+
+
 .hana_div{
     margin: auto;
     margin-top: 30px;
@@ -13,8 +29,8 @@
 
 }
 .hana_div .container{
-	margin-top: 10pt;
-  	align-items: center;
+  margin-top: 10pt;
+    align-items: center;
 }
 .hana_div_box {
   font-size: 14pt;
@@ -32,11 +48,21 @@
 }
 @media (max-width: 576px) {
   .hana_div-sm, .hana_div {
+    position: ;
     margin: auto;
     margin-left: 2rem;
     margin-top: 50px;
     max-width: 540px;
   }
+}
+
+@media(max-width : 600px) {
+     #hana_div{
+    display:block;
+    width:50%;
+     }
+
+    }
 }
 </style>
 {% if user.is_authenticated and user == user_ %}
@@ -44,10 +70,10 @@
 	<div class = "hana_div">
 			
 			<div class="container" >
-				{% if img%}
-					<img src="{{ img }}" class = card-img>
+				{% if img %}
+					<img src="{{ img }}" id="utas">
 				{%else%}
-				<img src="../static/assets/img/img0.jpg" class = card-img>
+				<img src="../static/assets/img/img0.jpg" id="utas">
 				{%endif%}
 			</div><br/><br/>
 			 <div class ="form-group">
