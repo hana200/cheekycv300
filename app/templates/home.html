@@ -337,7 +337,7 @@ input[type="submit"]:hover {
 
 <div >
 
-    <img class="hana_div_top" src = "../assets/img/cov.png">
+    <img class="hana_div_top" src = "../static/assets/img/cov.png">
 
 <!-- SECTION HELLO  -->
     {% if user.is_authenticated %} 
@@ -376,7 +376,7 @@ input[type="submit"]:hover {
                 <h3><b>CV {{forloop.counter}}</b></h3>
                 {{if }}
                 <a href="{% url 'cv_show' CV.0.user %}">
-                  <img src="../assets/img/img0.jpg" alt="Avatar" style="width:200pt;padding-bottom:10pt">
+                  <img src="../static/assets/img/img0.jpg" alt="Avatar" style="width:200pt;padding-bottom:10pt">
                 </a>
                <h4>{{CV.0.user}}</h4>          
             </div>
