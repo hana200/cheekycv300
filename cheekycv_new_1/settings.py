@@ -68,7 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries' : {
-                'live-static': 'django.templatetags.static', 
+                'static': 'django.templatetags.static', 
             }
         },
         
@@ -132,14 +132,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
     )
-STATIC_ROOT = os.path.join(BASE_DIR1, "live-static","static-root")
+STATIC_ROOT = os.path.join(BASE_DIR1, "static")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/img/'
 #STATIC_ROOT = os.path.join(BASE_DIR, "static")
 ## MEDIA_ROOT = os.path.join(BASE_DIR, "img")
 #MEDIA_ROOT = 'http://cheekycv.com/hana/assets/img'
-MEDIA_ROOT = os.path.join(BASE_DIR1, "live-static","media-root")
+MEDIA_ROOT = os.path.join(BASE_DIR1, "img")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
