@@ -9,6 +9,7 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR1 = Path(__file__).resolve().parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -66,7 +67,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries' : {
+                'live-static': 'django.templatetags.static', 
+            }
         },
+        
     },
 ]
 
@@ -127,14 +132,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
     )
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static","static-root")
+STATIC_ROOT = os.path.join(BASE_DIR1, "live-static","static-root")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/img/'
 #STATIC_ROOT = os.path.join(BASE_DIR, "static")
 ## MEDIA_ROOT = os.path.join(BASE_DIR, "img")
 #MEDIA_ROOT = 'http://cheekycv.com/hana/assets/img'
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static","media-root")
+MEDIA_ROOT = os.path.join(BASE_DIR1, "live-static","media-root")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
