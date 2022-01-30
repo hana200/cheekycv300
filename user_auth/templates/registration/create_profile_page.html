@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Create Profile Pic{% endblock %}
 {% block content %}
 <style type="text/css">
@@ -74,7 +75,8 @@ img#utas {
 				{% if img %}
 					<img src="{{ img }}" class="img-change">
 				{%else%}
-				<img src="../static/assets/img/img0.jpg" class="img-change">
+				<!-- <img src="../static/assets/img/img0.jpg" class="img-change"> -->
+				<img src="{% static 'assets/img/img0.jpg' %}" alt="profile" class="img-change">
 				{%endif%}
 			</div><br/><br/>
 			 <div class ="form-group">
@@ -88,6 +90,7 @@ img#utas {
 				</form>
 			</div>
 		</div>
+
 
 
 {% else %}
