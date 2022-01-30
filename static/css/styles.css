@@ -10829,4 +10829,17 @@ input[type="submit"]:hover {
     font-size: 1.2rem; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+/**/
+.svg{
+  width: 100px;
+  height: 100px;
+}
+.svg-pink{
+  width: 100px;
+  height: 100px;
+  color: #ff59a8;
+}
+.menu-button{
+  height: 50px;
+  width: 50px;
+}
