@@ -10840,6 +10840,17 @@ input[type="submit"]:hover {
   color: #ff59a8;
 }
 .menu-button{
+  height: 30px;
+  width: 30px;
+}
+
+.menu-button-gray{
+  height: 30px;
+  width: 30px;
+  color: rgb(229, 236, 238);
+}
+.menu-button-l{
   height: 50px;
   width: 50px;
 }
+
