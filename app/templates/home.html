@@ -246,7 +246,7 @@ input[type="submit"]:hover {
 
 /* Style the counter cards */
 .card {
-  width: 20rem;
+  width: 10%rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
@@ -256,10 +256,11 @@ input[type="submit"]:hover {
 .card:hover{
   transform: translateY(-20px);
 }
-
-
-
-/*-------END CARDS*/
+.card img{
+  width: 10%rem;
+  padding: 16px;
+  text-align: center;
+}
 
 .cards{
 
@@ -268,17 +269,7 @@ input[type="submit"]:hover {
   margin-right: 100pt;
   }
 
-@media (max-width: 700px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 40px;   
-  }
-  .cards{
-    margin-left:20pt;
-    margin-right: 20pt;
-  }
-}
+
 
 @media (min-width: 577px) {
   
@@ -292,12 +283,7 @@ input[type="submit"]:hover {
   .hana_div2 {
     width: 560px;
   }
-  .column {
-    width: 25%;
-    display: block;
-    margin-bottom: 40px;   
-  }
-
+}
 
 @media (max-width: 576px) {
 
@@ -316,27 +302,35 @@ input[type="submit"]:hover {
   .hana_div_top {
     max-width: 540px;
   }
-  .column {
+
+}
+
+@media (max-width: 700px) {
+.column {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px;   
   }
-
   .cards{
     margin-left:20pt;
     margin-right: 20pt;
   }
 }
+@media (min-width: 701px) {
 
+  .column {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;   
+  }
+}
 
-
-
-
+/*-------END CARDS*/
 </style>
 {% block nav_menu %}{% include 'navbar_menu.html' %}{% endblock nav_menu %}
 
-<div >
+
 
     <img class="hana_div_top" src = "../static/assets/img/cov.png">
 
@@ -360,32 +354,34 @@ input[type="submit"]:hover {
 
 
   <div class="cards">
-    <div class="row">
+    <div class="row" style="display:flex;flex-direction:row;">
       {%for CV in CVS|slice:":3" %} 
         {% if CV.1 != 0 %}
-          <div class="column" >
-            <div class="card" style="padding-left: 0;padding-right: 0;">         
+          <div class="column">
+            <div class="card" style="padding-left: 0;padding-right: 0; ">         
                 <h3><b>CV {{forloop.counter}}</b></h3>
                 <a href="{% url 'cv_show' CV.0.user %}">
-                <img src="{{CV.1}}" alt="Avatar" style="width:200pt;padding-bottom:10pt"></a>
+                <img src="{{CV.1}}" alt="Avatar" class="card-img"></a>
                  <h4>{{CV.0.user}}</h4>
             </div>
           </div>
         {% else %}
-          <div class="column">
-            <div class="card" style="padding-left: 0;padding-right: 0;">         
+          <div class="column" >
+            <div class="card" style="padding-left: 0;padding-right: 0; ">           
                 <h3><b>CV {{forloop.counter}}</b></h3>
                 {{if }}
                 <a href="{% url 'cv_show' CV.0.user %}">
-                  <img src="../static/assets/img/img0.jpg" alt="Avatar" style="width:200pt;padding-bottom:10pt">
+                  <img src="../static/assets/img/img0.jpg" alt="Avatar" class="card-img">
                 </a>
                <h4>{{CV.0.user}}</h4>          
             </div>
           </div>
+          
         {%endif%}
       {%endfor%}  
     </div>
   </div>
+
 
 
     <br/><br/><br/><br/>
@@ -549,16 +545,16 @@ input[type="submit"]:hover {
 
 
         <div class="steps"> BIO & CONTACT </div>
-        <img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" />
+         <br/><img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" /><br/>
         <!-- <i class="fas fa-sort-down  fa-4x" style="color:#dcdcdc; padding-bottom: 20px;"></i> -->
         <div class="steps"> INTRO </div>
-        <img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" />
+         <br/><img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" /><br/>
         <!-- <i class="fas fa-sort-down  fa-4x" style="color:#dcdcdc; padding-bottom: 20px;"></i> -->
         <div class="steps"> SKILLS </div>
-        <img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" />
+         <br/><img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" /><br/>
         <!-- <i class="fas fa-sort-down  fa-4x" style="color:#dcdcdc; padding-bottom: 20px;"></i> -->
         <div class="steps"> EXPERIENCE  </div>
-        <img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" />
+        <br/><img src="{% static 'assets/img/down_l.png' %}" class="menu-button-l" /><br/>
         <!-- <i class="fas fa-sort-down  fa-4x" style="color:#dcdcdc; padding-bottom: 20px;"></i> -->
         <div class="steps"> OUTRO </div>
 

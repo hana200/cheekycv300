@@ -11,12 +11,20 @@
     box-shadow: 10px 10px 30px 10px #3333;
     margin-bottom: 100px;
 }
+.hana_div_login1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 24rem;
+    padding: 10px;
+}
 
 @media (max-width: 576px) {
   .hana_div {
   	margin-left: 2rem;
     max-width: 540px;
   }
+
 }
 </style>
 <div class="hana_div text-center">
@@ -26,20 +34,24 @@
         <div class ="form-group">
 			<form method = "POST" enctype="multipart/form-data" >
 				{% csrf_token %}
-				<div class = "hana_div1" style="text-align:left"><br/>
-				<p><label for="id_username">Username:</label> <br/>
-					<input style="width:275pt" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username...">
-				</p><!--
-                <p><label for="id_email">Email:</label> <br/>
-                    <input style="width:275pt" type="text" name="email" autofocus autocapitalize="none" autocomplete="email" maxlength="150" required id="id_email" placeholder="email...">
-                </p>-->
+				<div class = "hana_div_login1" style="text-align:left"><br/>
+        				<p><label for="id_username">Username:</label> <br/>
+        					<input style="width:275pt" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username..." class="form-control">
+        				</p><!--
+                        <p><label for="id_email">Email:</label> <br/>
+                            <input style="width:275pt" type="text" name="email" autofocus autocapitalize="none" autocomplete="email" maxlength="150" required id="id_email" placeholder="email...">
+                        </p>-->
 
-				<p><label for="id_password">Password:</label> <br/>
-					<input style="width:275pt" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password...">
-				</p><br>
-		</div>
+        				<p><label for="id_password">Password:</label> <br/>
+        					<input style="width:275pt" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password..." class="form-control">
+        				</p><br>
+                </div>
+
+		
         
         <button href = "{% url 'login' %}"class ="btn btn-dark" type="submit" name="login" value="login">Login</button>
+    </form>
+</div>
         
         <br/>
         <hr>

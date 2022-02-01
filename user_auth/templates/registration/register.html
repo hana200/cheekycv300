@@ -4,7 +4,7 @@
 {% block content %}
 
 <style type="text/css">
-.hana_div{
+.hana_div_login{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,7 +12,7 @@
     padding: 10px;
     box-shadow: 10px 10px 30px 10px #3333; 
 }
-.hana_div1{
+.hana_div_login1{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -23,8 +23,8 @@
 
 
 @media (max-width: 576px) {
-  .hana_div {
-  	margin-left: 2rem;
+  .hana_div_login {
+    margin-left: 2rem;
     max-width: 540px;
   }
 }
@@ -57,7 +57,7 @@
     {% endif %}
 
 
-			<div class = "hana_div1" style="list-style-type: none;font-style: none;text-align:left"><br/>
+			<div class = "hana_div_login1" style="list-style-type: none;font-style: none;text-align:left"><br/>
 					<p><label for="id_username">Username:</label> <input type="text" name="username" maxlength="150" autofocus class="form-control" placeholder="user name..." required id="id_username"> 
 					</p>
 					<div class="alert alert-info" style="background-color:blue_hana_light;z-index: -20; ">

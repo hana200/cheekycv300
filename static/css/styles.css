@@ -10568,6 +10568,7 @@ input[type="submit"]:hover {
   color: #999999;
 }
 
+
 .hana_div1-hide{
   margin: auto;
   margin-top: 30px;
@@ -10628,7 +10629,7 @@ input[type="submit"]:hover {
 
 /* Style the counter cards */
 .card {
-  width: 20rem;
+  width: 10%rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
@@ -10638,10 +10639,11 @@ input[type="submit"]:hover {
 .card:hover{
   transform: translateY(-20px);
 }
-
-
-
-/*-------END CARDS*/
+.card img{
+  width: 10%rem;
+  padding: 16px;
+  text-align: center;
+}
 
 .cards{
 
@@ -10650,17 +10652,7 @@ input[type="submit"]:hover {
   margin-right: 100pt;
   }
 
-@media (max-width: 700px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 40px;   
-  }
-  .cards{
-    margin-left:20pt;
-    margin-right: 20pt;
-  }
-}
+
 
 @media (min-width: 577px) {
   
@@ -10674,12 +10666,7 @@ input[type="submit"]:hover {
   .hana_div2 {
     width: 560px;
   }
-  .column {
-    width: 25%;
-    display: block;
-    margin-bottom: 40px;   
-  }
-
+}
 
 @media (max-width: 576px) {
 
@@ -10698,18 +10685,31 @@ input[type="submit"]:hover {
   .hana_div_top {
     max-width: 540px;
   }
-  .column {
+
+}
+
+@media (max-width: 700px) {
+.column {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px;   
   }
-
   .cards{
     margin-left:20pt;
     margin-right: 20pt;
   }
 }
+@media (min-width: 701px) {
+
+  .column {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;   
+  }
+}
+
+/*-------END CARDS*/
 
 /*BASE*/
 
@@ -10854,3 +10854,23 @@ input[type="submit"]:hover {
   width: 50px;
 }
 
+@media (max-width: 576px) {
+  .menu-button {
+    height: 30px;
+    width: 30px;
+  }
+  .menu-button-l {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+/*LOGIN-REGISTER*/
+
+.hana_div_login1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 24rem;
+    padding: 10px;
+}

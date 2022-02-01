@@ -68,7 +68,7 @@ def password_reset_req(request):
 		'password_form': password_form, 
 		'user_r': user_r
 	}
-	return render(request, 'registration/reset/password_reset.html', context)
+	return render(request, 'registration/reset/password_reset_req.html', context)
 
 
 class UserRegisterView(CreateView):
