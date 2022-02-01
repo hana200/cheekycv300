@@ -11380,3 +11380,27 @@ body{
     width: 50px;
   }
 }
+/*CV SHOW - EDIT*/
+
+.list-none{
+    margin-left:2pt;
+    list-style-type: none;
+}
+.list-none-check{
+    margin-left:2pt;
+    list-style-type: none;
+}
+.list-none-scheck li:before {
+  content: '✓';
+}
+.try:before {
+  content: '✓';
+}
+
+.blockquote-footer::before {
+  content: "— ";
+}
+
+section{
+  margin-bottom: 50px;
+}
