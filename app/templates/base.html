@@ -87,16 +87,22 @@
       .content_cv{
         margin-top: 100px;
         margin-right: 100px;
+        margin-left: 100px;
         /*font-family: 'Staatliches', cursive;*/
       }
       @media screen and (max-width:768px) {
-        .content_cv{
-        margin-right: 0px;
-      }
+        
       .content_home{
         margin-right: 10px;
         margin-left: 10px;
       }
+    }
+       @media screen and (max-width:768px) {
+        .content_cv{
+        margin-right: 5px;
+        margin-left: 5px;
+      }
+      
     }
     </style>
 
@@ -117,7 +123,7 @@
 
       {%else%}
             {% block nav %}{% include 'navbar.html' %}{% endblock nav %}
-            <div class ="content_cv" id="content_cv"> 
+            <div class ="content_cv" id="content_cv" > 
       {%endif%}   
 
 
