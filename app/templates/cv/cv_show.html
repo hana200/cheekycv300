@@ -27,15 +27,28 @@
   content: "— ";
 }
 
+.social-icons .social-icon:hover {
+  text-decoration: none;
+  color: #000;
+}
+
 </style>
 
 <!-- CV TITLE ---->
 
-        <div class="container-fluid p-0" style="flex-wrap: nowrap;">
-            <!-- ADDON -->
-            <!-- About-->
-            <section class="resume-section" id="about" >
-                <div class="resume-section-content">
+<div class="container-fluid p-0" style="flex-wrap: nowrap;">
+
+
+
+
+
+
+
+
+    <!-- ADDON -->
+    <!-- About-->
+    <section class="resume-section" id="about" >
+        <div class="resume-section-content">
                     
                 
 <!-- NAME -->       <h1 class="mb-0"> {{bio.name}}  <span class="text-primary"> {{bio.surname}} </span> </h1>
@@ -54,38 +67,34 @@
                     <div class="social-icons">
                         {%if web.wl1%}
                         <a class="social-icon" href="{{ web.wl1}}" target="_blank">
-                            <i class="fab fa-linkedin-in" ></i>
-                        </a>
+                            <i class="fab fa-linkedin-in fa-2x" ></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
 
                         {%if web.wl2%}
                         <a class="social-icon" href="{{ web.wl2}}" target="_blank">
-                            <i class="fas fa-file-pdf" ></i>
-                        </a>
+                            <i class="fas fa-file-pdf fa-2x" ></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
 
                         {%if web.wl3%}
                         <a class="social-icon" href="{{ web.wl3}}" target="_blank">
-                            <i class="fas fa-link"></i>
-                        </a>
+                            <i class="fas fa-link fa-2x"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
 
                         {%if web.wl4%}
                         <a class="social-icon" href="{{ web.wl4}}" target="_blank">
-                            <i class="fas fa-link"></i>
-                        </a>
+                            <i class="fas fa-link fa-2x"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
                     </div>
                     <br/><br/>
 
             {% endif %}
 
-                        
-
-                    
-     
-     </div>
-</section>
+         </div>
+    </section>
             
 
     
@@ -114,7 +123,7 @@
             <ul class="fa-ul mb-0"style="margin-left:10pt"><br/>
 
 <!-- ROLE TITLE -->
-                <h4 class="mb-0">  {{ role.0.role_r | title}} </h3>
+                <h4 class="mb-0">  {{ role.0.role_r | title}} </h4>
 <!-- ROLE DATE AND LOCATION -->
 
                 <div  style="font-size: small; ">                    
@@ -200,6 +209,9 @@
 
 
         </div>
+        <!-- 101 -->
+
+
         <div class="flex-shrink-0" style ="text-align: right;">
             <span class="text-primary">
                 {% if z.0.job_sdm != 'Present' and z.0.job_sdy != 'Present'%}
@@ -228,38 +240,12 @@
 
     </div><br>
             
-    {% endfor %}  
-    </ul>          
+    {% endfor %}           
     </div>
 </section>
 {%endif%}
 
-
-<!-- START DATE / END DATE 
-                <div class="flex-shrink-0" style ="text-align: right;"><span class="text-primary">
-                    {% if z.0.job_sdm != 'Present' and z.0.job_sdy != 'Present'%}
-                    {{z.0.job_sdm}} {{z.0.job_sdy}}
-                    {% else %}
-                    Present 
-                    {% endif %} 
-
-                    {% if z.0.job_edm != 'Present' and z.0.job_edy != 'Present'%}
-                    - {{z.0.job_edm}} {{z.0.job_edy}}
-                    {% else %}
-                     - Present
-                    {% endif %}
-
-                    <br/>--> 
-<!-- LOCATION 
-                    {% if z.0.job_l %} 
-                    {{z.0.job_l | title}} 
-                    {% endif %}
-                    <br/>
-
-                </div>
-            -->
-
-<!-- END Experience-->   
+  
 
 
            
@@ -484,33 +470,43 @@
                     <ul class="fa-ul mb-0" style="margin-left:7pt">
                         {% for edu in edus %}                       
                         <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                            <div class="flex-grow-1">
-<!-- SCHOOL -->
-                                <h3 class="mb-0">{{edu.edu_s}}</h3>
-<!-- DEPARTMENT -->
-                                <div class="subheading mb-3">{{edu.edu_d}}</div>
 
-                            </div>
-<!-- SRTART / END DATE -->
-                            <div class="flex-shrink-0" style ="text-align: right;><span class="text-primary">{{edu.edu_sdy}} - {{edu.edu_edy}} <br/>
-<!-- LOCATION -->
-                             {{edu.edu_l}}</span></div>
+
+                                <div class="flex-grow-1">
+    <!-- SCHOOL -->
+                                    <h3 class="mb-0">{{edu.edu_s}}</h3>
+    <!-- DEPARTMENT -->
+                                    <div class="subheading mb-3">{{edu.edu_d}}</div>
+
+                                </div>
+
+
+
+
+
+            <!-- SRTART / END DATE -->
+                                    <div class="flex-shrink-0" style ="text-align: right;">
+                                        <span class="text-primary">{{edu.edu_sdy}} - {{edu.edu_edy}} <br/>
+        <!-- LOCATION -->
+                                        {{edu.edu_l}}
+                                        </span>
+                                    </div>
                         </div>             
-                    {% endfor %}               
-                    
-     
-    {% endif %}  </ul>                  
-                </div>
-               
+                        {% endfor %} 
+                    </ul> 
+                </div>               
             </section>
-
-
-           
+     
+    {% endif %}                    
+            
+               
+            
 
 <!-- OUTRO -->
 {% if intro.outro_text %}
  <hr class="m-0" /><br/><br/>
             <section class="resume-section" id="interests">
+
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interests</h2>
                     <ul class="fa-ul mb-0" style="margin-left:7pt">
@@ -519,7 +515,7 @@
                         </p>
                    
      
-    {% endif %} </ul>
+    {% endif %}     </ul>
                 </div>
                 
             </section> 
@@ -545,23 +541,26 @@
                     <div class="social-icons">
                         {%if web.wl1%}
                         <a class="social-icon" href="{{ web.wl1}}" target="_blank">
-                            <i class="fab fa-linkedin-in" ></i>
-                        </a>
+                            <i class="fab fa-linkedin-in fa-2x" ></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
+
                         {%if web.wl2%}
                         <a class="social-icon" href="{{ web.wl2}}" target="_blank">
-                            <i class="fas fa-file-pdf" ></i>
-                        </a>
+                            <i class="fas fa-file-pdf fa-2x" ></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
+
                         {%if web.wl3%}
                         <a class="social-icon" href="{{ web.wl3}}" target="_blank">
-                            <i class="fas fa-link"></i>
-                        </a>
+                            <i class="fas fa-link fa-2x"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
+
                         {%if web.wl4%}
                         <a class="social-icon" href="{{ web.wl4}}" target="_blank">
-                            <i class="fas fa-link"></i>
-                        </a>
+                            <i class="fas fa-link fa-2x"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
                     </div>
                     

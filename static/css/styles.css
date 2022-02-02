@@ -10110,12 +10110,15 @@ p.lead {
   border-radius: 100%;
   font-size: 1.5rem;
   margin-right: 1.5rem;
+  text-decoration: none;
 }
 .social-icons .social-icon:last-child {
   margin-right: 0;
 }
 .social-icons .social-icon:hover {
-  background-color: #9e9e9e;
+
+  text-decoration: none;
+  color: #000;
 }
 
 .dev-icons {
