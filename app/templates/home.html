@@ -257,7 +257,12 @@ input[type="submit"]:hover {
   transform: translateY(-20px);
 }
 .card img{
-  width: 10%rem;
+
+  padding: 16px;
+  text-align: center;
+}
+.card-img{
+
   padding: 16px;
   text-align: center;
 }
@@ -369,9 +374,8 @@ input[type="submit"]:hover {
           <div class="column" >
             <div class="card" style="padding-left: 0;padding-right: 0; ">           
                 <h3><b>CV {{forloop.counter}}</b></h3>
-                {{if }}
                 <a href="{% url 'cv_show' CV.0.user %}">
-                  <img src="../static/assets/img/img0.jpg" alt="Avatar" class="card-img">
+                  <img src="{% static 'assets/img/img0.jpg' %}" alt="Avatar" class="card-img">
                 </a>
                <h4>{{CV.0.user}}</h4>          
             </div>

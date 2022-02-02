@@ -192,12 +192,17 @@ def cv_show(request, pk):
         context["cv_"] = cv
         context["img_p"] = img_p
 
+
+
     user = User.objects.get(username = pk)
     user_req = request.user
+    context["user_req"] = user_req
+    context["user_"] = user
     try: 
         CV.objects.get(user = user)
         cv = get_object_or_404(CV, user = user)
         bio = get_object_or_404(Bio, cv = cv)   
+
         try:
            pic = PImg.objects.get(user = user)
            context["pic"] = pic.image.url
@@ -278,6 +283,7 @@ def cv_show(request, pk):
         context["edus_num"] = len(edus)
 
         context["zipp"] = zipp
+
 
     except:
             return redirect(reverse('error_deleted'))

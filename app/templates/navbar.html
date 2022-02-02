@@ -347,12 +347,15 @@ body{
 <div class="cv">        
           <div class="cv-content-lg" id="cv-content-lg">
 
-                  {%if pic%}
+                  
+
+                {%if show_edit%}
+                  {%if pic %}
                   <a href="{% url 'edit_profile_page' user.pimg.id %}">
                   <span class="pic">
                     <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pic}}" alt=""/>
                   </span>
-                </a>
+                  </a>
                    {%else%}
                    <a href="{% url 'create_profile_page' %}">
                    <span class="pic">
@@ -362,8 +365,6 @@ body{
                    {%endif%}
 
                   <br/><br/><br/>
-
-                {%if show_edit%}
 
                   <li ><a href="#about">About</a></li>
                   <li ><a href="#experience">Experience</a></li>
@@ -378,6 +379,28 @@ body{
                   <li ><a href="{% url 'edit_color' user %}">Change Color</a></li>
                   
                 {%else%}
+
+                 {%if pic %}
+                 <a href="{% url 'show_profile_page' pic_id %}">
+                  <span class="pic">
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pic}}" alt=""/>
+                  </span>
+                </a>
+                   {%else%}
+
+                      {%if user_ == user_req %}
+                        <a href="{% url 'create_profile_page' %}">
+                          <span class="pic">
+                            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt=""/>
+                          </span>
+                        </a>
+                       {%else%}
+                          <span class="pic">
+                            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt=""/>
+                          </span>
+                        {%endif%}
+                   {%endif%}
+                   <br/><br/><br/>
 
                   <li ><a href="#about">About</a></li>
                   {% if jobs %}
@@ -406,19 +429,47 @@ body{
                 {%endif%}
         </div>
 
-          {%if pic%}
-          <a href="{% url 'edit_profile_page' user.pimg.id %}">
-          <span class="pic_phone">
-            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pic}}" alt="" width="70rem"/>
-          </span>
+
+        {%if show_edit%}
+
+            {%if pic %}
+            <a href="{% url 'edit_profile_page' user.pimg.id %}">
+            <span class="pic_phone">
+              <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pic}}" alt="" width="70rem"/>
+            </span>
+            </a>
+            {%else%}
+            <a href="{% url 'create_profile_page' %}">
+            <span class="pic_phone">
+              <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
+            </span>
           </a>
-          {%else%}
-          <a href="{% url 'create_profile_page' %}">
-          <span class="pic_phone">
-            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
-          </span>
-        </a>
-          {%endif%}
+            {%endif%}
+
+        {%else%}
+
+
+          {%if pic %}
+          <a href="{% url 'show_profile_page' pic_id %}">
+            <span class="pic_phone">
+              <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pic}}" alt="" width="70rem"/>
+            </span>
+          </a>
+            {%else%}
+               {%if user_ == user_req %}
+               <a href="{% url 'create_profile_page' %}">
+                  <span class="pic_phone">
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
+                  </span>
+              </a>
+              {%else%}
+                  <span class="pic_phone">
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
+                  </span>
+              {%endif%}
+            {%endif%}
+
+        {%endif%}
 
     <div class="cv-content-sm" id="cv-content-sm">
             
