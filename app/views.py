@@ -1595,6 +1595,30 @@ def delete_lang(request,pk):
         return redirect(reverse('error'))
     return render(request, "cv/delete/delete_lang.html", context)
 
+def delete_intro(request,pk):
+    context={}
+    context["cv_"] = 0
+    context["img_p"] = 0
+
+    if request.user.is_authenticated:
+        img_p = model_check(request,PImg)
+        cv = model_check(request,CV)
+        context["cv_"] = cv
+        context["img_p"] = img_p
+
+    try:
+        intro = Intro.objects.get(id = pk)
+        #job = get_object_or_404(Job, id = pk)
+        user=intro.cv.user
+
+        if request.method == 'POST':
+            intro.delete()
+            return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
+        context["intro_user"] = user
+    except:
+        return redirect(reverse('error'))
+    return render(request, "cv/delete/delete_intro.html", context)
+
 def delete_web(request,pk):
     context={}
     context["cv_"] = 0
@@ -1618,6 +1642,8 @@ def delete_web(request,pk):
     except:
         return redirect(reverse('error'))
     return render(request, "cv/delete/delete_web.html", context)
+
+
 
 def delete_skill1(request,pk):
     context={}

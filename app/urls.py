@@ -13,7 +13,7 @@ from .views import add_lang_only, add_web_only, add_intro_only, add_skill1_only,
 from .views import edit_bio, edit_lang, edit_web, edit_skill1, edit_skill2, edit_intro
 from .views import edit_job, edit_jobrole, edit_jobrolecat, edit_edu, edit_color
 #DELETES
-from .views import delete_lang, delete_web, delete_skill1, delete_skill2, delete_intro
+from .views import delete_lang, delete_web, delete_skill1, delete_skill2, delete_intro, delete_intro
 from .views import delete_job, delete_edu, delete_cv, delete_jobrole, delete_jobrolecat
 from user_auth.views import password_reset_req
 
@@ -85,6 +85,8 @@ urlpatterns = [
     path('delete_jr/<str:pk>', delete_jobrole, name='delete_jobrole'),
     path('delete_jrc/<str:pk>', delete_jobrolecat, name='delete_jobrolecat'),
     path('delete_edu/<str:pk>', delete_edu, name='delete_edu'),
+
+    path('delete_intro/<str:pk>', delete_intro, name='delete_intro'),
 
 
    

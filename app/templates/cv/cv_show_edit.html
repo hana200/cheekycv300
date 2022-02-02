@@ -47,7 +47,8 @@
             {%if intro.intro_text%}
                 <p class="lead mb-5">{{intro.intro_text}}</p>
                 <!-- BUTTONS EDIT------------------------->                    
-                <a href="{% url 'edit_intro' intro.id%}" class ="btn btn-light"> Edit</a>                    <br/><br/><br/><br/>
+                <a href="{% url 'edit_intro' intro.id%}" class ="btn btn-light"> Edit</a> &nbsp; &nbsp;
+                <a href="{% url 'delete_intro' intro.id%}" class ="btn btn-light"> Delete</a>                    <br/><br/><br/><br/>
             {%else%}
                 <!-- BUTTONS ADD------------------------->
                     <hr/><br/><br/>
@@ -391,10 +392,11 @@
                     <li>Looks like you forgot to add Skills - Workflow into your CV. Please add some<br/></li><br/>
                     <li><a href="{% url 'add_skill1_only' cv.id %}" class ="btn btn-dark"> Add Skills - Workflow</a></li>
                 </ul>
-                <br/><hr/><br/><br/>
+                
         <!-- END BUTTONS ADD ------------------------->   
     
 {% endif %}
+<br/><hr/><br/><br/>
 
 <!-- SKILLS TOOLS -->
 {% if skill2 %}
@@ -477,11 +479,12 @@
                     <li>Looks like you forgot to add Skills - Tools into your CV. Please add some</li><br/>
                     <li><a href="{% url 'add_skill2_only' cv.id %}" class ="btn btn-dark"> Add Skills - Tools</a></li>
                 </ul>
-                <br/><hr/><br/><br/>
+              
 
         <!-- END BUTTONS ADD ------------------------->                         
                         
 {% endif %}
+  <br/><hr/><br/><br/>
 <!-- SKILLS LANGUAGES -->
 {%if lang%}
                         <div class="subheading mb-3">Languages</div>
@@ -567,11 +570,11 @@
                 </div>
             </section>
              
-
+<hr class="m-0" /><br/><br/>
 <!-- EDUCATION -->
 
 {% if edus %}
-<hr class="m-0" /><br/><br/>
+
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Education</h2>                   
@@ -601,7 +604,6 @@
                     <br/>                
                 </div>               
             </section>
-            <hr class="m-0" />
 {%else%}
         <!-- BUTTONS ADD------------------------->
         <hr class="m-0" /><br/><br/>
@@ -618,15 +620,16 @@
             </div>
         </section>
         <!-- END BUTTONS ADD ------------------------->                 
-             <hr class="m-0" />  <br/><br/>     
+                  
      
 {% endif %}  
 
 
-            
+<hr class="m-0" />  <br/><br/>         
 
 <!-- OUTRO -->
 {% if intro.outro_text %}
+
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interests</h2>
@@ -636,27 +639,28 @@
                         </p>
                     </ul>
                     <!-- BUTTONS EDIT------------------------->                    
-                <a href="{% url 'edit_intro' intro.id%}" class ="btn btn-light"> Edit</a>                    <br/><br/><br/><br/>
+                <a href="{% url 'edit_intro' intro.id%}" class ="btn btn-light"> Edit</a> &nbsp; &nbsp;
+                <a href="{% url 'delete_intro' intro.id%}" class ="btn btn-light"> Delete</a>                   <br/><br/><br/><br/>
                 </div>
                 
             </section>  
-            <hr class="m-0" /><br/><br/>
+           
 {%else%}
                 <!-- BUTTONS ADD------------------------->
                     <section class="resume-section" id="interests">
                         <div class="resume-section-content">
                             <h2 class="mb-5">Interests</h2>           
-                                <ul class="fa-ul mb-0" style="margin-left:7pt">         
+                                <ul class="fa-ul mb-0">         
                                 <li>Looks like you forgot to add interests to your CV. Please add some info<br/></li><br/>
                                 <li><a href="{% url 'add_intro_only' cv.id %}" class ="btn btn-dark"> Add Interests</a></li>
                                 </ul>
                         </div>
                     </section>
-                    <br/> <hr class="m-0" /><br/><br/>
+                  
                 <!-- END BUTTONS ------------------------->  
 {% endif %} 
 
-  
+<hr class="m-0" /><br/><br/> 
             
 <!-- CONTACT -->            
     <!-- Contact-->
