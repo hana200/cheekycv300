@@ -24,6 +24,10 @@
 .blockquote-footer::before {
   content: "— ";
 }
+.forgot-to-add {
+    margin-left: 3rem;
+    list-style-type: none;
+}
 </style>
 
 
@@ -53,7 +57,7 @@
                 <!-- BUTTONS ADD------------------------->
                     <hr/><br/><br/>
                     <div class="subheading mb-3">Introduction</div>            
-                    <ul class="fa-ul mb-0">         
+                    <ul class="forgot-to-add">           
                         <li>Looks like you forgot to add introduction to your CV. Please add some info<br/></li><br/>
                         <li><a href="{% url 'add_intro_only' cv.id %}" class ="btn btn-dark"> Add Intro</a></li>
                     </ul>
@@ -98,7 +102,7 @@
                     <!-- BUTTONS ADD------------------------->
                             <hr/><br/><br/>
                             <div class="subheading mb-3">Web</div>            
-                            <ul class="fa-ul mb-0">         
+                            <ul class="forgot-to-add">         
                                 <li>Looks like you forgot to add web-links into your CV. Please add some<br/></li><br/>
                                 <li><a href="{% url 'add_web_only' cv.id %}" class ="btn btn-dark"> Add Links</a></li>
                             </ul>
@@ -131,7 +135,7 @@
 <!-- OFFICE + WEBSITE --------------------------->
             <h3 class="mb-0">{{z.0.job_o | title}} 
             {% if z.0.job_ws %}  
-            <a href="{{job.job_ws}}" style="font-size: smaller" target="_blank">| {{z.0.job_ws}} </a>
+            <a href="{{z.0.job_ws}}" style="font-size: smaller" target="_blank">| {{z.0.job_ws}} </a>
             {%endif%}
             </h3>
 <!-- BUTTONS JOB --->
@@ -146,7 +150,7 @@
 <!-- ROLE -->   
             {% if z.1 %}
             {% for role in z.1%}
-            <ul class="fa-ul mb-0"style="margin-left:10pt"><br/>
+            <ul class="forgot-to-add">  <br/>
 
 <!-- ROLE TITLE -->
                 <h4 class="mb-0">  {{ role.0.role_r | title}} </h3>
@@ -287,7 +291,7 @@
         <section class="resume-section" id="experience">
             <div class="resume-section-content">
                 <h2 class="mb-5">Experience</h2>                   
-                <ul class="fa-ul mb-0">         
+                <ul class="forgot-to-add">            
                    
                     Looks like you forgot to add Experience into your CV. Please add some<br/>
                     <br/><a href="{% url 'add_job_only' cv.id %}" class ="btn btn-dark"> Add Job</a>
@@ -312,7 +316,7 @@
 
                     <h2 class="mb-5">Skills</h2>
 {% if skill1 %}
-                    <ul class="fa-ul mb-0" style="margin-left:7pt">
+                   <ul class="forgot-to-add">   
 
                         <div class="subheading mb-3">Workflow</div>
                          <ul class="list-none" ml-1>                        
@@ -388,7 +392,7 @@
         <!-- BUTTONS ADD------------------------->
 
                 <div class="subheading mb-3">Workflow</div>            
-                <ul class="fa-ul mb-0">         
+                <ul class="forgot-to-add">            
                     <li>Looks like you forgot to add Skills - Workflow into your CV. Please add some<br/></li><br/>
                     <li><a href="{% url 'add_skill1_only' cv.id %}" class ="btn btn-dark"> Add Skills - Workflow</a></li>
                 </ul>
@@ -475,7 +479,7 @@
         
 
                 <div class="subheading mb-3">Tools</div>                   
-                <ul class="fa-ul mb-0">         
+                <ul class="forgot-to-add">           
                     <li>Looks like you forgot to add Skills - Tools into your CV. Please add some</li><br/>
                     <li><a href="{% url 'add_skill2_only' cv.id %}" class ="btn btn-dark"> Add Skills - Tools</a></li>
                 </ul>
@@ -549,16 +553,16 @@
 
             <!-- BUTTONS ADD------------------------->
             {%if skill2%}
-                    <hr/><br/><br/>
+                
                     <div class="subheading mb-3">Languages</div>            
-                    <ul class="fa-ul mb-0">         
+                    <ul class="forgot-to-add">           
                         <li>Looks like you forgot to add Languages into your CV. Please add some<br/></li><br/>
                         <li><a href="{% url 'add_lang_only' cv.id %}" class ="btn btn-dark"> Add Languages</a></li>
                     </ul>
                     <br/><br/><br/>
             {%else%}
                     <div class="subheading mb-3">Languages</div>            
-                    <ul class="fa-ul mb-0">         
+                    <ul class="forgot-to-add">          
                         <li>Looks like you forgot to add Languages into your CV. Please add some<br/></li><br/>
                         <li><a href="{% url 'add_lang_only' cv.id %}" class ="btn btn-dark"> Add Languages</a></li>
                     </ul>
@@ -578,7 +582,7 @@
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Education</h2>                   
-                    <ul class="fa-ul mb-0" style="margin-left:7pt">
+                    <ul class="forgot-to-add">   
                         {% for edu in edus %}                       
                         <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                             <div class="flex-grow-1">
@@ -606,11 +610,11 @@
             </section>
 {%else%}
         <!-- BUTTONS ADD------------------------->
-        <hr class="m-0" /><br/><br/>
+
         <section class="resume-section" id="education">
             <div class="resume-section-content">
                 <h2 class="mb-5">Education</h2>                   
-                <ul class="fa-ul mb-0">         
+                <ul class="forgot-to-add">           
                    
                     Looks like you forgot to add Education into your CV. Please add some<br/>
                     <br/><a href="{% url 'add_edu_only' cv.id %}" class ="btn btn-dark"> Add Education</a>
@@ -633,7 +637,7 @@
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interests</h2>
-                    <ul class="fa-ul mb-0" style="margin-left:7pt">
+                    <ul class="forgot-to-add" style="margin-left:0">   
                         <p class="lead mb-5">
                         {{intro.outro_text}}
                         </p>
@@ -650,7 +654,7 @@
                     <section class="resume-section" id="interests">
                         <div class="resume-section-content">
                             <h2 class="mb-5">Interests</h2>           
-                                <ul class="fa-ul mb-0">         
+                                <ul class="forgot-to-add">          
                                 <li>Looks like you forgot to add interests to your CV. Please add some info<br/></li><br/>
                                 <li><a href="{% url 'add_intro_only' cv.id %}" class ="btn btn-dark"> Add Interests</a></li>
                                 </ul>
@@ -667,7 +671,7 @@
     <section class="resume-section" id="contact">
         <div class="resume-section-content" >
             <h2 class="mb-5">FEEL FREE TO CONTACT ME ANYTIME :)</h2>
-            <ul class="fa-ul mb-0" style="margin-left:7pt">
+            <ul >   
                 
                     <a href="tel:{{bio.phone}}" >{{bio.phone}}</a>
                      | 

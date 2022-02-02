@@ -156,7 +156,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'cvcheeky@gmail.com'
 EMAIL_HOST_PASSWORD = '134Hdmoloko'
-DEFAULT_FROM_EMAIL = 'Cheeky CV Team <noreply@cheekycv.com>'
+DEFAULT_FROM_EMAIL = 'CHEEKY CV Team <noreply@cheekycv.com>'
+
+
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
