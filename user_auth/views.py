@@ -198,6 +198,8 @@ class CreateProfilePageView(CreateView):
 		if self.request.user.is_authenticated:
 			user = self.request.user
 			context["user_"] = user
+			form = ProfilePageForm()
+			context['form'] = ProfilePageForm()
 			img_p = model_check(self.request,PImg)
 			cv = model_check(self.request,CV)
 			context["cv_"] = cv
@@ -207,6 +209,7 @@ class CreateProfilePageView(CreateView):
 	def form_valid(self,form):
 		form.instance.user = self.request.user
 		return super().form_valid(form)
+
 
 class EditProfPageView(UpdateView):
 	model = PImg
