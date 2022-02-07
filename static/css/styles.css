@@ -10366,7 +10366,7 @@ div#container1 {
     margin: auto;
     margin-left: 0.5rem;
     margin-top: 50px;
-    max-width: 500px;
+    width: 90%;
   }
 }
 
