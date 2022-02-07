@@ -4,9 +4,9 @@
 <style type="text/css">
     
 @media screen and(max-width: 576px){
-  .form-control{
-    width: 70%;
-    display: inline-block;
+  .form-controlA{
+    display: flex;
+    width: 100%%;
     vertical-align: middle;
 
   }
@@ -24,14 +24,14 @@
 				{% csrf_token %}
 				<div class = "hana_div_login1" style="text-align:left">
         				<p><label for="id_username">Username:</label> 
-        					<input style="width:275pt" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username..." class="form-control">
+        					<input style="width:275pt" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username..." class="form-controlA">
         				</p><!--
                         <p><label for="id_email">Email:</label> <br/>
                             <input style="width:275pt" type="text" name="email" autofocus autocapitalize="none" autocomplete="email" maxlength="150" required id="id_email" placeholder="email...">
                         </p>-->
 
         				<p><label for="id_password">Password:</label> 
-        					<input style="width:275pt" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password..." class="form-control">
+        					<input style="width:275pt" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password..." class="form-controlA">
         				</p>
                 </div>
 
