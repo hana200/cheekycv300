@@ -11378,3 +11378,13 @@ section{
     margin-left: 3rem;
     list-style-type: none;
 }
+
+@media screen and(max-width: 576px){
+  .form-control{
+    width: 70%;
+    display: inline-block;
+    vertical-align: middle;
+
+  }
+    
+}
