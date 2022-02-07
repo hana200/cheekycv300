@@ -10654,6 +10654,7 @@ body{
   /*font-family: 'Bebas Neue', cursive;*/
 }
 
+
 .menu-button-gray{
   height: 30px;
   width: 30px;
@@ -10811,7 +10812,7 @@ body{
   flex-direction: column;
 }
 
-@media screen and (min-width:769px) {
+@media screen and (min-width:768px) {
   /* CHEEKY-MENU */
   .cheeky-menu {
     background-color: #000;
@@ -10869,7 +10870,6 @@ body{
   }
 
 }
-
 
 @media screen and (max-width:768px) {
   /* color: rgb(211,211,211); */
@@ -10959,7 +10959,7 @@ body{
 .btnS:focus {
   outline: none;
 }
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .menu-button {
     height: 30px;
     width: 30px;
