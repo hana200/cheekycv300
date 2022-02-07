@@ -139,9 +139,9 @@
             {%endif%}
             </h3>
 <!-- BUTTONS JOB --->
-            <div style="text-align: left;"><br/>
-                <a href="{% url 'delete_job' z.0.id %}" class ="btn btn-light"> Delete</a>&nbsp; 
-                <a href="{% url 'edit_job' z.0.id %}" class ="btn btn-light"> Edit</a> &nbsp;                
+            <div style="text-align: left;"><br/>                
+                <a href="{% url 'edit_job' z.0.id %}" class ="btn btn-light"> Edit</a> &nbsp;  
+                <a href="{% url 'delete_job' z.0.id %}" class ="btn btn-light"> Delete</a>&nbsp;               
                 <a href="{% url 'add_jobrole_only' z.0.id %}" class ="btn btn-light"> Add Job Role </a>
             </div>
 
@@ -150,7 +150,7 @@
 <!-- ROLE -->   
             {% if z.1 %}
             {% for role in z.1%}
-            <ul class="forgot-to-add">  <br/>
+            <ul class="forgot-to-add" style="margin-left:20px">  <br/>
 
 <!-- ROLE TITLE -->
                 <h4 class="mb-0">  {{ role.0.role_r | title}} </h3>
@@ -577,26 +577,27 @@
 <hr class="m-0" /><br/><br/>
 <!-- EDUCATION -->
 
+
 {% if edus %}
 
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Education</h2>                   
-                    <ul class="forgot-to-add">   
+                    <ul class="forgot-to-add" style="margin-left:10px">   
                         {% for edu in edus %}                       
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                            <div class="flex-grow-1">
+                        
+                            
 <!-- SCHOOL -->
                                 <h3 class="mb-0">{{edu.edu_s}}</h3>
 <!-- DEPARTMENT -->
                                 <div class="subheading mb-3">{{edu.edu_d}}</div>
 
-                            </div>
+                            
 <!-- SRTART / END DATE -->
                             <div class="flex-shrink-0" style ="text-align: right;"><span class="text-primary">{{edu.edu_sdy}} - {{edu.edu_edy}} <br/>
 <!-- LOCATION -->
                              {{edu.edu_l}}</span></div>
-                        </div>             
+                                    
                      <!-- BUTTONS EDIT------------------------->
                     <a href="{% url 'edit_edu' edu.id %}" class ="btn btn-light"> Edit </a>&nbsp; 
                     <a href="{% url 'delete_edu' edu.id%}" class ="btn btn-light"> Delete</a>
@@ -637,7 +638,7 @@
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interests</h2>
-                    <ul class="forgot-to-add" style="margin-left:0">   
+                    <ul class="forgot-to-add" style="margin-left:10px">   
                         <p class="lead mb-5">
                         {{intro.outro_text}}
                         </p>
@@ -714,7 +715,7 @@
     </section>
 
 </div>
-
+<br/>
 
 {%else%}
 <div style="margin-left: 100px;">

@@ -13,58 +13,7 @@ div#container1 {
     height: auto;
 }
 
-img#utas {
-    width: 100%;
-    height: 100%;
-}
 
-
-
-.hana_div{
-    margin: auto;
-    margin-top: 30px;
-    width: 27rem;
-    padding: 10px;
-    box-shadow: 10px 10px 30px 10px #3333;
-    text-align: center;
-
-}
-.hana_div .container{
-  margin-top: 10pt;
-    align-items: center;
-}
-.hana_div_box {
-  font-size: 14pt;
-  inline-size: 25rem;
-  padding-right: 20pt;
-  padding-left: 10pt;
-  padding-top: 20pt;
-  padding-bottom: 20pt;
-  overflow-wrap: break-word;
-}
-.hana_div_name {
-  color:#000;
-  font-weight: bolder;
-  text-transform: capitalize;
-}
-@media (max-width: 576px) {
-  .hana_div-sm, .hana_div {
-    position: ;
-    margin: auto;
-    margin-left: 2rem;
-    margin-top: 50px;
-    max-width: 540px;
-  }
-}
-
-@media(max-width : 600px) {
-     #hana_div{
-    display:block;
-    width:50%;
-     }
-
-    }
-}
 </style>
 <div class = "hana_div1">
 {% if user.is_authenticated and user == user_ %}
@@ -79,12 +28,11 @@ img#utas {
 				<img src="{% static 'assets/img/img0.jpg' %}" alt="profile" class="img-change">
 				{%endif%}
 			</div><br/><br/>
-			 <div class ="form-group">
+			 <div class ="form-group text-center">
 				<form method = "POST" enctype="multipart/form-data">
 						{% csrf_token %}
 						<!--{{ form.as_p}}-->
-						<div class></div>
-          				<input class ="btn btn-dark" type="file" name="image" accept="image/*" id="id_image"><br/><br/><br/>
+          				<input class ="btn btn-dark" type="file" name="image" accept="image/*" id="id_image" style="width:90%"><br/><br/><br/>
 						<button class ="btn btn-dark">Update</button> &nbsp;
 						<a href="{% url 'home' %}" class ="btn btn-light"> Home </a> 
 				</form>

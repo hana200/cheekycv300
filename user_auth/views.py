@@ -213,7 +213,6 @@ class CreateProfilePageView(CreateView):
 
 class EditProfPageView(UpdateView):
 	model = PImg
-	form_class = ProfilePageForm
 	template_name = 'registration/edit_profile_page.html'
 	fields = ['image',]
 	success_url = reverse_lazy('success')
@@ -239,9 +238,7 @@ class EditProfPageView(UpdateView):
 			context["img_p"] = img_p
 			context["img"] = pimg.image.url
 		return context
-	def form_valid(self,form):
-		form.instance.user = self.request.user
-		return super().form_valid(form)
+
 
 
 def success(request):

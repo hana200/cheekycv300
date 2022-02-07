@@ -5,12 +5,13 @@
 {% if user.is_authenticated and user == user_bio %}
 <div class = "hana_div1">
     <h2 style="text-align: center;">Edit Bio</h2>
-    <div class ="form-group">
+    <div class = "hana_div">
+    <div class ="form-group text-left">
         <form method = "POST" enctype="multipart/form-data">
             {% csrf_token %}
-        <div class = "hana_div">
+        
                 {{ form_bio.as_p }}
-        </div>
+        
             <br/>
             <div class="subheading " >
                 <div class="container" style="margin-left: auto;display: flex; justify-content: center;">
@@ -22,11 +23,12 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
 
 </div>
 <br/><br/>
-
+90
 {% else %}
 
     <h1> Ups, you kinda wandered off there into the unknown :)<br/>

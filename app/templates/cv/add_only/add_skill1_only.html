@@ -3,63 +3,18 @@
 {% block content %}
 
 
-<style type="text/css">
-.hana_div{
-	margin: auto;
-  margin-top: 30px;
-  width: 27rem;
-  padding: 10px;
-  box-shadow: 10px 10px 30px 10px #3333;
-}
-.hana_div .container{
-    margin-top: 10pt;
-    align-items: center;
-}
-.hana_div_box {
-  font-size: 14pt;
-  inline-size: 25rem;
-  padding-right: 20pt;
-  padding-left: 10pt;
-  padding-top: 20pt;
-  padding-bottom: 20pt;
-  overflow-wrap: break-word;
-}
-.hana_div_name {
-  color:#000;
-  font-weight: bolder;
-  text-transform: capitalize;
-}
 
-@media (max-width: 576px) {
-  .hana_div-sm, .hana_div {
-  	margin: auto;
-  	margin-left: 2rem;
-  	margin-top: 50px;
-    max-width: 540px;
-  }
-}
-.subheading.hana_div_s{
-	line-height: 10pt;
-	font-size: 1.2rem; 
-	margin-left: 1.2rem;
-	margin-right: 1.2rem;
-}
-.subheading.hana_div_s.p_h{
-	font-size: 1.2rem; 
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-</style>
 
 {% if user.is_authenticated and user == skill1_user %}
 <div class = "hana_div1">
 	<h2 style="text-align: center;">Add Skills - Workflow</h2>
-	<div class ="form-group">
+	<div class = "hana_div">
+	<div class ="form-group text-left">
 		<form method = "POST" enctype="multipart/form-data">
 			{% csrf_token %}
-			<div class = "hana_div">
+			
 			{{ skill1_form.as_p }}
-		</div><br>
+<br>
 			
 			<div class="subheading " >
 				<div class="container" style="margin-left: auto;display: flex; justify-content: center;">
@@ -70,6 +25,7 @@
 			</div>
 			
 		</form>
+	</div>
 	</div>
 </div>
 

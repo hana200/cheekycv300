@@ -10113,6 +10113,12 @@ div#container1 {
     width: 300px;
     height: 300px;
 }
+@media screen and (max-width: 576px) {
+  .img-change{  
+    width: 90%;
+    height: 90%;
+  }
+}
 .hana_div{
     margin: auto;
     margin-top: 30px;
@@ -10150,6 +10156,7 @@ div#container1 {
     
     width: 540px;
   }
+}
 
 
 /*  EDIT CV */
