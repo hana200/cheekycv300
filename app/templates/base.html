@@ -55,16 +55,7 @@
         height: 30px;
         width: 30px;
       }
-      .hana_div_box {
-        font-size: 14pt;
-        inline-size: 25rem;
-        padding-right: 20pt;
-        padding-left: 10pt;
-        padding-top: 20pt;
-        padding-bottom: 20pt;
-        overflow-wrap: break-word;
-        text-align: right;
-      }
+      
       .content{
         position: absolute;
         top: 0;
@@ -74,8 +65,7 @@
         margin-bottom: 100px;
         padding-bottom: 200px;
         padding-top: 50px;
-        padding-left:10px;
-        padding-right: 10px;
+
       }
       .content_{
         position: absolute;
@@ -88,29 +78,31 @@
         padding-bottom: 200px;
       }
       .content_home{
-
-        margin-top: 100px;
-        margin-right: 100px;
-        margin-left: -150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 100px;
+        padding-bottom: 200px;
+        padding-top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
       .content_cv{
         margin-top: 100px;
         margin-right: 100px;
-        /*margin-left: 100px;*/
         /*font-family: 'Staatliches', cursive;*/
       }
+
+
       @media screen and (max-width:768px) {
-        
-      .content_home{
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-    }
-       @media screen and (max-width:768px) {
         .content_cv{
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
+
       
     }
     </style>
@@ -119,28 +111,27 @@
   <title>{% block title %}CHEEKY CV{% endblock %}</title>
 
   </head>
-  <body>
+   <body>
       {%if show == None %}
 
             {%if home%}
-              <div class ="content"> 
+              <div class ="content_home"> 
             
             {%else%}
-            
               <div class ="content"> 
-                {% block nav_menu %}{% include 'navbar_menu.html' %}{% endblock nav_menu %}
-                
-            {%endif%}
+              {% block nav_menu %}{% include 'navbar_menu.html' %}{% endblock nav_menu %}
+            {%endif%}   
 
       {%else%}
             {% block nav %}{% include 'navbar.html' %}{% endblock nav %}
-            <div class ="content_cv" id="content_cv" > 
-
+            <div class ="content_cv" id="content_cv"> 
       {%endif%}   
 
-                {% block content %}          
-                {% endblock %}
-              </div>
+
+       {% block content %}       
+       {% endblock %}
+
+            </div>
      
 
     <!-- Optional JavaScript; choose one of the two! -->

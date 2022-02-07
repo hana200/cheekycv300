@@ -10356,7 +10356,9 @@ div#container1 {
   padding-top: 20pt;
   padding-bottom: 20pt;
   overflow-wrap: break-word;
+  /*text-align: right;*/
 }
+
 .hana_div_name {
   color:#000;
   font-weight: bolder;
@@ -10758,6 +10760,8 @@ input[type="submit"]:hover {
         width: 100%;
         margin-bottom: 100px;
         padding-bottom: 200px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
       .content_{
         position: absolute;

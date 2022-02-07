@@ -25,8 +25,11 @@ body{
   /*font-family: 'Bebas Neue', cursive;*/
 }
 
-
-
+.menu-button-gray{
+  height: 30px;
+  width: 30px;
+  color: rgb(229, 236, 238);
+}
 
 
 /* NEW STUFF ---------------------------------------------------*/
@@ -512,11 +515,13 @@ body{
 
 
           <div class="cv-toggle" id = "cv-toggle" onclick="openNav">
-               <a href="javascript:void(0)" onclick="openNav()" id = "open1"><div class="open1" id = "open1_img">
+               <a href="javascript:void(0)" onclick="openNav()" id = "open1">
+                <div class="open1" id = "open1_img">
                 <img src="{% static 'assets/img/bars.png' %}" class="menu-button-gray"/>
                <!--  <i class="fas fa-bars fa-2x" style=" color: rgb(229, 236, 238);"></i> -->
               </div></a>
-               <a href="javascript:void(0)" onclick="closeNav()" id="close1"><div class="close1" id = "close1_img">
+               <a href="javascript:void(0)" onclick="closeNav()" id="close1">
+                <div class="close1" id = "close1_img">
                 <img src="{% static 'assets/img/close.png' %}" class="menu-button-gray" />
                 <!-- <i class="fa fa-times fa-2x" style=" color: rgb(229, 236, 238);"></i> -->
               </div></a>
