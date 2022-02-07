@@ -291,26 +291,6 @@ def cv_show(request, pk):
     context["user_cv"] = user
     return render(request, 'cv/cv_show.html', context)
 
-# try: 
-#         bio = Bio.objects.get(id = pk)           
-#         #bio = get_object_or_404(Bio, id = pk)
-#         user=bio.cv.user
-
-#         form_bio = BioForm(request.POST or None, instance = bio)
-
-#         if request.method == 'POST':
-#             if form_bio.is_valid():
-#                 form_bio.save()
-#                 return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
-#             else:
-#                 raise ValidationError([
-#                     ('Error! Please try again.'),
-#                 ])      
-
-#         context["form_bio"] = form_bio
-#         context["user_bio"] = user
-#     except:
-#         return redirect(reverse('error' ))
 
 def cv_show_edit(request, pk):
     context={}

@@ -2,13 +2,20 @@
 {% block title %} CHEEKY | Login {% endblock %}
 {% block content %}
 
+<style type="text/css">
+    @media screen and (max-width: 900px) {
+        .hana_div{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+</style>
 
-
-<div class="hana_div text-center">
+<div class="hana_div ">
     <div class="card-body">
         <h4>Login</h4>
         <hr>
-        <div class ="form-group text-center">
+        <div class ="form-group text-left">
 			<form method = "POST" enctype="multipart/form-data" >
 				{% csrf_token %}
 				

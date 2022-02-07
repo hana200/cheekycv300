@@ -73,6 +73,7 @@
         width: 100%;
         margin-bottom: 100px;
         padding-bottom: 200px;
+        padding-top: 50px;
       }
       .content_{
         position: absolute;
@@ -123,22 +124,21 @@
               <div class ="content"> 
             
             {%else%}
+            
               <div class ="content"> 
-              {% block nav_menu %}{% include 'navbar_menu.html' %}{% endblock nav_menu %}
-            {%endif%}   
+                {% block nav_menu %}{% include 'navbar_menu.html' %}{% endblock nav_menu %}
+                
+            {%endif%}
 
       {%else%}
             {% block nav %}{% include 'navbar.html' %}{% endblock nav %}
             <div class ="content_cv" id="content_cv" > 
+
       {%endif%}   
 
-
-       {% block content %}    
-       
-       {% endblock %}
- </div>  
-
-
+                {% block content %}          
+                {% endblock %}
+              </div>
      
 
     <!-- Optional JavaScript; choose one of the two! -->

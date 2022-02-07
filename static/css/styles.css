@@ -10363,8 +10363,8 @@ div#container1 {
 
 @media screen and (max-width: 576px) {
   .hana_div-sm, .hana_div {
-    margin: auto;
-    margin-left: 0.5rem;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 50px;
     width: 90%;
   }
