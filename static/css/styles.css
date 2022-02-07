@@ -10115,8 +10115,8 @@ div#container1 {
 }
 @media screen and (max-width: 576px) {
   .img-change{  
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
   }
 }
 .hana_div{
@@ -10410,6 +10410,7 @@ input[type="submit"]:hover {
   float: center;
   margin: 0 -5px;
   display: flex;
+  
   justify-content: center;
 
 }

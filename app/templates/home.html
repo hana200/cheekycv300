@@ -362,26 +362,31 @@ input[type="submit"]:hover {
     <div class="row" style="display:flex;flex-direction:row;">
       {%for CV in CVS|slice:":3" %} 
         {% if CV.1 != 0 %}
-          <div class="column">
-            <!-- <div class="card" style="padding-left: 0;padding-right: 0; ">          -->
+          <div class="column">           
+            <div style="display: flex;flex-direction: column;">
+              <br><h3 style=" z-index: 20;"><a href="{% url 'cv_show' CV.0.user %}" style="color:#000">CHECK OUT {{CV.0.user}}'s CV</a></h3><br><br>
               <div class="card" style="padding-left: 0;padding-right: 0; z-index: -20;">  
-                <h3><b>CV {{forloop.counter}}</b></h3>
-                <a href="{% url 'cv_show' CV.0.user %}">
+                <a href="{% url 'cv_show' CV.0.user %}" >
                 <img src="{{CV.1}}" alt="Avatar" class="card-img"></a>
-                 <h4>{{CV.0.user}}</h4>
                </div>
-            <!-- </div> -->
-          </div>
+             </div>
+
+          
+        </div>
+          
         {% else %}
           <div class="column" >
+            <div style="display: flex;flex-direction: column;">
+              <br><h3 style=" z-index: 20;"><a href="{% url 'cv_show' CV.0.user %}" style="color:#000">CHECK OUT {{CV.0.user}}'s CV</a></h3><br><br>
             <div class="card" style="padding-left: 0;padding-right: 0; z-index: -20;">           
-                <h3><b>CV {{forloop.counter}}</b></h3>
                 <a href="{% url 'cv_show' CV.0.user %}">
                   <img src="{% static 'assets/img/img0.jpg' %}" alt="Avatar" class="card-img">
-                </a>
-               <h4>{{CV.0.user}}</h4>          
+                </a>   
             </div>
           </div>
+          </div>
+
+            
           
         {%endif%}
       {%endfor%}  
