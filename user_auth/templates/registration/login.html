@@ -2,32 +2,27 @@
 {% block title %} CHEEKY | Login {% endblock %}
 {% block content %}
 
-<style type="text/css">
-    @media screen and (max-width: 900px) {
-        .hana_div{
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    }
-</style>
+
 
 <div class="hana_div ">
     <div class="card-body">
         <h4>Login</h4>
         <hr>
-        <div class ="form-group text-left">
+        <div class ="form-group text-center">
 			<form method = "POST" enctype="multipart/form-data" >
 				{% csrf_token %}
+
+                <div style="text-align: left;">
 				
                         <label for="id_username">Username:</label> 
     					<!-- <p style=" display: relative;align-items: center;justify-content: center;"> -->
-                            <input style="width:100%; display: flex;justify-content: space-between;" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username..." class="form-control"> <br>
+                            <input  type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username..." class="form-control"> <br>
 
 
         				<label for="id_password">Password:</label> <br>
-        					<input  style="width:100%; display: flex;justify-content: space-between;" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password..." class="form-control"><br/>
+        					<input  type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password..." class="form-control"><br/>
         				
-               
+               </div>
 
 		
         
