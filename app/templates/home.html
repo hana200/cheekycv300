@@ -338,20 +338,86 @@ input[type="submit"]:hover {
 
 
     <img class="hana_div_top" src = "../static/assets/img/cov.png">
+<!-- SECTION REGISTER NOW / MAKE CV/ GOTO CV-->
 
+{% if user.is_authenticated %} 
+  {%if cv_ == 0%}
+<!-- LOGGED IN / NO CV-->
+
+    <!-- <br/><br/><br/><br/> -->
+    <h4 style="text-align:center; color:#999999">Ready... Steady... GO!</h4><br/>
+          <a type="black_l" href="{% url 'add_bio' user %}" title="MAKE MY CV" ><p style="text-align:center; ">MAKE MY CV NOW</p></a>
+
+          <div class="hana_div1">
+            <p style="text-align:center">
+              Welcome {{user}}! <br>
+              Make your job application pop out! Generate and publish your online profile in 10 min. Copy the link from your browser and share it with your future employers.
+            </p>
+          </div>
+    <br/><br/><br/><br/>
+<!-- LOGGED IN / YES CV-->
+  {%else%}
+  <br/><br/><br/><br/>
+    <h4 style="text-align:center; color:#999999">HELLO</h4><br/>
+          <a type="black_l" href="{% url 'cv_show' user %}" title="GO TO MY CV" ><p style="text-align:center; ">GO TO MY CV</p></a>
+
+          <div class="hana_div1">
+            <p style="text-align:center">
+              Go and check out how others see your uploaded CV
+            </p>
+          </div>
+    <br/><br/><br/><br/>
+  {%endif%}
+{%else%}
+<!-- SECTION REGISTER NOW - NOT LOGGED IN -->
+    <!-- <br/><br/><br/><br/> -->
+          <a type="black_s" href="{% url 'login' %}"title="LOGIN"><p style="text-align:center; ">Login or...</p></a>
+          <a type="black_l" href="{% url 'register' %}" title="REGISTER" ><p style="text-align:center; ">REGISTER NOW</p></a>
+
+          <div class="hana_div1">
+            <p style="text-align:center">
+              Register to continue and make your free cv. Be sure to think about your preferred username as the link to your cv will be generated as 'http://cheekycv.com/cv/yourusername'.We only ask for your email, no credit card check or any other nonsense hidden in the process.
+            </p>
+          </div>
+    <br/><br/><br/><br/>
+{%endif%}
+
+<!-- SECTION ABOUT -->
+    <div class="colorB">
+    <br/><br/><br/><br/>
+          <h4 style="text-align:center; color:#eeeeee">Why Cheeky</h4><br/>
+          <h1 style="text-align:center; color:#FFFFFF">FAST & SIMPLE</h1>
+
+          <div class="hana_div2" >
+            <p style="text-align:center">
+             Cheeky is an experimental BETA platform. We offer a FREE lifetime subscription for a limited number of usersusers. Publish your CV now. 
+            </p>
+          </div>
+
+          <div class="hana_div1"style="text-align: center;">
+             <input id="submit_" type="submit" value="SHOW MORE" data-toggle="modal" data-target="#howModal" title="SHOW MORE">
+          <!-- <button class="steps" onclick="SEE()" id="how_btn">SHOW MORE</button> -->
+          <!--  <button class="steps" data-toggle="modal" data-target="#howModal" >SHOW MORE</button> -->
+<!--           <a  type="black_s1" href="" data-toggle="modal" data-target="#howModal" title="SHOW MORE" ><p style="text-align:center; margin-top: 0;margin-bottom: 0;">SHOW MORE</p></a> -->
+          </div>
+
+
+
+    <br/><br/><br/><br/>
+</div>
 <!-- SECTION HELLO  -->
+<br/><br/><br/><br/>
     {% if user.is_authenticated %} 
-    <h4 style="text-align:center; color:#999999">Welcome back {{user}}!</h4><br/>
+    <h4 style="text-align:center; color:#999999">SELECTED USERS</h4><br/>
     {%else%}
-    <h4 style="text-align:center; color:#999999">Hello!</h4><br/>
+    <h4 style="text-align:center; color:#999999">SELECTED USERS</h4><br/>
     {%endif%}
 
     <h1 style="text-align:center; color:#98cadc">THIS IS CHEEKY</h1>
 
 
     <div class="hana_div1">
-        <p style="text-align:center">Make your job application pop out! 
-          <br/>Use CHEEKY to publish an online profile and generate a simple and beautiful CV pdf in 10 min. CHeck out some of the sample CVs below
+        <p style="text-align:center">Check out some of our sample CVs below.
         </p>
     
     </div>
@@ -367,7 +433,7 @@ input[type="submit"]:hover {
               <br><h3 style=" z-index: 20;"><a href="{% url 'cv_show' CV.0.user %}" style="color:#000">CHECK OUT {{CV.0.user}}'s CV</a></h3><br><br>
               <div class="card" style="padding-left: 0;padding-right: 0; z-index: -20;">  
                 <a href="{% url 'cv_show' CV.0.user %}" >
-                <img src="{{CV.1}}" alt="Avatar" class="card-img"></a>
+                <img src="{{CV.1}}" alt="Avatar" class="card-img" ></a>
                </div>
              </div>
 
@@ -396,72 +462,7 @@ input[type="submit"]:hover {
 
 
     <br/><br/><br/><br/>
-<!-- SECTION ABOUT -->
-    <div class="colorB">
-    <br/><br/><br/><br/>
-          <h4 style="text-align:center; color:#eeeeee">Why Cheeky: YOUR CV AND ONLINE PROFILE IN 10 MIN</h4><br/>
-          <h1 style="text-align:center; color:#FFFFFF">FAST & SIMPLE</h1>
-
-          <div class="hana_div2" >
-            <p style="text-align:center">
-              We are a new experimental BETA platform - therefore  CHEEKY CV services are completely FREE of charge at the moment. In order to try our platform, save and edit your published CV - you need to register an account with a valid email.
-            </p>
-          </div>
-
-          <div class="hana_div1"style="text-align: center;">
-             <input id="submit_" type="submit" value="SHOW MORE" data-toggle="modal" data-target="#howModal" title="SHOW MORE">
-          <!-- <button class="steps" onclick="SEE()" id="how_btn">SHOW MORE</button> -->
-          <!--  <button class="steps" data-toggle="modal" data-target="#howModal" >SHOW MORE</button> -->
-<!--           <a  type="black_s1" href="" data-toggle="modal" data-target="#howModal" title="SHOW MORE" ><p style="text-align:center; margin-top: 0;margin-bottom: 0;">SHOW MORE</p></a> -->
-          </div>
-
-
-
-    <br/><br/><br/><br/>
-</div>
-
-<!-- SECTION REGISTER NOW / MAKE CV/ GOTO CV-->
-
-{% if user.is_authenticated %} 
-  {%if cv_ == 0%}
-<!-- LOGGED IN / NO CV-->
-
-    <br/><br/><br/><br/>
-    <h4 style="text-align:center; color:#999999">YOU ARE READY</h4><br/>
-          <a type="black_l" href="{% url 'add_bio' user %}" title="MAKE MY CV" ><p style="text-align:center; ">MAKE MY CV NOW</p></a>
-
-          <div class="hana_div1">
-            <p style="text-align:center">
-              We only ask for your email for verification. No credit card check or any other nonsense hidden in the process.
-            </p>
-          </div>
-    <br/><br/><br/><br/>
-<!-- LOGGED IN / YES CV-->
-  {%else%}
-  <br/><br/><br/><br/>
-    <h4 style="text-align:center; color:#999999">YOU ARE READY</h4><br/>
-          <a type="black_l" href="{% url 'cv_show' user %}" title="GO TO MY CV" ><p style="text-align:center; ">GO TO MY CV</p></a>
-
-          <div class="hana_div1">
-            <p style="text-align:center">
-              Go and check out how others see your uploaded CV
-            </p>
-          </div>
-    <br/><br/><br/><br/>
-  {%endif%}
-{%else%}
-<!-- SECTION REGISTER NOW - NOT LOGGED IN -->
-    <br/><br/><br/><br/>
-          <a type="black_s" href="{% url 'login' %}"title="LOGIN"><p style="text-align:center; ">Login or...</p></a>
-          <a type="black_l" href="{% url 'register' %}" title="REGISTER" ><p style="text-align:center; ">REGISTER NOW</p></a>
-
-          <div class="hana_div1">
-            <p style="text-align:center">
-              We only ask for your email for verification. No credit card check or any other nonsense hidden in the process.
-            </p>
-          </div>
-    <br/><br/><br/><br/>
-{%endif%}
+<!--HANAHANAHANA -->
 <!-- SECTION CONTACT -->
     <div class="colorB" id="contact">
     <br/><br/><br/><br/>
@@ -526,13 +527,13 @@ input[type="submit"]:hover {
                         <!-- <span aria-hidden="true"><i class="fas fa-times" style="color:#000"></i></span> -->
                         <img src="{% static 'assets/img/close.png' %}" class="menu-button" />
                     </button>
-
-<div class="hana_div1"style="width:300px;text-align: center">
-
 <!-- STEP 1 -->
-      <div class="container" style="text-align: center;margin-left: 80px;">
+<br>
+<div class="container" style="text-align: center;margin-left: 80px;">
         <div class="circle">1</div>
-      </div><br/>
+</div>
+<div class="hana_div1"style="width:300px;text-align: center">
+      
       <h2 style="text-align:center; color:#000">CV</h2>
        <h5 style="text-align:center; color:#999999">
         Create your CV page by clicking on 
@@ -542,15 +543,20 @@ input[type="submit"]:hover {
       <br/><br/>
             
 
-        <div class="steps"> + / ADD CV </div>
-        <br/><br/><br/><br/>
-
+        <div class="steps"> + / NEW CV </div>
+        <br/>
+</div>
+<hr>
 <!-- STEP 2 -->
-      <div class="container" style="text-align: center;margin-left: 80px;">
+<br>
+<div class="container" style="text-align: center;margin-left: 80px;">
         <div class="circle">2</div>
-      </div><br/>
+</div>
+<div class="hana_div1"style="width:300px;text-align: center">
+
+      
       <h2 style="text-align:center; color:#000">FORM</h2>
-      <h5 style="text-align:center; color:#999999">Fill in the form and your profile page will be autogenerated @ </h5><h5> http://www.cheekycv.com/cv/yuorusername </h5><h5 style="text-align:center; color:#999999"> You can save and quit anytime after fill in in ‘Bio & Contact’</h5>
+      <h5 style="text-align:center; color:#999999">Fill in the form and your profile page will be autogenerated @ </h5><h5> http://www.cheekycv.com/cv/yuorusername </h5><h5 style="text-align:center; color:#999999"> </h5>
 
          <br/><br/>
 
@@ -571,12 +577,17 @@ input[type="submit"]:hover {
 
 
 
-        <br/><br/><br/><br/>
-
+        <br/>
+</div>
+<hr>
 <!-- STEP 3 -->
-      <div class="container" style="text-align: center;margin-left: 80px;">
+<br>
+<div class="container" style="text-align: center;margin-left: 80px;">
         <div class="circle">3</div>
-      </div><br/>
+</div>
+<div class="hana_div1"style="width:300px;text-align: center">
+
+     
       <h2 style="text-align:center; color:#000">PIC</h2>
        <h5 style="text-align:center; color:#999999">
        It’s always nice to see a face next to a great resume. Add your profile pic if you would like the world to see you. Otheriwse skip this step
@@ -585,12 +596,16 @@ input[type="submit"]:hover {
             
 
         <div class="steps"> + / ADD PIC </div>
-        <br/><br/><br/><br/>        
+        <br/>
+</div>
+<hr>
 
 <!-- STEP 4 -->
-      <div class="container" style="text-align: center;margin-left: 80px;">
+<br>
+<div class="container" style="text-align: center;margin-left: 80px;">
         <div class="circle">4</div>
-      </div><br/>
+</div>
+<div class="hana_div1"style="width:300px;text-align: center">    
       <h2 style="text-align:center; color:#000">CHECK</h2>
        <h5 style="text-align:center; color:#999999">
        Double Check Your CV. Save your form anytime and your profile page will be autogenerated with a link: </h5> <h5> http://www.cheekycv.com/cv/yuorusername 
@@ -599,12 +614,17 @@ input[type="submit"]:hover {
             
 
         <div class="steps"> + / MY CV</div>
-        <br/><br/><br/><br/>  
+        <br/>
+</div>
+<hr>
 
 <!-- STEP 5 -->
-      <div class="container" style="text-align: center;margin-left: 80px;">
+<br>
+<div class="container" style="text-align: center;margin-left: 80px;">
         <div class="circle">5</div>
-      </div><br/>
+</div>
+<div class="hana_div1"style="width:300px;text-align: center">
+
       <h2 style="text-align:center; color:#000">FINALIZE</h2>
        <h5 style="text-align:center; color:#999999">
        Simply go to + / EDIT CV / to edit your profile page. You can add / edit any of your inputs anytime
@@ -613,20 +633,21 @@ input[type="submit"]:hover {
             
 
         <div class="steps"> + / EDIT CV</div>
-        <br/><br/><br/><br/>  
-
+        <br/>
+</div>
+<hr>
 <!-- STEP 6 -->
-      <div class="container" style="text-align: center;margin-left: 80px;">
+<br>
+<div class="container" style="text-align: center;margin-left: 80px;">
         <div class="circle">6</div>
-      </div><br/>
+</div>
+<div class="hana_div1"style="width:300px;text-align: center">
+
       <h2 style="text-align:center; color:#000">SEND</h2>
        <h5 style="text-align:center; color:#999999">
-       Once you are happy with your profile go to + / PDF / to export and save a PDF version of your CV
+       Once you are happy with your profile copy and share it with anyone you wish
       </h5>
-      <br/><br/>
-            
 
-        <div class="steps"> + / PDF</div>
         <br/><br/><br/><br/> 
 </div> 
 

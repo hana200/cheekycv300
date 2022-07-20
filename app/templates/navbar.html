@@ -376,12 +376,17 @@ body{
                   <li ><a href="#education">Education</a></li>
                   <li ><a href="#interests">Interests</a></li>
                   <li onclick="#"><a href="#contact">Contact</a></li>
+                  <br>
 
-                  <hr style="background-color:#666" />
+                  <hr style="background-color:#666; width: 100px; margin: 0 auto;" />
+                  <br/><br/>
+                  <div style="font-size: 15px;">
 
                   <li ><a  href="{% url 'delete_cv' cv.id %}">Delete CV</a></li>
                   <li ><a href="{% url 'edit_color' user %}">Change Color</a></li>
+                </div>
                   
+                    
                 {%else%}
 
                  {%if pic %}
@@ -424,10 +429,12 @@ body{
                   {% if user.is_authenticated and cv.user == user  %}
                   <br/>
 
-                  <hr style="background-color:#666" />
+                  <hr style="background-color:#666;width: 100px; margin: 0 auto;" />
 
-                  <br/>
+                  <br/><br/>
+                   <div style="font-size: 15px;">
                    <li ><a href="{% url 'cv_show_edit' user %}">EDIT CV</a></li>
+                 </div>
                   {%endif%}
 
                 {%endif%}
@@ -496,17 +503,21 @@ body{
             {% if show_edit %}
 
             <hr style="background-color:#666" />
+             <div style="font-size: 15px;">
 
             <li onclick="closeMenu();closeMenuCV()"><a  href="{% url 'delete_cv' cv.id %}">Delete CV</a></li>
             <li onclick="closeMenu();closeMenuCV()"><a href="{% url 'edit_color' user %}">Change Color</a></li>
+          </div>
             {%else%}
 
             {% if user.is_authenticated and cv.user == user  %}
-            <br/>
 
-            <hr style="background-color:#666" />
-              <br/>
+
+            <hr style="background-color:#666;"/>
+
+               <div style="font-size: 15px;">
              <li onclick="closeMenu();closeMenuCV()"><a href="{% url 'cv_show_edit' user %}">EDIT CV</a></li>
+           </div>
             {%endif%}
             
             {%endif%}

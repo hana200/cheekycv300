@@ -429,10 +429,10 @@ def add_bio(request,pk):
                 bio_form.save()
                 idd=bio_form.instance.id
                 cv=bio_form.instance.cv
-                if request.POST.get("save_next"):
-                    return redirect(reverse('add_lang' , kwargs={'pk':user,'x': 'bio', 'y':idd}))
-                elif request.POST.get("save_home"):
-                    return redirect(reverse('home'))
+                # if request.POST.get("save_next"):
+                #     return redirect(reverse('add_lang' , kwargs={'pk':user,'x': 'bio', 'y':idd}))
+                if request.POST.get("save_home"):
+                    return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
                 
             else:
                 return redirect(reverse('add_bio' , kwargs={'pk':pk})) 

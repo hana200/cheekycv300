@@ -10,12 +10,11 @@ import calendar
 from .random import randomN
 
 from django.db import IntegrityError
-from PIL import Image
+from PIL import Image, ImageOps
+
 import os
 
-from urllib.request import urlopen
-from django.core.files.base import ContentFile
-from io import StringIO
+
 
 # ------------------- FUNCTIONS ------------------------------------------------------------
 
@@ -66,7 +65,8 @@ def path_and_rename_overwrite(instance, filename):
     upload_to = 'pic/'+str(instance.user)
     pp=os.path.join(settings.MEDIA_ROOT, 'pic/'+str(instance.user))
     
-    ext = filename.split('.')[-1]
+    # ext = filename.split('.')[-1]
+    ext = "jpg"
 
     img = 'prof_img_1'
     img1 = str(instance.user)+'_1'
@@ -298,16 +298,21 @@ class Edu(models.Model):
 
 class PImg(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    #image = models.ImageField(null = True, blank = True, upload_to = "profile/")
     image = models.ImageField(null = True, blank = True, upload_to=path_and_rename_overwrite, max_length=255,)
 
-    def delete(self, using=None, keep_parents=False):
-        #"C:/web_test3/cheekycv_new_1_211127/pic/hana/prof_img_1.jpg"
-        #pp=os.path.join(settings.MEDIA_ROOT, self.image.url)
-        #self.image.storage.delete(settings.MEDIA_ROOT+self.image.url)
-        aa=settings.MEDIA_ROOT+self.image.url       
-        self.image.storage.delete(aa)
-        super().delete()
+
+    # def delete1(self, using=None, keep_parents=False):
+    #     aa=settings.MEDIA_ROOT+self.image.url 
+    #     self.image.storage.delete(aa)
+    #     super().delete()
+    def delete(self,using=None, keep_parents=False):
+        try:
+            this = PImg.objects.get(id=self.id)
+            this.image.delete()
+            this.image.storage.delete()
+        except: pass
+
+        super(PImg, self).delete()
 
     def save(self, *args, **kwargs):
 
@@ -317,10 +322,55 @@ class PImg(models.Model):
                 this.image.delete()
                 this.image.storage.delete()
         except: pass
+
         super(PImg, self).save(*args, **kwargs)
 
-        #im = Image.open('image.jpg') 
+        #-----------------
+      
+
+        img = Image.open(self.image.path)
+        img = ImageOps.exif_transpose(img)
+        width, height = img.size  # Get dimensions
+        if width > 1 and height > 1:
+
+            if width > 300 and height > 300:
+                # keep ratio but shrink down
+                img.thumbnail((width, height))
+
+            # check which one is smaller
+            if height < width:
+                # make square by cutting off equal amounts left and right
+                left = (width - height) / 2
+                right = (width + height) / 2
+                top = 0
+                bottom = height
+                img = img.crop((left, top, right, bottom))
+
+            elif width < height:
+                # make square by cutting off bottom
+                left = 0
+                right = width
+                top = 0
+                bottom = width
+                img = img.crop((left, top, right, bottom))
+
+            if width > 300 and height > 300:
+                img.thumbnail((300, 300))
+
+            img.save(self.image.path)
+        else:
+            super(PImg, self).delete() 
+
+
+
+        #-----------------
+
+
+        #--------------------
+
+        #im = PImage.open('path_and_rename_overwrite') 
         #im = im.crop((left, top, right, bottom)) 
+       
 
         '''
 
@@ -341,3 +391,15 @@ class PImg(models.Model):
 
     def get_absolute_url(self): 
         return reverse('home')
+
+
+'''
+profile_image = models.ImageField(upload_to='profile_images', default='profile_images/icon.png')
+profile_icon = ImageSpecField(source='profile_image',
+                              processors=[
+                                  processors.Transpose(),
+                                  processors.Thumbnail(width=72, height=72, crop=True)
+                              ],
+                              format='JPEG',
+
+'''

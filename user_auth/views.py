@@ -206,9 +206,16 @@ class CreateProfilePageView(CreateView):
 			context["img_p"] = img_p
 		return context
 
-	def form_valid(self,form):
+	# def form_valid(self,form):
+	# 	form.instance.user = self.request.user
+	# 	return super().form_valid(form)
+	def form_valid(self, form):
 		form.instance.user = self.request.user
-		return super().form_valid(form)
+		if form.cleaned_data['image']:
+			return super().form_valid(form)
+			success_url = self.get_success_url()
+		else:
+			return redirect(reverse('err'))
 
 
 class EditProfPageView(UpdateView):
@@ -239,10 +246,27 @@ class EditProfPageView(UpdateView):
 			context["img"] = pimg.image.url
 		return context
 
+	# def form_valid(self, form):
+	# 	form.instance.user = self.request.user
+
+	# 	u=self.request.user
+	# 	pimg = PImg.objects.get(user = u)  
+	# 	form.instance.user = self.request.user
+
+	# 	if form.cleaned_data['image'] != "":
+	# 		return super().form_valid(form)
+	# 		success_url = self.get_success_url()
+	# 	else:
+	# 		return redirect(reverse('err'))
+
+
 
 
 def success(request):
 	return render(request, 'success.html')
+
+def err(request):
+	return render(request, 'err.html')
 
 class DeleteProfPageView(DeleteView):
 	model = PImg
@@ -264,10 +288,6 @@ class DeleteProfPageView(DeleteView):
 			cv = model_check(self.request,CV)
 			context["cv_"] = cv
 			context["img_p"] = img_p
-			#pimg = PImg.objects.get(id = self.kwargs['pk'])
-			#if self.object.exists():
-				#success_url = self.get_success_url()
-
 		return context
 
 def delete_pic(request,pk):

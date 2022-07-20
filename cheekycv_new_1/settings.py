@@ -7,6 +7,7 @@ from decouple import config
 
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR1 = Path(__file__).resolve().parent
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'app',
     'user_auth',
     'widget_tweaks',
+    #'imagekit',
 
     
     

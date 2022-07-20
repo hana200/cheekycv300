@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_view
 
-from .views import UserRegisterView, PasswordsChangeView, success, UserEditView, delete_pic, password_reset_req
+from .views import UserRegisterView, PasswordsChangeView, success, UserEditView, delete_pic, password_reset_req, err
 from .views import ShowProfPageView, EditProfPageView, CreateProfilePageView
 #from .views import UserRegisterView, UserEditView, PasswordsChangeView, ShowProfPageView, EditProfPageView, CreateProfilePageView
 
@@ -19,6 +19,7 @@ urlpatterns = [
 	# path('<int:pk>/delete_profile_page/', DeleteProfPageView.as_view(), name = 'delete_profile_page'),
 	path('create_profile_page/', CreateProfilePageView.as_view(), name = 'create_profile_page'),
 	path('success/', success, name = 'success'),
+     path('error_form/', err, name = 'err'),
 
 	path('<int:pk>/delete_pic/', delete_pic, name = 'delete_pic'),
 
