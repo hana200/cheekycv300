@@ -155,9 +155,9 @@ class JobForm(forms.ModelForm):
         "job_ws": "Office Website",
         "job_l": "Office Location * ",
 
-        "job_sdm": "Start Month * ",
+        "job_sdm": "Start Month ",
         "job_sdy": "Start Year * ",
-        "job_edm": " End Month * ",
+        "job_edm": " End Month ",
         "job_edy": "End Year * ",
         }
 

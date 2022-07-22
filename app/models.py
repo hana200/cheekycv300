@@ -87,7 +87,7 @@ def cat():
     CH_M = [(CH_M_[i], CH_M_[i]) for i in range(len( CH_M_))]
     return CH_M
 def ch_m():
-    CH_M_ = [ 'Jan', 'Feb', 'March', 'Apr', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec','Present']
+    CH_M_ = [ 'Jan', 'Feb', 'March', 'Apr', 'May','June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec','Present']
     CH_M = [(CH_M_[i], CH_M_[i]) for i in range(len( CH_M_))]
     return CH_M
 def ch_y():
@@ -222,9 +222,9 @@ class Job(models.Model):
     job_l = models.CharField(max_length=50,null=False, blank=False)
    
     #datetime
-    job_sdm = models.CharField(max_length=9,choices=ch_m(),null=False, blank=False, default= 'Jan')
+    job_sdm = models.CharField(max_length=9,choices=ch_m(),null=True, blank=True, default= 'Jan')
     job_sdy = models.CharField(max_length=9,choices=current_y(),null=False, blank=False, default=str(date.today().year))
-    job_edm = models.CharField(max_length=9,choices=ch_m(),null=False, blank=False, default= 'Jan')
+    job_edm = models.CharField(max_length=9,choices=ch_m(),null=True, blank=True, default= 'Jan')
     job_edy = models.CharField(max_length=9,choices=current_y(),null=False, blank=False, default=str(date.today().year))
 
     def __str__(self):

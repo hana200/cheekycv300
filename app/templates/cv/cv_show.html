@@ -481,7 +481,7 @@
 <hr class="m-0" /><br/><br/>
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>                   
+                    <h2 class="mb-5">Education & Certification</h2>                   
                     <ul class="fa-ul mb-0" style="margin-left:7pt">
                         {% for edu in edus %}                       
                         <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -541,11 +541,12 @@
         <div class="resume-section-content" >
             <h2 class="mb-5">FEEL FREE TO CONTACT ME ANYTIME :)</h2>
             <ul class="fa-ul mb-0" style="margin-left:7pt">
+                 <div class="subheading mb-5">
                 
                     <a href="tel:{{bio.phone}}" >{{bio.phone}}</a>
                      | 
-                    <a href="mailto: {{bio.email}}" > {{bio.email}}</a>
-                    <br/><br/>
+                    <a href="mailto: {{bio.email}}" > {{bio.email}}</a></div>
+                    
                     
  <!-- WEB -->
  {%if web%}            
