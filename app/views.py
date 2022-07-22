@@ -10,6 +10,7 @@ from django.core.exceptions import ValidationError
 from django.http import HttpResponse, Http404, HttpRequest
 from datetime import datetime, date, time
 from django.db import IntegrityError
+from django.contrib import messages
 
 #PDF--------------
 
@@ -111,6 +112,20 @@ def error_deleted(request):
         context["img_p"] = img_p
 
     return render(request,'error_deleted.html', context)
+
+
+def ask(request):
+    context={}
+    context["cv_"] = 0
+    context["img_p"] = 0
+
+    if request.user.is_authenticated:
+        user = request.user
+        img_p = model_check(request,PImg)
+        cv = model_check(request,CV)
+        context["cv_"] = cv
+        context["img_p"] = img_p      
+    return render(request,'ask.html', context)
 
 #PDF -------------------
 
@@ -870,14 +885,19 @@ def add_web_only(request,pk):
 
         cv=CV.objects.get(id = pk)
         user=cv.user
-        
+        # context["error"] = 0
         if request.method == 'POST': 
             if request.POST.get("save_next"): 
                 web_form = WebForm(request.POST)
                 web_form.instance.cv = cv         
                 if web_form.is_valid():
-                    web_form.save()
-                return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
+                    if web_form.instance.wl1 != None or web_form.instance.wl2 != None or web_form.instance.wl3 != None or web_form.instance.wl4 != None:
+                        web_form.save()
+                        return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
+                        
+                    else:
+                        # context["error"] = 1
+                        messages.error(request, "All the fields are still blank!")
 
         else:
             web_form = WebForm()
@@ -1272,8 +1292,11 @@ def edit_web(request, pk):
 
         if request.method == 'POST':
             if web_form.is_valid():
-                web_form.save()
-                return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
+                if web_form.instance.wl1 != None or web_form.instance.wl2 != None or web_form.instance.wl3 != None or web_form.instance.wl4 != None:
+                        web_form.save()
+                        return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
+                else:
+                    messages.error(request, "All the fields are still blank!")
             else:
                 raise ValidationError([
                     ('Error! Please try again.'),
@@ -1285,6 +1308,7 @@ def edit_web(request, pk):
         return redirect(reverse('error'))
     
     return render(request, "cv/edit/edit_web.html", context)
+
 
 def edit_skill1(request, pk):
     context={}

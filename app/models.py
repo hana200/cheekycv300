@@ -173,7 +173,7 @@ class Intro(models.Model):
 
 class Skill1(models.Model):
     cv = models.OneToOneField(CV,on_delete=models.CASCADE,related_name='SKILL1_cv')
-    skill_w1 = models.CharField(max_length=1024,null=True, blank=True)
+    skill_w1 = models.CharField(max_length=1024,null=False, blank=False)
     skill_w2 = models.CharField(max_length=1024,null=True, blank=True)
     skill_w3 = models.CharField(max_length=1024,null=True, blank=True)
     skill_w4 = models.CharField(max_length=1024,null=True, blank=True)
@@ -194,7 +194,7 @@ class Skill1(models.Model):
 class Skill2(models.Model):
     cv = models.OneToOneField(CV,on_delete=models.CASCADE,related_name='SKILL2_cv')
 
-    skill_w1 = models.CharField(max_length=1024,null=True, blank=True)
+    skill_w1 = models.CharField(max_length=1024,null=False, blank=False)
     skill_w2 = models.CharField(max_length=1024,null=True, blank=True)
     skill_w3 = models.CharField(max_length=1024,null=True, blank=True)
     skill_w4 = models.CharField(max_length=1024,null=True, blank=True)
@@ -301,10 +301,6 @@ class PImg(models.Model):
     image = models.ImageField(null = True, blank = True, upload_to=path_and_rename_overwrite, max_length=255,)
 
 
-    # def delete1(self, using=None, keep_parents=False):
-    #     aa=settings.MEDIA_ROOT+self.image.url 
-    #     self.image.storage.delete(aa)
-    #     super().delete()
     def delete(self,using=None, keep_parents=False):
         try:
             this = PImg.objects.get(id=self.id)
@@ -362,44 +358,8 @@ class PImg(models.Model):
             super(PImg, self).delete() 
 
 
-
-        #-----------------
-
-
-        #--------------------
-
-        #im = PImage.open('path_and_rename_overwrite') 
-        #im = im.crop((left, top, right, bottom)) 
-       
-
-        '''
-
-        img_ = self.image.path
-        img = Image.open(img_)
-
-        ih = img.height
-        iw = img.width
-
-        s=200 
-        a=90
-
-        resize(ih,iw,s,img,img_,a)
-        '''
-
     def __str__(self):
         return str(self.user)
 
     def get_absolute_url(self): 
         return reverse('home')
-
-
-'''
-profile_image = models.ImageField(upload_to='profile_images', default='profile_images/icon.png')
-profile_icon = ImageSpecField(source='profile_image',
-                              processors=[
-                                  processors.Transpose(),
-                                  processors.Thumbnail(width=72, height=72, crop=True)
-                              ],
-                              format='JPEG',
-
-'''

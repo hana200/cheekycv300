@@ -138,7 +138,7 @@ body{
 }
 
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:1000px) {
   /*CHANGE*/
   .cheeky-menu {
     background-color: #000;
@@ -192,7 +192,7 @@ body{
   }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1000px) {
   /*CHANGE*/
   .cheeky-toggler{
     color: rgb(229, 236, 238);
@@ -245,7 +245,7 @@ body{
     color: #000;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 1000px) {
   .menu-button {
     height: 30px;
     width: 30px;
@@ -290,13 +290,14 @@ body{
         {%endif%}
 
         {%if user.pimg.id%}
-        <li onclick="closeMenu()"><a href="{% url 'show_profile_page' user.pimg.id %}">My Pic</a></li>
-        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">Edit Pic</a></li>
+
+        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">My Pic</a></li>
         {%else%}
         <li onclick="closeMenu()"><a href="{% url 'create_profile_page'%}">Add Pic</a></li>
         {%endif%}
         <hr style="background-color: #FFF;">
         <li onclick="closeMenu()"><a href="{% url 'password_reset' %}">SETTINGS</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'ask' %}">Contact</a></li>  
         <li onclick="closeMenu()"><a href="{% url 'logout' %}">Log Out</a></li>
       </div>
     {%else%}
@@ -331,13 +332,13 @@ body{
         {%endif%}
 
         {%if user.pimg.id%}
-        <li onclick="closeMenu()"><a href="{% url 'show_profile_page' user.pimg.id %}">My Pic</a></li>
-        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">Edit Pic</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">My Pic</a></li>
         {%else%}
         <li onclick="closeMenu()"><a href="{% url 'create_profile_page'%}">Add Pic</a></li>
         {%endif%}
         <hr style="background-color: #FFF;">
         <li onclick="closeMenu()"><a href="{% url 'password_reset' %}">SETTINGS</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'ask' %}">Contact</a></li>   
         <li onclick="closeMenu()"><a href="{% url 'logout' %}">Log Out</a></li>
       </div>
     {%else%}

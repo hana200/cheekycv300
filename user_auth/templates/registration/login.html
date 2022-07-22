@@ -16,17 +16,17 @@
 				
                         <label for="id_username">Username:</label> 
     					<!-- <p style=" display: relative;align-items: center;justify-content: center;"> -->
-                            <input  type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" placeholder="username..." class="form-control"> <br>
+                            <input  type="text" name="username" autofocus autocapitalize="none"  autocomplete="username" maxlength="150" required id="id_username"  class="form-control" oninput="this.value=this.value.toLowerCase()" placeholder="username..."> <br>
 
 
         				<label for="id_password">Password:</label> <br>
-        					<input  type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password..." class="form-control"><br/>
+        					<input  type="password" name="password" autocomplete="current-password" required id="id_password"  class="form-control" placeholder="password..."><br/>
         				
                </div>
 
 		
         
-        <button href = "{% url 'login' %}"class ="btn btn-dark" type="submit" name="login" value="login">Login</button>&nbsp;
+        <button class ="btn btn-dark" type="submit" name="login" value="login">Login</button>&nbsp;
         <a class ="btn btn-light" href="{% url 'password_reset' %}">Password Reset</a>  
         
     </form>
@@ -38,9 +38,6 @@
         <hr>
     </div>
 </div>
-
-
-
 
 
 

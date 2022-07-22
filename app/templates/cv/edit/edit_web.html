@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} CHEEKY | Edit Web Presence{% endblock %}
+{% block title %} CHEEKY | Edit Web Presence - CV Builder {% endblock %}
 {% block content %}
 
 
@@ -13,12 +13,21 @@
             {% csrf_token %}
                 {{ web_form.as_p }}
             <br/>
+<div>
+    {% if messages %}
+    <div class="alert alert-danger alert-dismissible col-12 mx-1" role="alert">
+        {% for m in messages %}
+        {{m | escape}}
+        {% endfor%}
+    </div>
+    {% endif %}
+ </div>
             <div class="subheading " >
                 <div class="container" style="margin-left: auto;display: flex; justify-content: center;">
 
-                        <button class ="btn btn-dark" type="submit" name="save" value="save">Save&Back</button>
-                        &nbsp;&nbsp;
-                        <button href="{% url 'cv_show_edit' user %}#about" class ="btn btn-light" type="submit" name="cancel" value="cancel"> Cancel</button>
+                        <button class ="btn btn-dark" type="submit" name="save" value="save">SAVE</button>
+                       &nbsp;&nbsp;
+                    <a href="{% url 'cv_show_edit' user %}#about" class ="btn btn-light">&nbsp;CANCEL</a>
                         
                 </div>
             </div>

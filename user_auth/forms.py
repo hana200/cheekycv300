@@ -6,7 +6,51 @@ from app.models import PImg
 from typing import Final
 from django.contrib.auth.tokens import default_token_generator 
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import AuthenticationForm
 
+# class LoginForm(AuthenticationForm):
+# 	id_username = forms.CharField(
+# 		label='',
+# 			widget=forms.TextInput(
+# 			attrs = {
+# 				'placeholder': 'username or emaildwdwdwdwd',
+# 			}
+# 		)
+# 	)
+# 	id_password = forms.CharField(
+# 		label='', 
+# 		widget=forms.PasswordInput(
+# 			attrs = {
+# 				'placeholder': 'password'
+# 			}
+# 		)
+# 	)
+# 	def clean(self):
+# 		cleaned_data = super(LoginForm, self).clean()
+# 		id_username = self.cleaned_data.get('id_username')
+# 		id_username = id_username.lower()	
+# 		id_password = self.cleaned_data.get('id_password')
+# 		cleaned_data["id_username"] = id_username		
+# 		cleaned_data["id_password"] = id_password
+# 		return self.cleaned_data
+
+class LoginForm(AuthenticationForm):
+	username = forms.CharField(
+		label='',
+			widget=forms.TextInput(
+			attrs = {
+				'placeholder': 'username or emaildwdwdwdwd',
+			}
+		)
+	)
+	password = forms.CharField(
+		label='', 
+		widget=forms.PasswordInput(
+			attrs = {
+				'placeholder': 'password'
+			}
+		)
+	)
 
 class SignUpForm(UserCreationForm):
 	email = forms.EmailField(widget = forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email...'}))
@@ -28,41 +72,34 @@ class SignUpForm(UserCreationForm):
 		self.fields['password2'].widget.attrs['placeholder'] = 'type the password again...'
 	
 	def clean(self):
-
+		cleaned_data = super(SignUpForm, self).clean()
 		email = self.cleaned_data.get('email')
+		email = email.lower()
 		username = self.cleaned_data.get('username')
+		username = username.lower()
 		username_len=len(str(username))
 		password1 = self.cleaned_data.get('password1')
 		password2 = self.cleaned_data.get('password2')
 		err=[]
 
+		cleaned_data["username"] = username
+		cleaned_data["email"] = email
+		cleaned_data["password1"] = password1
+		cleaned_data["password2"] = password2
 
 		if User.objects.filter(username=username).exists() and User.objects.filter(email=email).exists():
-			# er1="Email and Username already registered, please try again!"
-			# err.append(er1)
 			raise ValidationError("Email and Username already registered, please try again!")
 		elif User.objects.filter(email=email).exists():
-			# er2="Email already registered, please try to log in!"
-			# err.append(er2)
 			raise ValidationError("Email already registered, please try to log in!")
 		elif User.objects.filter(username=username).exists():
-			# er3 = "Username already exists! Please select a different one"
-			# err.append(er3)
 			raise ValidationError("Username already exists! Please select a different one")
 		elif username == 'admin':
-			# er4 = "Not allowed! Please choose a different name"
-			# err.append(er4)
 			raise ValidationError("Not allowed! Please choose a different name")
 		elif username_len<4:
 			# er5 = "Username too short, please use 4 characters or more"	
 			# err.append(er5)
-			raise ValidationError("Username too short, please use 4 characters or more")
-		
-
-
+			raise ValidationError("Username too short, please use 4 characters or more")		
 		return self.cleaned_data
-
-
 
 class PasswordChangingForm(PasswordChangeForm):
 	old_password = forms.CharField(max_length = 100, widget = forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))

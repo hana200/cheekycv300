@@ -1,58 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} CHEEKY | Success! {% endblock %}
+{% block title %} CHEEKY | Error! {% endblock %}
 
 {% block content %}
 
-<style type="text/css">
-.hana_div2{
-    margin: auto;
-    margin-top: 100px;
-    width: 27rem;
-    padding: 10px;
-    font-size: 25pt;
-    color: #ff59a8;
-    text-align: center;
-
-}
-.hana_div .container{
-    margin-top: 10pt;
-    align-items: center;
-}
-
-@media (max-width: 576px) {
-  .hana_div-sm, .hana_div {
-    margin: auto;
-    margin-left: 2rem;
-    margin-top: 50px;
-    max-width: 540px;
-  }
-}
-</style>
 
 
-{% if user.is_authenticated %}
-<div class = "hana_div2">
-    <div class="container" >       
-    <b>Error! You forgot to fill in something...</b><br/> <br/>  
+<br/><br/><br/><br/>
+        
+<h4 style="text-align:center; color:#999">Upps...</h4><br/>
+<h1 style="text-align:center; color:#98cadc">Error</h1>
+<div class="hana_div1" >
+    <p style="text-align:center">
+    You forgot to fill in something...
+    </p>
+</div>
+<br><br>
+<div align="center">
     <img src="{% static 'assets/img/smiley.png' %}" class="svg-pink" />
-    <br/> <br/> 
-    </div>
 </div>
 
-{%else%}
 
-    <h1> Ups, you kinda wandered off there into the unknown :)<br/>
-    Please <a href = "{% url 'login' %}">log in</a> or <a href = "{% url 'register' %}">register</a> to edit your CV </h1><br/>
-    <a href="{% url 'home' %}" class ="btn btn-dark">HOME</a> <br/> 
-
-{%endif%}
 
 
 <script>
   window.setTimeout(function(){
     window.location.href = "{% url 'create_profile_page' %}";
-  }, 1000);
+  }, 2000);
 </script>
 
 {% endblock %} 

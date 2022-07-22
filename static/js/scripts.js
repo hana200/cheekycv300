@@ -49,29 +49,6 @@
       document.getElementById("open1_img").style.display = "block";
     }
 
-      function show1() {
-
-        document.getElementById("sidebar-open").style.visibility == "hidden";
-        document.getElementById('sidebar-close').classList.toggle('active1');
-      }
-      function stayHiddenDIV() {
-        var div = document.getElementById("sidebar-open");
-        //Check div is hidden or not. If hidden then display
-        if (window.getComputedStyle(div).visibility === "hidden") {
-        div.style.visibility = "hidden";
-        alert('You refreshed!');
-        }
-      }
-      function checkFirstVisit() {
-        if(document.cookie.indexOf('mycookie')==-1) {
-          // cookie doesn't exist, create it now
-          document.cookie = 'mycookie=1';
-        }
-        else {
-          // not first visit, so alert         
-          stayHiddenDIV();
-        }
-      }
 // -a-------------------------------------------------
 
   function SEE() {

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} CHEEKY | Edit Projects{% endblock %}
+{% block title %} CHEEKY | Edit Projects - CV Builder {% endblock %}
 {% block content %}
 
 
@@ -18,9 +18,9 @@
             <div class="subheading " >
                 <div class="container" style="margin-left: auto;display: flex; justify-content: center;">
 
-                        <button class ="btn btn-dark" type="submit" name="save" value="save">Save&Back</button>
+                        <button class ="btn btn-dark" type="submit" name="save" value="save">SAVE</button>
                         &nbsp;&nbsp;
-                        <button href="{% url 'cv_show_edit' user %}#experience" class ="btn btn-light" type="submit" name="cancel" value="cancel"> Cancel</button>
+                    <a href="{% url 'cv_show_edit' user %}#about" class ="btn btn-light">&nbsp;CANCEL</a>
                         
                 </div>
             </div>

@@ -4,10 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Roboto&family=Roboto+Mono&display=swap');
 
-/*@import url('http://cheekycv.com/hana/css/styles_cv1.css');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Roboto+Mono&display=swap');*/
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 *{
@@ -182,7 +178,7 @@ body{
   flex-direction: column;
 }
 
-@media screen and (min-width:769px) {
+@media screen and (min-width:1000px) {
   /* CHEEKY-MENU */
   .cheeky-menu {
     background-color: #000;
@@ -242,7 +238,7 @@ body{
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1000px) {
   /* color: rgb(211,211,211); */
   .cheeky-toggler{
     color: rgb(229, 236, 238);  
@@ -330,7 +326,18 @@ body{
 .btnS:focus {
   outline: none;
 }
-@media (max-width: 576px) {
+@media (min-width: 10px) {
+  .menu-button {
+    height: 30px;
+    width: 30px;
+  }
+  .menu-button-l {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media (max-width: 1000px) {
   .menu-button {
     height: 30px;
     width: 30px;
@@ -564,8 +571,7 @@ body{
         {%endif%}
 
         {%if user.pimg.id%}
-        <li onclick="closeMenu()"><a href="{% url 'show_profile_page' user.pimg.id %}">My Pic</a></li>
-        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">Edit Pic</a></li>
+        <li onclick="closeMenu()"><a href="{% url 'edit_profile_page' user.pimg.id %}">My Pic</a></li>
         {%else%}
         <li onclick="closeMenu()"><a href="{% url 'create_profile_page'%}">Add Pic</a></li>
         {%endif%}
@@ -573,7 +579,8 @@ body{
             <hr style="background-color:#666" />
 
         <li onclick="closeMenu()"><a href="{% url 'password_reset' %}">SETTINGS</a></li>
-        <li onclick="closeMenu()"><a href="{% url 'logout' %}">Log Out</a></li>       
+        <li onclick="closeMenu()"><a href="{% url 'ask' %}">Contact</a></li> 
+        <li onclick="closeMenu()"><a href="{% url 'logout' %}">Log Out</a></li>     
       </div>
     {%else%}
       <div class="cheeky-menu" id="cheeky-menu">

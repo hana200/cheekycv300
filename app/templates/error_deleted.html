@@ -1,9 +1,19 @@
 
 {% extends 'base.html' %}
 {% block content %}
+{% block title %} CHEEKY | Error! {% endblock %}
 
-
-<h1>ERROR! THIS PAGE MIGHT HAVE EXISTED ONCE UPON A TIME. <br/>
-IT HAS LEFT OUR SERVER, PLEASE CONTACT THE OWNER OF THE LINK</h1>
-
+<br/><br/><br/><br/>
+        
+<h4 style="text-align:center; color:#999">Upps...</h4><br/>
+<h1 style="text-align:center; color:#98cadc">Error</h1>
+<div class="hana_div1" >
+	<p style="text-align:center">
+	The page you are looking for might have existed once upon a time. Please contact the link sender to find out what happened.
+	</p>
+</div>
+          <br><br>
+<div align="center">
+	<a  type="black_l" href="{% url 'home' %}" tsitle="Back to CHEEKY"><i class="fas fa-arrow-alt-circle-left " ></i></a>
+</div> 
 {% endblock %} 

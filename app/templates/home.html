@@ -354,10 +354,10 @@ input[type="submit"]:hover {
               Make your job application pop out! Generate and publish your online profile in 10 min. Copy the link from your browser and share it with your future employers.
             </p>
           </div>
-    <br/><br/><br/><br/>
+    <br/><br/>
 <!-- LOGGED IN / YES CV-->
   {%else%}
-  <br/><br/><br/><br/>
+  <br/><br/> <br/>
     <h4 style="text-align:center; color:#999999">HELLO</h4><br/>
           <a type="black_l" href="{% url 'cv_show' user %}" title="GO TO MY CV" ><p style="text-align:center; ">GO TO MY CV</p></a>
 
@@ -366,7 +366,7 @@ input[type="submit"]:hover {
               Go and check out how others see your uploaded CV
             </p>
           </div>
-    <br/><br/><br/><br/>
+    <br/><br/>
   {%endif%}
 {%else%}
 <!-- SECTION REGISTER NOW - NOT LOGGED IN -->
@@ -379,12 +379,12 @@ input[type="submit"]:hover {
               Register to continue and make your free cv. Be sure to think about your preferred username as the link to your cv will be generated as 'http://cheekycv.com/cv/yourusername'.We only ask for your email, no credit card check or any other nonsense hidden in the process.
             </p>
           </div>
-    <br/><br/><br/><br/>
+    <br/><br/>
 {%endif%}
 
 <!-- SECTION ABOUT -->
     <div class="colorB">
-    <br/><br/><br/><br/>
+    <br/><br/><br/>
           <h4 style="text-align:center; color:#eeeeee">Why Cheeky</h4><br/>
           <h1 style="text-align:center; color:#FFFFFF">FAST & SIMPLE</h1>
 
@@ -403,10 +403,10 @@ input[type="submit"]:hover {
 
 
 
-    <br/><br/><br/><br/>
+    <br/><br/>
 </div>
 <!-- SECTION HELLO  -->
-<br/><br/><br/><br/>
+<br/><br/><br/>
     {% if user.is_authenticated %} 
     <h4 style="text-align:center; color:#999999">SELECTED USERS</h4><br/>
     {%else%}
@@ -461,11 +461,11 @@ input[type="submit"]:hover {
 
 
 
-    <br/><br/><br/><br/>
+    <br/><br/>
 <!--HANAHANAHANA -->
 <!-- SECTION CONTACT -->
     <div class="colorB" id="contact">
-    <br/><br/><br/><br/>
+    <br/><br/><br/>
           <h4 style="text-align:center; color:#eeeeee">More info? Bring it on!</h4><br/>
           <h1 style="text-align:center; color:#FFFFFF">GET IN TOUCH</h1><br/>
 
@@ -474,7 +474,7 @@ input[type="submit"]:hover {
 
                   <form class ="forma" method="post" name="contact_form" action="http://cheekycv.com/assets/js/contact-form-handler-ch.php">
 
-                        Subscribe to support our little cheeky initiative. <br> Be sure that we will carefully store your precious @<br/>
+                        Subscribe to support our little cheeky initiative. <br> Be assured that we will carefully store your precious @<br/>
                         We hate spam too! <br/><br/>
                         <input type="text" name="email" onpaste="return false;" placeholder="name@example.com"><br><br>
 
@@ -483,7 +483,7 @@ input[type="submit"]:hover {
                   </form>
 
           </div>
-          <br/><br/><br/><br/>
+          <br/><br/>
     </div>
     <div class="footer">
     <br/><br/><br/><br/>

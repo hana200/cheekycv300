@@ -114,21 +114,30 @@ class IntroForm(forms.ModelForm):
 class Skill1Form(forms.ModelForm):
     class Meta:
         model = Skill1
-        widgets ={}
-        labels ={}
         exclude = ['cv']
-        for x in range(1, 16):
+        widgets = {
+        'skill_w1' : forms.TextInput(attrs={'class': 'form-control','placeholder':'Team Management'}),
+        }
+        labels ={
+        "skill_w1": "Skill 1 * ",
+        }
+        
+        for x in range(2, 16):
             widgets["skill_w{0}".format(x)] = forms.TextInput(attrs={'class': 'form-control','placeholder':'Team Management'})
-            labels["skill_w{0}".format(x)] = 'Skill ' + str(x)   
+            labels["skill_w{0}".format(x)] = 'Skill ' + str(x) 
 class Skill2Form(forms.ModelForm):
     class Meta:
         model = Skill2
-        widgets ={}
-        labels ={}
         exclude = ['cv']
-        for x in range(1, 16):
+        widgets = {
+        'skill_w1' : forms.TextInput(attrs={'class': 'form-control','placeholder':'Microsoft Office'}),
+        }
+        labels ={
+        "skill_w1": "Skill 1 * ",
+        }
+        for x in range(2, 16):
             widgets["skill_w{0}".format(x)] = forms.TextInput(attrs={'class': 'form-control','placeholder':'Microsoft Office'})
-            labels["skill_w{0}".format(x)] = 'Skill ' + str(x)       
+            labels["skill_w{0}".format(x)] = 'Skill ' + str(x)  +'*'      
 
 #------------JOB FORMS--------------------------------------
 class JobForm(forms.ModelForm):

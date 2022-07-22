@@ -35,7 +35,7 @@
 						<div style="text-align: left;">
 							<label for="id_username">Username:</label> 
 						</div>
-
+						{{ value|slugify }}
 						<input type="text" name="username" maxlength="150" autofocus class="form-control" placeholder="user name..." required id="id_username"> <br>
 						
 						<div class="alert alert-info" style="background-color:blue_hana_light;z-index: -20;text-align: left; ">

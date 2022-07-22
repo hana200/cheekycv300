@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 #------------------------------------------------------
-from .views import home, error, error_deleted, pdf_
+from .views import home, error, error_deleted, pdf_, ask
 from .views import cv_show, cv_show_edit
 #ADD
 from .views import add_bio, add_edu, add_job, add_jobrole, add_jobrolecat
@@ -24,6 +24,7 @@ from user_auth.views import password_reset_req
 urlpatterns = [
     path('', home, name='home'),
     path('pdf_',pdf_, name = 'pdf_'),
+    path('ask/',ask, name = 'ask'),
 
     path('error', error, name='error'),
     path('error/', error_deleted, name='error_deleted'),
