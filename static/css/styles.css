@@ -11328,7 +11328,7 @@ body{
   flex-direction: column;
 }
 
-@media screen and (min-width:769px) {
+@media screen and (min-width:992px) {
   /* CHEEKY-MENU */
   .cheeky-menu {
     background-color: #000;
@@ -11388,7 +11388,7 @@ body{
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:992px) {
   /* color: rgb(211,211,211); */
   .cheeky-toggler{
     color: rgb(229, 236, 238);  
