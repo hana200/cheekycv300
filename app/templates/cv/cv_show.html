@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} CHEEKY | {{user}} CV{% endblock %}
+{% block title %}Your Personal Landing Page | Free CV Builder | CHEEKY CV{% endblock %}
 
 {% block content %}
 
@@ -40,13 +40,13 @@
   margin-right: auto;
   margin-left: auto;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     .container-fluid1 {
         flex-wrap: nowrap;
 }
 
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 992px) {
     .container-fluid1 {
         flex-wrap: nowrap;
 }
@@ -64,7 +64,7 @@
     <section class="resume-section" id="about" >
         <div class="resume-section-content">
                     
-                
+               
 <!-- NAME -->       <h1 class="mb-0"> {{bio.name}}  <span class="text-primary"> {{bio.surname}} </span> </h1>
 
 <!-- LOCATION -->   <div class="subheading mb-5"> {{bio.location}}  <br/>
@@ -164,7 +164,8 @@
 
                 </div><br/>
 
-
+<!-- DESCRIPTION ROLE --->
+                <div style="text-align: left; "> {{ role.0.role_d | title}} </div><br>
 <!-- ROLE PROJECTS --->
                 {% if role.1 %}
                 {% for cat in role.1 %}

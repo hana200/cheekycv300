@@ -34,14 +34,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 
 
-'''
-print(review)  # Print so I can see in cmd prompt that something posts as it should
-            try:
-                review.save()
-            except IntegrityError:
-                return redirect('name-of-some-view')
-'''
-
 def model_check(x,model):
     user = x.user
     img_p = 0
@@ -369,6 +361,7 @@ def cv_show_edit(request, pk):
                 cats_=[]
                 roles.append(role)
                 for r in role:
+
                     c = J_Role_Cat.objects.filter(user = user,job = job, role = r)
                     cats_.append(c)
                 cats.append(cats_)

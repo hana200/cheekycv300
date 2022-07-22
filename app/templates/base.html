@@ -29,8 +29,8 @@
     <!-- END META -->
 
     <!-- Favicon-->
-        <link rel="icon"  href="https://www.prickl.com/assets/img/favicon_.png"/>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"  href="https://www.prickl.com/assets/img/favicon_.png"/>
+   <!--  <link rel="stylesheet" href="styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Google fonts-->
@@ -52,85 +52,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
 
-        
-  </head>
-  <body>
-
-    <style type="text/css">
-    @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-      *{
-          margin: 0;
-          padding: 0;
-        }
-
-    
-      .center-cropped1{
-        width: 30px;
-        height: 30px;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      .center-cropped {
-        object-fit: contain; 
-        object-position: center;
-        border-radius: 50%;
-        height: 30px;
-        width: 30px;
-      }
       
-      .content{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        margin-bottom: 100px;
-        padding-bottom: 200px;
-        padding-top: 50px;
-        padding-left: 10px;
-        padding-right: 10px;
 
-      }
-      .content_{
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin-top: 30px;
-        height: 100%;
-        width: 100%;
-        margin-bottom: 100px;
-        padding-bottom: 200px;
-      }
-      .content_home{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        margin-bottom: 100px;
-        padding-bottom: 200px;
-        
-      }
-      .content_cv{
-        margin-top: 100px;
-        margin-right: 100px;
-        /*font-family: 'Staatliches', cursive;*/
-      }
-
-
-      @media screen and (max-width:1000px) {
-        .content_cv{
-        margin-right: 0px;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      
-    }
-    </style>
-
-  
-  <title>{% block title %}CHEEKY CV{% endblock %}</title>
 
   </head>
    <body>
@@ -155,62 +78,6 @@
 
             </div>
      
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    
-
-
-<!--   <script>
-    const menuToggle = document.querySelector('.menu-toggle input');
-    const nav = document.querySelector('nav ul');
-
-    menuToggle.addEventListener('click',function(){
-      nav.classList.toggle('slide');
-    }
-    )
-    function openNav() {
-      document.getElementById("cv-content-sm").style.display = "block";
-      document.getElementById("open1").style.display = "none";
-      document.getElementById("open1_img").style.display = "none";
-      document.getElementById("close1").style.display = "block";
-      document.getElementById("close1_img").style.display = "block";
-    }
-
-    function closeNav() {
-      document.getElementById("cv-content-sm").style.display = "none";
-      document.getElementById("close1").style.display = "none";
-      document.getElementById("close1_img").style.display = "none";
-      document.getElementById("open1").style.display = "block";
-      document.getElementById("open1_img").style.display = "block";
-    }
-
-    function openMenu() {
-      document.getElementById("cheeky-menu").style.display = "block";
-      document.getElementById("open2").style.display = "none";
-      document.getElementById("open2_img").style.display = "none";
-      document.getElementById("close2").style.display = "block";
-      document.getElementById("close2_img").style.display = "block";
-    }
-
-    function closeMenu() {
-      document.getElementById("cheeky-menu").style.display = "none";
-      document.getElementById("close2").style.display = "none";
-      document.getElementById("close2_img").style.display = "none";
-      document.getElementById("open2").style.display = "block";
-      document.getElementById("open2_img").style.display = "block";
-    }
-    function closeMenuCV() {
-      document.getElementById("cv-content-sm").style.display = "none";
-      document.getElementById("close1").style.display = "none";
-      document.getElementById("close1_img").style.display = "none";
-      document.getElementById("open1").style.display = "block";
-      document.getElementById("open1_img").style.display = "block";
-    }
-
-  </script>
-      -->
-
     <!-- Bootstrap core JS-->
         <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
@@ -220,10 +87,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Contact form JS-->
         <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <!-- <script src="assets/mail/contact_me.js"></script> -->
-        <!-- Core theme JS-->
-        <!-- <script src="{% static 'js/scripts.js' %}"></script> -->
-        <script src="{../static/js/scripts.js' %}"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
 
 
   </body>

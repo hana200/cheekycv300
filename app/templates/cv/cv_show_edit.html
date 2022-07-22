@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} CHEEKY | {{user}} CV{% endblock %}
+{% block title %}Edit Your CV | Free CV Builder| CHEEKY CV{% endblock %}
 
 {% block content %}
 <style type="text/css">
@@ -31,14 +31,16 @@
 </style>
 
 
+
+
 {% if user.is_authenticated and user == user_cv %}
 <!-- CV TITLE ---->
 
-        <div class="container-fluid p-0" style="flex-wrap: nowrap;">
+        <div class="container-fluid1 p-0" style="flex-wrap: nowrap;">
             <section class="resume-section" id="about" >
                 <div class="resume-section-content">
                     
-                
+                 
 <!-- NAME -->       <h1 class="mb-0"> {{bio.name}}  <span class="text-primary"> {{bio.surname}} </span> </h1>
 
 <!-- LOCATION -->   <div class="subheading mb-5"> {{bio.location}}  <br/>
@@ -49,6 +51,8 @@
                     <a href="{% url 'edit_bio' bio.id%}" class ="btn btn-light"> Edit</a>                    <br/><br/><br/><br/>
                     <!-- END BUTTONS EDIT ------------------------->  
             {%if intro.intro_text%}
+            <hr/><br/><br/>
+                <div class="subheading mb-3">Introduction</div> 
                 <p class="lead mb-5">{{intro.intro_text}}</p>
                 <!-- BUTTONS EDIT------------------------->                    
                 <a href="{% url 'edit_intro' intro.id%}" class ="btn btn-light"> Edit</a> &nbsp; &nbsp;
@@ -60,13 +64,14 @@
                     <ul class="forgot-to-add">           
                         <li>Looks like you forgot to add introduction to your CV. Please add some info<br/></li><br/>
                         <li><a href="{% url 'add_intro_only' cv.id %}" class ="btn btn-dark"> Add Intro</a></li>
-                    </ul>
-                    <br/>
+                    </ul><br><br/>
+                    
                 <!-- END BUTTONS ------------------------->  
             {%endif%}
                     
-            {%if web%}            
-                
+            {%if web%} 
+            <hr/><br><br>           
+                    <div class="subheading mb-3">Web Presence</div> 
                     <div class="social-icons">
                         {%if web.wl1%}
                         <a class="social-icon" href="{{ web.wl1}}" target="_blank">
@@ -101,12 +106,12 @@
             {%else%}
                     <!-- BUTTONS ADD------------------------->
                             <hr/><br/><br/>
-                            <div class="subheading mb-3">Web</div>            
+                            <div class="subheading mb-3">Web Presence</div>            
                             <ul class="forgot-to-add">         
                                 <li>Looks like you forgot to add web-links into your CV. Please add some<br/></li><br/>
                                 <li><a href="{% url 'add_web_only' cv.id %}" class ="btn btn-dark"> Add Links</a></li>
                             </ul>
-                            <br/>
+                            <br/><br/>
                     <!-- END BUTTONS ADD ------------------------->   
 
             {% endif %}
@@ -128,6 +133,7 @@
 <h2 class="mb-5">Experience</h2>   
 
 {% for z in zipp%}
+
     <div class="d-flex flex-column flex-md-row justify-content-between mb-5" >
         <div class="flex-grow-1" >
 
@@ -179,11 +185,13 @@
                                 {%endif%}
 
                 </div><br/>
-<!-- BUTTONS ROLE --->
+<!-- DESCRIPTION ROLE --->
+                <div style="text-align: left; "> {{ role.0.role_d | title}} </div><br>
+<!-- BUTTONS ROLE --->                
                 <div style="text-align: left; ">
                     <a href="{% url 'edit_jobrole' role.0.id %}" class ="btn btn-light"> Edit </a>&nbsp;
                     <a href="{% url 'delete_jobrole' role.0.id %}" class ="btn btn-light"> Delete</a> &nbsp; 
-                    <a href="{% url 'add_jobrolecat_only' role.0.id %}" class ="btn btn-light"> Add Description </a>
+                    <a href="{% url 'add_jobrolecat_only' role.0.id %}" class ="btn btn-light"> Add Bullet Points </a>
                 </div>
                 <br/><br/>
 
@@ -277,8 +285,10 @@
 
 
     </div><br>
+    <hr class="m-0" /><br/><br/>
             
     {% endfor %}  
+
     </ul> 
      <div style="margin-left: 20px"><a href="{% url 'add_job_only' cv.id %}" class ="btn btn-dark"> Add Job</a></div>
      <br/>      
@@ -600,8 +610,8 @@
                                     
                      <!-- BUTTONS EDIT------------------------->
                     <a href="{% url 'edit_edu' edu.id %}" class ="btn btn-light"> Edit </a>&nbsp; 
-                    <a href="{% url 'delete_edu' edu.id%}" class ="btn btn-light"> Delete</a>
-                    <br/><br/><br/>
+                    <a href="{% url 'delete_edu' edu.id%}" class ="btn btn-light"> Delete</a><br>
+                    <br/><hr/><br/><br/>
                     <!-- END BUTTONS EDIT ------------------------->
                      {% endfor %}  
                      </ul>  
@@ -725,6 +735,6 @@
 </div>
 {%endif%}
 
-
+<div style="text-align: center; "> <a  href="{% url 'delete_cv' cv.id %}" class ="btn btn-dark">Delete My CV</a> </div><br><br><br>
 
 {% endblock %} 
