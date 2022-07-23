@@ -5,10 +5,15 @@
 {% block content %}
 
 {% block nav_menu %}{% include 'navbar_menu.html' %}{% endblock nav_menu %}
+<style type="text/css">
+  .hana_div_top11{
+  margin: auto;
+  width: 100%;
+}
+</style>
 
 
-
-    <img class="hana_div_top" src = "../static/assets/img/cov.png">
+    <img class="hana_div_top11" src = "../static/assets/img/cov.png">
 <!-- SECTION REGISTER NOW / MAKE CV/ GOTO CV-->
 
 {% if user.is_authenticated %} 
@@ -42,12 +47,13 @@
 {%else%}
 <!-- SECTION REGISTER NOW - NOT LOGGED IN -->
     <!-- <br/><br/><br/><br/> -->
-          <a type="black_s" href="{% url 'login' %}"title="LOGIN"><p style="text-align:center; ">Login or...</p></a>
-          <a type="black_l" href="{% url 'register' %}" title="REGISTER" ><p style="text-align:center; ">REGISTER NOW</p></a>
+          <a type="black_s" href="{% url 'login' %}"title="LOGIN"><p style="text-align:center; ">Login or...</a>
+          <a type="black_s" href="{% url 'register' %}"title="REGISTER"> register</a></p>
+          <h1 style="text-align:center; color:#98cadc">MAKE MY CV NOW</h1>
 
           <div class="hana_div1">
             <p style="text-align:center">
-              Register to continue and make your free cv. Be sure to think about your preferred username as the link to your cv will be generated as 'http://cheekycv.com/cv/yourusername'.We only ask for your email, no credit card check or any other nonsense hidden in the process.
+              Register to continue and make your free cv. Be sure to think about your preferred username as the link to your cv will be generated as 'http://cheekycv.com/cv/yourusername'.We only ask for your email, no credit card check.
             </p>
           </div>
     <br/><br/>

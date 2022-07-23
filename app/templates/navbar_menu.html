@@ -327,7 +327,8 @@ body{
         <li onclick="closeMenu()"><a href="{% url 'home' %}">Home</a></li>
        {%if cv_ != 0%}
         <li onclick="closeMenu()"><a href="{% url 'cv_show' user %}">My CV</a></li>
-        <li onclick="closeMenu()"><a href="{% url 'cv_show_edit' user %}">Edit CV</a></li>     
+        <li onclick="closeMenu()"><a href="{% url 'cv_show_edit' user %}">Edit CV</a></li>
+<!--         <li onclick="closeMenu()"><a href="{% url 'pdf_'%}">PDF</a></li>   --> 
         {%else%}
         <li onclick="closeMenu()"><a href = "{% url 'add_bio' user %}">NEW CV</a></li>
         {%endif%}

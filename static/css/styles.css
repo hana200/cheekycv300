@@ -10383,8 +10383,8 @@ input[type="submit"]:hover {
 .hana_div_top{
   margin: auto;
   width: 100%;
-
 }
+
 .colorB{
   background-color:#98cadc ;
 }
@@ -10479,9 +10479,7 @@ input[type="submit"]:hover {
   .hana_div2 {
     max-width: 540px;
   }
-  .hana_div_top {
-    max-width: 540px;
-  }
+
 
 }
 
