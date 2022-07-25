@@ -162,6 +162,6 @@ DEFAULT_FROM_EMAIL = 'CHEEKY CV Team <noreply@cheekycv.com>'
 
 
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DISABLE_COLLECTSTATIC=1
 django_heroku.settings(locals())
