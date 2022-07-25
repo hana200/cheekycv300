@@ -1,33 +1,31 @@
-
-import os
 from pathlib import Path
+import os
 
-# import django_heroku
+import django_heroku
 import dj_database_url
 from decouple import config
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR1 = Path(__file__).resolve().parent
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-*lyxq+j1m-a2rc@io94%4^9t$+us^m$5-tq1wfjy=7halu$^ru'
 
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-SECRET_KEY = django-insecure-*lyxq+j1m-a2rc@io94%4^9t$+us^m$5-tq1wfjy=7halu$^ru
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-# DEBUG = str(os.environ.get('DEBUG')) == "1" # 1 == True
-DEBUG = str(os.environ.get('DEBUG')) == "0"
-
-ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 ALLOWED_HOSTS = []
-if not DEBUG:
-    ALLOWED_HOSTS += [os.environ.get('DJANGO_ALLOWED_HOST')]
+
 
 # Application definition
-# python manage.py makemigrations
-# python manage.py migrate
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,6 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'user_auth',
+    'widget_tweaks',
+    #'imagekit',
+
+    
+    
+
 ]
 
 MIDDLEWARE = [
@@ -48,18 +52,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_htmx.middleware.HtmxMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cheekycv_new_1.urls'
-LOGIN_URL='/login/'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / "templates",          
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'static': 'django.templatetags.static', 
             }
         },
+        
     },
 ]
 
@@ -88,32 +90,9 @@ DATABASES = {
     }
 }
 
-POSTGRES_DB = os.environ.get("POSTGRES_DB") #database name
-POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD") # database user password
-POSTGRES_USER = os.environ.get("POSTGRES_USER") # database username
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST") # database host
-POSTGRES_PORT = os.environ.get("POSTGRES_PORT") # database port
-
-POSTGRES_READY = (
-    POSTGRES_DB is not None
-    and POSTGRES_PASSWORD is not None
-    and POSTGRES_USER is not None
-    and POSTGRES_HOST is not None
-    and POSTGRES_PORT is not None
-)
-
-if POSTGRES_READY:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": POSTGRES_DB,
-            "USER": POSTGRES_USER,
-            "PASSWORD": POSTGRES_PASSWORD,
-            "HOST": POSTGRES_HOST,
-            "PORT": POSTGRES_PORT,
-        }
-    }
-
+db_from_env = dj_database_url.config()
+# DATABASES = { 'default': dj_database_url.config() }
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -152,36 +131,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static", # os.path.join(BASE_DIR, 'static')
-]
-
-STATIC_ROOT = BASE_DIR / "staticfiles-cdn" # in production, we want cdn
-
-#----CHANGED
-
-# MEDIA_ROOT = BASE_DIR / "staticfiles-cdn" / "img"
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,"static"),
+    )
+STATIC_ROOT = os.path.join(BASE_DIR1, "static")
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/img/'
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+## MEDIA_ROOT = os.path.join(BASE_DIR, "img")
+#MEDIA_ROOT = 'http://cheekycv.com/hana/assets/img'
 MEDIA_ROOT = os.path.join(BASE_DIR1, "img")
-
-
-#-----------
-
-from .cdn.conf import * # noqa
-
-# https://www.cfe.sh/blog/django-static-files-digitalocean-spaces
-
-# https://trydjango.nyc3.digitaloceanspaces.com
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-#---------ADDED
-
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -195,11 +160,8 @@ EMAIL_HOST_USER = 'cvcheeky@gmail.com'
 EMAIL_HOST_PASSWORD = '134Hdmoloko'
 DEFAULT_FROM_EMAIL = 'CHEEKY CV Team <noreply@cheekycv.com>'
 
-#-------------------
-
-STATIC_ROOT = os.path.join(BASE_DIR1, "static")
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-
-
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# DISABLE_COLLECTSTATIC=1
+django_heroku.settings(locals())
