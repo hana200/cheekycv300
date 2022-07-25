@@ -10,8 +10,8 @@ BASE_DIR1 = Path(__file__).resolve().parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-SECRET_KEY = django-insecure-*lyxq+j1m-a2rc@io94%4^9t$+us^m$5-tq1wfjy=7halu$^ru
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
 
 # DEBUG = str(os.environ.get('DEBUG')) == "1" # 1 == True
 DEBUG = str(os.environ.get('DEBUG')) == "0"
