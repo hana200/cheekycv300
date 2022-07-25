@@ -454,382 +454,382 @@ def add_bio(request,pk):
         context["user_cv"] = user
 
     return render(request, 'cv/add/add_bio.html', context)
-# ADD LANG -----------------------------
-def add_lang(request,pk,x,y):
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
-    user = User.objects.get(username = pk)
-    cv = CV.objects.get(user = user.id)
-    if request.method == 'POST': 
-        lang_form = LangForm(request.POST)
-        lang_form.instance.cv = cv                        
-        if lang_form.is_valid():
-            lang_form.save()
-            idd=lang_form.instance.id
-            if request.POST.get("save_next"):
-                return redirect(reverse('add_web' , kwargs={'pk':user,'x': 'lang', 'y':idd}))
-            elif request.POST.get("save_home"):
-                return redirect(reverse('home'))          
-        else:
-            return redirect(reverse('add_lang' , kwargs={'pk':pk})) 
-    else:
-        lang_form = LangForm()
+# # ADD LANG -----------------------------
+# def add_lang(request,pk,x,y):
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
+#     user = User.objects.get(username = pk)
+#     cv = CV.objects.get(user = user.id)
+#     if request.method == 'POST': 
+#         lang_form = LangForm(request.POST)
+#         lang_form.instance.cv = cv                        
+#         if lang_form.is_valid():
+#             lang_form.save()
+#             idd=lang_form.instance.id
+#             if request.POST.get("save_next"):
+#                 return redirect(reverse('add_web' , kwargs={'pk':user,'x': 'lang', 'y':idd}))
+#             elif request.POST.get("save_home"):
+#                 return redirect(reverse('home'))          
+#         else:
+#             return redirect(reverse('add_lang' , kwargs={'pk':pk})) 
+#     else:
+#         lang_form = LangForm()
 
-    context["lang_form"] = lang_form
-    context["lang_user"] = user
-    return render(request, 'cv/add/add_lang.html', context)
+#     context["lang_form"] = lang_form
+#     context["lang_user"] = user
+#     return render(request, 'cv/add/add_lang.html', context)
 
-# ADD WEB -------------------------------
-def add_web(request,pk,x,y):
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
+# # ADD WEB -------------------------------
+# def add_web(request,pk,x,y):
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
 
-    user = User.objects.get(username = pk)
-    cv = CV.objects.get(user = user.id)
+#     user = User.objects.get(username = pk)
+#     cv = CV.objects.get(user = user.id)
 
-    if request.method == 'POST': 
-        web_form = WebForm(request.POST)
-        web_form.instance.cv = cv                        
-        if web_form.is_valid():
-            web_form.save()
-            idd=web_form.instance.id
-            if request.POST.get("save_next"):
-                return redirect(reverse('add_skill1' , kwargs={'pk':user,'x': 'web', 'y':idd}))
-            elif request.POST.get("save_home"):
-                return redirect(reverse('home'))          
-        else:
-            return redirect(reverse('add_web' , kwargs={'pk':pk})) 
-    else:
-        web_form = WebForm()
+#     if request.method == 'POST': 
+#         web_form = WebForm(request.POST)
+#         web_form.instance.cv = cv                        
+#         if web_form.is_valid():
+#             web_form.save()
+#             idd=web_form.instance.id
+#             if request.POST.get("save_next"):
+#                 return redirect(reverse('add_skill1' , kwargs={'pk':user,'x': 'web', 'y':idd}))
+#             elif request.POST.get("save_home"):
+#                 return redirect(reverse('home'))          
+#         else:
+#             return redirect(reverse('add_web' , kwargs={'pk':pk})) 
+#     else:
+#         web_form = WebForm()
 
-    context["web_form"] = web_form
-    context["web_user"] = user
-    return render(request, 'cv/add/add_web.html', context)  
+#     context["web_form"] = web_form
+#     context["web_user"] = user
+#     return render(request, 'cv/add/add_web.html', context)  
 
-# ADD SKILL ------------------------------
-def add_skill1(request,pk,x,y):
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
+# # ADD SKILL ------------------------------
+# def add_skill1(request,pk,x,y):
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
 
-    user = User.objects.get(username = pk)
-    cv = CV.objects.get(user = user.id)
+#     user = User.objects.get(username = pk)
+#     cv = CV.objects.get(user = user.id)
 
-    if request.method == 'POST': 
-        skill_form = Skill1Form(request.POST)
-        skill_form.instance.cv = cv                        
-        if skill_form.is_valid():
-            skill_form.save()
-            idd=skill_form.instance.id
-            if request.POST.get("save_next"):
-                return redirect(reverse('add_skill2' , kwargs={'pk':user,'x': 'skill', 'y':idd}))
-            elif request.POST.get("save_home"):
-                return redirect(reverse('home'))          
-        else:
-            return redirect(reverse('add_skill1' , kwargs={'pk':pk})) 
-    else:
-        skill_form = Skill1Form()
+#     if request.method == 'POST': 
+#         skill_form = Skill1Form(request.POST)
+#         skill_form.instance.cv = cv                        
+#         if skill_form.is_valid():
+#             skill_form.save()
+#             idd=skill_form.instance.id
+#             if request.POST.get("save_next"):
+#                 return redirect(reverse('add_skill2' , kwargs={'pk':user,'x': 'skill', 'y':idd}))
+#             elif request.POST.get("save_home"):
+#                 return redirect(reverse('home'))          
+#         else:
+#             return redirect(reverse('add_skill1' , kwargs={'pk':pk})) 
+#     else:
+#         skill_form = Skill1Form()
 
-    context["skill_form"] = skill_form
-    context["skill_user"] = user 
-    return render(request, 'cv/add/add_skill1.html', context)  
+#     context["skill_form"] = skill_form
+#     context["skill_user"] = user 
+#     return render(request, 'cv/add/add_skill1.html', context)  
 
-def add_skill2(request,pk,x,y):
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
+# def add_skill2(request,pk,x,y):
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
 
-    user = User.objects.get(username = pk)
-    cv = CV.objects.get(user = user.id)
+#     user = User.objects.get(username = pk)
+#     cv = CV.objects.get(user = user.id)
 
-    if request.method == 'POST': 
-        skill_form = Skill2Form(request.POST)
-        skill_form.instance.cv = cv                        
-        if skill_form.is_valid():
-            skill_form.save()
-            idd=skill_form.instance.id
-            if request.POST.get("save_next"):
-                return redirect(reverse('add_intro' , kwargs={'pk':user,'x': 'skill', 'y':idd}))
-            elif request.POST.get("save_home"):
-                return redirect(reverse('home'))          
-        else:
-            return redirect(reverse('add_skill2' , kwargs={'pk':pk})) 
-    else:
-        skill_form = Skill2Form()
+#     if request.method == 'POST': 
+#         skill_form = Skill2Form(request.POST)
+#         skill_form.instance.cv = cv                        
+#         if skill_form.is_valid():
+#             skill_form.save()
+#             idd=skill_form.instance.id
+#             if request.POST.get("save_next"):
+#                 return redirect(reverse('add_intro' , kwargs={'pk':user,'x': 'skill', 'y':idd}))
+#             elif request.POST.get("save_home"):
+#                 return redirect(reverse('home'))          
+#         else:
+#             return redirect(reverse('add_skill2' , kwargs={'pk':pk})) 
+#     else:
+#         skill_form = Skill2Form()
 
-    context["skill_form"] = skill_form
-    context["skill_user"] = user 
-    return render(request, 'cv/add/add_skill2.html', context)  
+#     context["skill_form"] = skill_form
+#     context["skill_user"] = user 
+#     return render(request, 'cv/add/add_skill2.html', context)  
 
-# ADD INTRO -------------------------------
-def add_intro(request,pk,x,y):
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
+# # ADD INTRO -------------------------------
+# def add_intro(request,pk,x,y):
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
     
-    user = User.objects.get(username = pk)
-    cv = CV.objects.get(user = user.id)
+#     user = User.objects.get(username = pk)
+#     cv = CV.objects.get(user = user.id)
 
-    if request.method == 'POST': 
-        intro_form = IntroForm(request.POST)
-        intro_form.instance.cv = cv                        
-        if intro_form.is_valid():
-            intro_form.save()
-            idd=intro_form.instance.id
-            if request.POST.get("save_next"):
-                return redirect(reverse('add_job' , kwargs={'pk':user,'x': 'intro', 'y':idd}))
-            elif request.POST.get("save_home"):
-                return redirect(reverse('home'))          
-        else:
-            return redirect(reverse('add_intro' , kwargs={'pk':pk})) 
-    else:
-        intro_form = IntroForm()
+#     if request.method == 'POST': 
+#         intro_form = IntroForm(request.POST)
+#         intro_form.instance.cv = cv                        
+#         if intro_form.is_valid():
+#             intro_form.save()
+#             idd=intro_form.instance.id
+#             if request.POST.get("save_next"):
+#                 return redirect(reverse('add_job' , kwargs={'pk':user,'x': 'intro', 'y':idd}))
+#             elif request.POST.get("save_home"):
+#                 return redirect(reverse('home'))          
+#         else:
+#             return redirect(reverse('add_intro' , kwargs={'pk':pk})) 
+#     else:
+#         intro_form = IntroForm()
 
-    context["intro_form"] = intro_form
-    context["intro_user"] = user 
-    return render(request, 'cv/add/add_intro.html', context)  
+#     context["intro_form"] = intro_form
+#     context["intro_user"] = user 
+#     return render(request, 'cv/add/add_intro.html', context)  
     
-# ADD JOB ---------------------------------
+# # ADD JOB ---------------------------------
 
-def add_job(request,pk,x,y):
+# def add_job(request,pk,x,y):
 
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
 
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p       
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p       
 
-        if x == "intro":
-            user = User.objects.get(username = pk)
-            cv = CV.objects.get(user = user.id)
+#         if x == "intro":
+#             user = User.objects.get(username = pk)
+#             cv = CV.objects.get(user = user.id)
 
-        elif x == "cat":
-            cat = J_Role_Cat.objects.get(id = y)
-            cv = cat.job.cv
-            user = cat.user
-        elif x == "role":
-            role = J_Role.objects.get(id = y)
-            cv = role.job.cv
-            user = role.user
+#         elif x == "cat":
+#             cat = J_Role_Cat.objects.get(id = y)
+#             cv = cat.job.cv
+#             user = cat.user
+#         elif x == "role":
+#             role = J_Role.objects.get(id = y)
+#             cv = role.job.cv
+#             user = role.user
 
-        job_form = JobForm(request.POST or None)
+#         job_form = JobForm(request.POST or None)
 
-        if request.method == 'POST':
-            job_form = JobForm(request.POST)
-            job_form.instance.cv = cv         
-            if job_form.is_valid():
-                job_form.save()
-                idd=job_form.instance.id          
-                if request.POST.get("save_next"):               
-                    return redirect(reverse('add_jobrole' , kwargs={'pk':y,'x': 'job', 'y':idd}))
-                elif request.POST.get("save_home"):
-                        return redirect(reverse('home'))
-                elif request.POST.get("back"):                
-                    if x=='bio':                
-                        return redirect(reverse('add_bio_back' ,  kwargs={'pk':y,'x':'job','y':idd})) 
-                    elif x == 'cat':
-                        return redireSct(reverse('add_jobrolecat_back' ,  kwargs={'pk':y,'x':'job','y':idd})) 
-            else:
-                #back to myself
-                return redirect(reverse('add_job' , kwargs={'pk':pk,'x': x, 'y':y}))           
-        else:
-            job_form = JobForm()
+#         if request.method == 'POST':
+#             job_form = JobForm(request.POST)
+#             job_form.instance.cv = cv         
+#             if job_form.is_valid():
+#                 job_form.save()
+#                 idd=job_form.instance.id          
+#                 if request.POST.get("save_next"):               
+#                     return redirect(reverse('add_jobrole' , kwargs={'pk':y,'x': 'job', 'y':idd}))
+#                 elif request.POST.get("save_home"):
+#                         return redirect(reverse('home'))
+#                 elif request.POST.get("back"):                
+#                     if x=='bio':                
+#                         return redirect(reverse('add_bio_back' ,  kwargs={'pk':y,'x':'job','y':idd})) 
+#                     elif x == 'cat':
+#                         return redireSct(reverse('add_jobrolecat_back' ,  kwargs={'pk':y,'x':'job','y':idd})) 
+#             else:
+#                 #back to myself
+#                 return redirect(reverse('add_job' , kwargs={'pk':pk,'x': x, 'y':y}))           
+#         else:
+#             job_form = JobForm()
 
-    context["job_form"] = job_form
-    context["user_job"] = user
+#     context["job_form"] = job_form
+#     context["user_job"] = user
 
-    return render(request, 'cv/add/add_job.html', context)
+#     return render(request, 'cv/add/add_job.html', context)
 
-def add_jobrole(request,pk,x,y):
+# def add_jobrole(request,pk,x,y):
 
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
 
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
-        try:
-            # pk = y
-            job = Job.objects.get(id = y)
-            cv = job.cv
-            user = cv.user
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
+#         try:
+#             # pk = y
+#             job = Job.objects.get(id = y)
+#             cv = job.cv
+#             user = cv.user
 
-            jrole_form = J_RoleForm(request.POST or None)
+#             jrole_form = J_RoleForm(request.POST or None)
 
-            if request.method == 'POST': 
-                jrole_form = J_RoleForm(request.POST)
-                jrole_form.instance.user = user
-                jrole_form.instance.job = job        
-                if jrole_form.is_valid():
-                    jrole_form.save()
-                    idd=jrole_form.instance.id
-                    if request.POST.get("save_next"):
-                        return redirect(reverse('add_jobrolecat' , kwargs={'pk':y,'x': 'role', 'y':idd}))
-                    elif request.POST.get("add_job"):
-                        return redirect(reverse('add_job' , kwargs={'pk':y,'x': 'role', 'y':idd}))
-                    elif request.POST.get("add_edu"):
-                        return redirect(reverse('add_edu' , kwargs={'pk':y,'x': 'role', 'y':idd}))
-                    elif request.POST.get("save_home"):
-                        return redirect(reverse('home'))
-                    elif request.POST.get("back"):              
-                        return redirect(reverse('add_job_back' ,  kwargs={'pk':y,'x':'role','y':idd}))
-                else:
-                    #back to myself
-                    return redirect(reverse('add_jobrole' , kwargs={'pk':pk,'x': x, 'y':y}))
-        except:
-            return redirect(reverse('error' ))
+#             if request.method == 'POST': 
+#                 jrole_form = J_RoleForm(request.POST)
+#                 jrole_form.instance.user = user
+#                 jrole_form.instance.job = job        
+#                 if jrole_form.is_valid():
+#                     jrole_form.save()
+#                     idd=jrole_form.instance.id
+#                     if request.POST.get("save_next"):
+#                         return redirect(reverse('add_jobrolecat' , kwargs={'pk':y,'x': 'role', 'y':idd}))
+#                     elif request.POST.get("add_job"):
+#                         return redirect(reverse('add_job' , kwargs={'pk':y,'x': 'role', 'y':idd}))
+#                     elif request.POST.get("add_edu"):
+#                         return redirect(reverse('add_edu' , kwargs={'pk':y,'x': 'role', 'y':idd}))
+#                     elif request.POST.get("save_home"):
+#                         return redirect(reverse('home'))
+#                     elif request.POST.get("back"):              
+#                         return redirect(reverse('add_job_back' ,  kwargs={'pk':y,'x':'role','y':idd}))
+#                 else:
+#                     #back to myself
+#                     return redirect(reverse('add_jobrole' , kwargs={'pk':pk,'x': x, 'y':y}))
+#         except:
+#             return redirect(reverse('error' ))
 
-    else:
-        jrole_form = J_RoleForm()
+#     else:
+#         jrole_form = J_RoleForm()
 
-    context["jrole_form"] = jrole_form
-    context["user_jrole"] = user
-    return render(request, 'cv/add/add_jobrole.html', context)
+#     context["jrole_form"] = jrole_form
+#     context["user_jrole"] = user
+#     return render(request, 'cv/add/add_jobrole.html', context)
 
-def add_jobrolecat(request,pk,x,y):
+# def add_jobrolecat(request,pk,x,y):
 
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
 
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
 
-        try:
-            # pk = y
+#         try:
+#             # pk = y
 
-            role = J_Role.objects.get(id = y)
-            job = role.job
-            user = role.user
+#             role = J_Role.objects.get(id = y)
+#             job = role.job
+#             user = role.user
 
-            jrolecat_form = J_Role_CatForm(request.POST or None)
-            # pk = user
-            '''
-            role = J_Role.objects.get(id = y)
-            user = User.objects.get(username = pk)           
-            '''
-            if request.method == 'POST': 
-                jrolecat_form = J_Role_CatForm(request.POST)
-                jrolecat_form.instance.role = role
-                jrolecat_form.instance.user = user
-                jrolecat_form.instance.job = job
-                if jrolecat_form.is_valid():
-                    jrolecat_form.save()
-                    idd=jrolecat_form.instance.id
-                    if request.POST.get("save_next"):
-                        return redirect(reverse('add_edu' , kwargs={'pk':y,'x': 'cat', 'y':idd}))
-                    elif request.POST.get("add_job"):
-                        return redirect(reverse('add_job' , kwargs={'pk':y,'x': 'cat', 'y':idd}))
-                    if request.POST.get("add_jobrolecat"):
-                        return redirect(reverse('add_jobrolecat' , kwargs={'pk':pk,'x': 'cat', 'y':y}))
-                    elif request.POST.get("back"):              
-                        return redirect(reverse('add_jobrole_back' ,  kwargs={'pk':y,'x':'cat','y':idd}))
-                    elif request.POST.get("save_home"):
-                        return redirect(reverse('home'))
-                else:
-                    #back to myself
-                    return redirect(reverse('add_jobrolecat' , kwargs={'pk':pk,'x': x, 'y':y}))
-        except:
-            return redirect(reverse('error' ))
+#             jrolecat_form = J_Role_CatForm(request.POST or None)
+#             # pk = user
+#             '''
+#             role = J_Role.objects.get(id = y)
+#             user = User.objects.get(username = pk)           
+#             '''
+#             if request.method == 'POST': 
+#                 jrolecat_form = J_Role_CatForm(request.POST)
+#                 jrolecat_form.instance.role = role
+#                 jrolecat_form.instance.user = user
+#                 jrolecat_form.instance.job = job
+#                 if jrolecat_form.is_valid():
+#                     jrolecat_form.save()
+#                     idd=jrolecat_form.instance.id
+#                     if request.POST.get("save_next"):
+#                         return redirect(reverse('add_edu' , kwargs={'pk':y,'x': 'cat', 'y':idd}))
+#                     elif request.POST.get("add_job"):
+#                         return redirect(reverse('add_job' , kwargs={'pk':y,'x': 'cat', 'y':idd}))
+#                     if request.POST.get("add_jobrolecat"):
+#                         return redirect(reverse('add_jobrolecat' , kwargs={'pk':pk,'x': 'cat', 'y':y}))
+#                     elif request.POST.get("back"):              
+#                         return redirect(reverse('add_jobrole_back' ,  kwargs={'pk':y,'x':'cat','y':idd}))
+#                     elif request.POST.get("save_home"):
+#                         return redirect(reverse('home'))
+#                 else:
+#                     #back to myself
+#                     return redirect(reverse('add_jobrolecat' , kwargs={'pk':pk,'x': x, 'y':y}))
+#         except:
+#             return redirect(reverse('error' ))
 
             
-    else:
-        jrolecat_form = J_Role_CatForm()
+#     else:
+#         jrolecat_form = J_Role_CatForm()
 
-    context["jrolecat_form"] = jrolecat_form
-    context["user_jrolecat"] = user
-    return render(request, 'cv/add/add_jobrolecat.html', context)
-# ADD EDU -----------------------------------
+#     context["jrolecat_form"] = jrolecat_form
+#     context["user_jrolecat"] = user
+#     return render(request, 'cv/add/add_jobrolecat.html', context)
+# # ADD EDU -----------------------------------
 
-def add_edu(request,pk,x,y):
-    context={}
-    context["cv_"] = 0
-    context["img_p"] = 0
+# def add_edu(request,pk,x,y):
+#     context={}
+#     context["cv_"] = 0
+#     context["img_p"] = 0
 
-    if request.user.is_authenticated:
-        img_p = model_check(request,PImg)
-        cv = model_check(request,CV)
-        context["cv_"] = cv
-        context["img_p"] = img_p
+#     if request.user.is_authenticated:
+#         img_p = model_check(request,PImg)
+#         cv = model_check(request,CV)
+#         context["cv_"] = cv
+#         context["img_p"] = img_p
 
-        if x == 'cat':
-            cat = J_Role_Cat.objects.get(id = y)
-            user = cat.user
-            cv = CV.objects.get(user = user)
-        elif x == 'edu':
-            edu = Edu.objects.get(id = y)
-            cv = edu.cv
-            user = cv.user
-        elif x == 'role':
-            role = J_Role.objects.get(id = y)
-            cv = role.job.cv
-            user = role.user
+#         if x == 'cat':
+#             cat = J_Role_Cat.objects.get(id = y)
+#             user = cat.user
+#             cv = CV.objects.get(user = user)
+#         elif x == 'edu':
+#             edu = Edu.objects.get(id = y)
+#             cv = edu.cv
+#             user = cv.user
+#         elif x == 'role':
+#             role = J_Role.objects.get(id = y)
+#             cv = role.job.cv
+#             user = role.user
 
-        edu_form = EduForm(request.POST or None)
+#         edu_form = EduForm(request.POST or None)
 
-        if request.method == 'POST': 
-            edu_form = EduForm(request.POST)
-            edu_form.instance.cv = cv         
-            if edu_form.is_valid():
-                edu_form.save()
-                idd = edu_form.instance.id
-                if request.POST.get("add_edu"): 
-                     return redirect(reverse('add_edu' , kwargs={'pk':y,'x': 'edu', 'y':idd}))
-                elif request.POST.get("save_next"):
-                    return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
-                elif request.POST.get("save_home"):
-                    return redirect(reverse('home'))
-                elif request.POST.get("back"):
-                    if x=='edu':                
-                        return redirect(reverse('add_edu_back' ,  kwargs={'pk':y,'x':'edu','y':idd})) 
-                    elif x == 'job':
-                        return redirect(reverse('add_job_back' ,  kwargs={'pk':y,'x':'edu','y':idd}))
-            else:
-                #back to myself
-                return redirect(reverse('add_job' , kwargs={'pk':pk,'x': x, 'y':y}))
-        else:
-            edu_form = EduForm()
+#         if request.method == 'POST': 
+#             edu_form = EduForm(request.POST)
+#             edu_form.instance.cv = cv         
+#             if edu_form.is_valid():
+#                 edu_form.save()
+#                 idd = edu_form.instance.id
+#                 if request.POST.get("add_edu"): 
+#                      return redirect(reverse('add_edu' , kwargs={'pk':y,'x': 'edu', 'y':idd}))
+#                 elif request.POST.get("save_next"):
+#                     return redirect(reverse('cv_show_edit' , kwargs={'pk':user}))
+#                 elif request.POST.get("save_home"):
+#                     return redirect(reverse('home'))
+#                 elif request.POST.get("back"):
+#                     if x=='edu':                
+#                         return redirect(reverse('add_edu_back' ,  kwargs={'pk':y,'x':'edu','y':idd})) 
+#                     elif x == 'job':
+#                         return redirect(reverse('add_job_back' ,  kwargs={'pk':y,'x':'edu','y':idd}))
+#             else:
+#                 #back to myself
+#                 return redirect(reverse('add_job' , kwargs={'pk':pk,'x': x, 'y':y}))
+#         else:
+#             edu_form = EduForm()
 
-    context["edu_form"] = edu_form
-    context["user_edu"] = user
-    return render(request, 'cv/add/add_edu.html', context)
+#     context["edu_form"] = edu_form
+#     context["user_edu"] = user
+#     return render(request, 'cv/add/add_edu.html', context)
 
 # ADD_ONLY ---------------------------------------------------------------
 

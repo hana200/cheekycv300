@@ -133,28 +133,3 @@ class ProfilePageForm(forms.ModelForm):
 			 	return redirect(reverse('err'))
 			 	#self.add_error(None, ValidationError('field can not be empty'))
 
-
-
-# class IncidentForm(ModelForm):
-#     class Meta:
-#         model = Incident
-#         # Define fields you want here, it is best practice not to use '__all__'
-#         fields = [...]
-
-#     def clean(self):
-#         cleaned_data = super(IncidentForm, self).clean()
-
-#         field_1 = cleaned_data.get('field_1')
-#         field_2 = cleaned_data.get('field_2')
-#         field_3 = cleaned_data.get('field_3')
-
-#         # Values may be None if the fields did not pass previous validations.
-#         if field_1 is not None and field_2 is not None and field_3 is not None:
-#             # If fields have values, perform validation:
-#             if not field_3 == field_1 + field_2:
-#                 # Use None as the first parameter to make it a non-field error.
-#                 # If you feel is related to a field, use this field's name.
-#                 self.add_error(None, ValidationError('field_3 must be equal to the sum of field_1 and filed_2'))
-
-#         # Required only if Django version < 1.7 :
-#         return cleaned_data

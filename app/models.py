@@ -87,7 +87,7 @@ def cat():
     CH_M = [(CH_M_[i], CH_M_[i]) for i in range(len( CH_M_))]
     return CH_M
 def ch_m():
-    CH_M_ = [ 'Jan', 'Feb', 'March', 'Apr', 'May','June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec','Present']
+    CH_M_ = [ 'Present','Jan', 'Feb', 'March', 'Apr', 'May','June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
     CH_M = [(CH_M_[i], CH_M_[i]) for i in range(len( CH_M_))]
     return CH_M
 def ch_y():
@@ -95,8 +95,8 @@ def ch_y():
 def current_m():
     pass
 def current_y():
-    CH_Y = [(str(i), str(i)) for i in range(1950,date.today().year+2)]
-    CH_Y[-1] = ('Present', 'Present')
+    CH_Y = [(str(i), str(i)) for i in range(1970,date.today().year+1)]
+    CH_Y[0] = ('Present', 'Present')
     return CH_Y
 
 # ------------------- MODELS ------------------------------------------------------------
@@ -159,6 +159,8 @@ class Web(models.Model):
     wl2 = models.CharField(max_length=100,null=True, blank=True)
     wl3 = models.CharField(max_length=100,null=True, blank=True)
     wl4 = models.CharField(max_length=100,null=True, blank=True)
+    wl5 = models.CharField(max_length=100,null=True, blank=True)
+    # wl6 = models.CharField(max_length=100,null=True, blank=True)
 
     def __str__(self):
         return str(self.cv)
@@ -222,10 +224,10 @@ class Job(models.Model):
     job_l = models.CharField(max_length=50,null=False, blank=False)
    
     #datetime
-    job_sdm = models.CharField(max_length=9,choices=ch_m(),null=True, blank=True, default= 'Jan')
-    job_sdy = models.CharField(max_length=9,choices=current_y(),null=False, blank=False, default=str(date.today().year))
-    job_edm = models.CharField(max_length=9,choices=ch_m(),null=True, blank=True, default= 'Jan')
-    job_edy = models.CharField(max_length=9,choices=current_y(),null=False, blank=False, default=str(date.today().year))
+    job_sdm = models.CharField(max_length=25,choices=ch_m(),null=True, blank=True, default= 'Jan')
+    job_sdy = models.CharField(max_length=25,choices=current_y(),null=False, blank=False, default=str(date.today().year))
+    job_edm = models.CharField(max_length=25,choices=ch_m(),null=True, blank=True, default='Present')
+    job_edy = models.CharField(max_length=25,choices=current_y(),null=False, blank=False, default='Present')
 
     def __str__(self):
         return str(self.cv.user)
@@ -240,10 +242,10 @@ class J_Role(models.Model):
     role_d = models.CharField(max_length=1024,null=True, blank=True)
 
     #datetime
-    role_sdm = models.CharField(max_length=9,choices=ch_m(),null=True, blank=True,default='Jan')
-    role_sdy = models.CharField(max_length=9,choices=current_y(),null=True, blank=True,default=str(date.today().year))
-    role_edm = models.CharField(max_length=9,choices=ch_m(),null=True, blank=True, default='Jan')
-    role_edy = models.CharField(max_length=9,choices=current_y(),null=True, blank=True,default=str(date.today().year))
+    role_sdm = models.CharField(max_length=25,choices=ch_m(),null=True, blank=True,default='Jan')
+    role_sdy = models.CharField(max_length=25,choices=current_y(),null=True, blank=True,default=str(date.today().year))
+    role_edm = models.CharField(max_length=25,choices=ch_m(),null=True, blank=True, default='Present')
+    role_edy = models.CharField(max_length=25,choices=current_y(),null=True, blank=True,default='Present')
     
     def __str__(self):
         return str(self.job)
@@ -290,8 +292,8 @@ class Edu(models.Model):
     
     
     #datetime   
-    edu_sdy = models.CharField(max_length=9,choices=current_y(),null=False, blank=False, default=str(date.today().year))  
-    edu_edy = models.CharField(max_length=9,choices=current_y(),null=False, blank=False, default=str(date.today().year))
+    edu_sdy = models.CharField(max_length=25,choices=current_y(),null=False, blank=False, default=str(date.today().year))  
+    edu_edy = models.CharField(max_length=25,choices=current_y(),null=False, blank=False, default=str(date.today().year))
 
     def __str__(self):
         return str(self.cv.user)

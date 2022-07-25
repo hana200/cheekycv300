@@ -4,8 +4,9 @@ from django.urls import path
 from .views import home, error, error_deleted, pdf_, ask
 from .views import cv_show, cv_show_edit
 #ADD
-from .views import add_bio, add_edu, add_job, add_jobrole, add_jobrolecat
-from .views import add_lang, add_web, add_intro, add_skill1, add_skill2
+from .views import add_bio
+# from .views import add_edu, add_job, add_jobrole, add_jobrolecat
+# from .views import add_lang, add_web, add_intro, add_skill1, add_skill2
 #ADD ONLY
 from .views import add_job_only, add_jobrole_only, add_jobrolecat_only, add_edu_only
 from .views import add_lang_only, add_web_only, add_intro_only, add_skill1_only, add_skill2_only
@@ -34,17 +35,17 @@ urlpatterns = [
 
     #ADD
     path('add_bio/<str:pk>', add_bio, name='add_bio'),
-    path('add_lang/<str:pk>/<str:x>/<int:y>', add_lang, name='add_lang'),
-    path('add_web/<str:pk>/<str:x>/<int:y>', add_web, name='add_web'),
-    path('add_skill1/<str:pk>/<str:x>/<int:y>', add_skill1, name='add_skill1'),
-    path('add_skill2/<str:pk>/<str:x>/<int:y>', add_skill2, name='add_skill2'),
-    path('add_intro/<str:pk>/<str:x>/<int:y>', add_intro, name='add_intro'),
+    # path('add_lang/<str:pk>/<str:x>/<int:y>', add_lang, name='add_lang'),
+    # path('add_web/<str:pk>/<str:x>/<int:y>', add_web, name='add_web'),
+    # path('add_skill1/<str:pk>/<str:x>/<int:y>', add_skill1, name='add_skill1'),
+    # path('add_skill2/<str:pk>/<str:x>/<int:y>', add_skill2, name='add_skill2'),
+    # path('add_intro/<str:pk>/<str:x>/<int:y>', add_intro, name='add_intro'),
 
-    path('add_job/<str:pk>/<str:x>/<int:y>', add_job, name='add_job'),
-    path('add_job_r/<str:pk>/<str:x>/<int:y>', add_jobrole, name='add_jobrole'),
-    path('add_jobb_r_c/<str:pk>/<str:x>/<int:y>', add_jobrolecat, name='add_jobrolecat'),
+    # path('add_job/<str:pk>/<str:x>/<int:y>', add_job, name='add_job'),
+    # path('add_job_r/<str:pk>/<str:x>/<int:y>', add_jobrole, name='add_jobrole'),
+    # path('add_jobb_r_c/<str:pk>/<str:x>/<int:y>', add_jobrolecat, name='add_jobrolecat'),
 
-    path('add_edu/<str:pk>/<str:x>/<int:y>', add_edu, name='add_edu'),
+    # path('add_edu/<str:pk>/<str:x>/<int:y>', add_edu, name='add_edu'),
     
 
     #ADD ONLY

@@ -75,34 +75,70 @@
 
             <p class="lead mb-5">{{intro.intro_text}}</p>
             {%endif%}
-                    
-            {%if web%}            
+  <!-- WEB -->                  
+       
                 
+{%if web%} 
+      
+                    {%if web.wl1 or web.wl5 or web.wl6%}   
                     <div class="social-icons">
+                  
                         {%if web.wl1%}
-                        <a class="social-icon" href="{{ web.wl1}}" target="_blank">
-                            <i class="fab fa-linkedin-in fa-2x" ></i>
+                        <a class="social-icon" href="{{ web.wl1}}" target="_blank" title="LINKEDIN">
+                            <i class="fab fa-linkedin-in " ></i>
                         </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
-
-                        {%if web.wl2%}
-                        <a class="social-icon" href="{{ web.wl2}}" target="_blank">
-                            <i class="fas fa-file-pdf fa-2x" ></i>
-                        </a>&nbsp;&nbsp;&nbsp;
-                        {%else%}{%endif%}
-
-                        {%if web.wl3%}
-                        <a class="social-icon" href="{{ web.wl3}}" target="_blank">
-                            <i class="fas fa-link fa-2x"></i>
-                        </a>&nbsp;&nbsp;&nbsp;
-                        {%else%}{%endif%}
-
                         {%if web.wl4%}
-                        <a class="social-icon" href="{{ web.wl4}}" target="_blank">
-                            <i class="fas fa-link fa-2x"></i>
+                        <a class="social-icon" href="{{ web.wl4}}" target="_blank" title="WEBSITE">
+                            <i class="fas fa-link "></i>
                         </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
+                        {%if web.wl5%}
+                        <a class="social-icon" href="{{ web.wl4}}" target="_blank" title="WEBSITE">
+                            <i class="fas fa-link "></i>
+                        </a>&nbsp;&nbsp;&nbsp;
+                        {%else%}{%endif%}
+
                     </div>
+                    <br><br> 
+                    {%endif%}
+
+                    <!--                         PORTFOLIO AND REFERENCES -->
+
+                    {% if web.wl3 != None and web.wl2 == None %}
+                    <hr/><br><br> 
+                    <div class="subheading mb-3">PORTFOLIO</div> 
+                    <div class="social-icons">
+
+                        
+                        <a class="social-icon" href="{{ web.wl2}}" target="_blank" title="PORTFOLIO">
+                            <i class="fas fa-file-pdf " ></i>
+                        </a>
+                    </div>
+                    {% elif web.wl2 != None and web.wl3 == None%}
+                    <hr/><br><br> 
+                    <div class="subheading mb-3">REFERENCES</div> 
+                    <div class="social-icons">
+                    
+                        <a class="social-icon" href="{{ web.wl3}}" target="_blank" title="REFERENCES">
+                        <i class="fas fa-file-pdf "></i>
+                        </a>
+                    </div>
+                    {% elif web.wl3 != None and web.wl2 != None %}
+                    <hr/><br><br> 
+                    <div class="subheading mb-3">PORTFOLIO & REFERENCES</div> 
+                    <div class="social-icons">
+                        <a class="social-icon" href="{{ web.wl2}}" target="_blank" title="PORTFOLIO">
+                        <i class="fa-solid fa-file-pdf "></i>
+                        </a>&nbsp;&nbsp;&nbsp;
+                    
+                        <a class="social-icon" href="{{ web.wl3}}" target="_blank" title="REFERENCES">
+                        <i class="fas fa-file-pdf"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
+                    </div>
+
+                    {%endif%}
+
                     <br/><br/>
 
             {% endif %}
@@ -550,35 +586,72 @@
                     
  <!-- WEB -->
  {%if web%}            
-                    <p>Please see the links below for my linkedin profile and full PDF portfolio download. Scroll further down for my web resume :)</p><br/>
+                       
+                    {%if web.wl1 or web.wl5 or web.wl6%}   
+<!--                     <div class="subheading mb-3">Web Presence</div>  -->
                     <div class="social-icons">
+                   
                         {%if web.wl1%}
-                        <a class="social-icon" href="{{ web.wl1}}" target="_blank">
-                            <i class="fab fa-linkedin-in fa-2x" ></i>
+                        <a class="social-icon" href="{{ web.wl1}}" target="_blank" title="LINKEDIN">
+                            <i class="fab fa-linkedin-in" ></i>
                         </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
-
-                        {%if web.wl2%}
-                        <a class="social-icon" href="{{ web.wl2}}" target="_blank">
-                            <i class="fas fa-file-pdf fa-2x" ></i>
-                        </a>&nbsp;&nbsp;&nbsp;
-                        {%else%}{%endif%}
-
-                        {%if web.wl3%}
-                        <a class="social-icon" href="{{ web.wl3}}" target="_blank">
-                            <i class="fas fa-link fa-2x"></i>
-                        </a>&nbsp;&nbsp;&nbsp;
-                        {%else%}{%endif%}
-
                         {%if web.wl4%}
-                        <a class="social-icon" href="{{ web.wl4}}" target="_blank">
-                            <i class="fas fa-link fa-2x"></i>
+                        <a class="social-icon" href="{{ web.wl4}}" target="_blank" title="WEBSITE">
+                            <i class="fas fa-link"></i>
                         </a>&nbsp;&nbsp;&nbsp;
                         {%else%}{%endif%}
+                        {%if web.wl5%}
+                        <a class="social-icon" href="{{ web.wl4}}" target="_blank" title="WEBSITE">
+                            <i class="fas fa-link"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
+                        {%else%}{%endif%}
+
                     </div>
+                    <br/><br/>
+                    {%endif%}
+
+                    <!--                         PORTFOLIO AND REFERENCES -->
+
+                    {% if web.wl3 != None and web.wl2 == None %}
+                    <hr/><br><br> 
+
+                    <div class="subheading mb-3">PORTFOLIO</div> 
+                    <div class="social-icons">
+
+                        
+                        <a class="social-icon" href="{{ web.wl2}}" target="_blank" title="PORTFOLIO">
+                            <i class="fas fa-file-pdf" ></i>
+                        </a>
+                    </div>
+                    {% elif web.wl2 != None and web.wl3 == None%}
+                    <hr/><br><br> 
+                    <div class="subheading mb-3">REFERENCES</div> 
+                    <div class="social-icons">
                     
-            {%else%}
-            {%endif%}
+                        <a class="social-icon" href="{{ web.wl3}}" target="_blank" title="REFERENCES">
+                        <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    {% elif web.wl3 != None and web.wl2 != None %}
+                    <hr/><br><br> 
+                    <div class="subheading mb-3">PORTFOLIO & REFERENCES</div> 
+                    <div class="social-icons">
+                        <a class="social-icon" href="{{ web.wl2}}" target="_blank" title="PORTFOLIO">
+                        <i class="fas fa-file-pdf"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
+                    
+                        <a class="social-icon" href="{{ web.wl3}}" target="_blank" title="REFERENCES">
+                        <i class="fas fa-file-pdf"></i>
+                        </a>&nbsp;&nbsp;&nbsp;
+                    </div>
+
+                    {%endif%}
+
+                    <br/><br/>
+                    
+{%else%}
+{%endif%}
             </ul>
         </div>
     </section>

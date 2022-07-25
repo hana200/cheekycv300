@@ -88,16 +88,17 @@ class LangForm(forms.ModelForm):
 class WebForm(forms.ModelForm):
     class Meta:
         model = Web
-        fields = ('wl1','wl2','wl3','wl4')
+        fields = ('wl1','wl2','wl3','wl4','wl5')
         widgets = {
         'wl1' : forms.TextInput(attrs={'class': 'form-control','placeholder':'http://mywebsite.com'}),
         'wl2' : forms.TextInput(attrs={'class': 'form-control','placeholder':'http://mywebsite.com'}),
         'wl3' : forms.TextInput(attrs={'class': 'form-control','placeholder':'http://mywebsite.com'}),
         'wl4' : forms.TextInput(attrs={'class': 'form-control','placeholder':'http://mywebsite.com'}),
+        'wl5' : forms.TextInput(attrs={'class': 'form-control','placeholder':'http://mywebsite.com'}),
         }
 
         labels = {
-        "wl1":"Linkedin", "wl2":"Pdf Link", "wl3":"Website 1", "wl4":"Website 2",
+        "wl1":"Linkedin", "wl2":"References Pdf Link","wl3":"Portfolio Pdf Link", "wl4":"Website 1", "wl5":"Website 2",
         }
 class IntroForm(forms.ModelForm):
     class Meta:
@@ -108,7 +109,7 @@ class IntroForm(forms.ModelForm):
         'outro_text' : forms.Textarea(attrs={'class':'form-control','placeholder':'When I am not working I am...'}),
         } 
         labels = {
-        "intro_text": "Intro text * ", "outro_text": "Outro text",
+        "intro_text": "Introduction * ", "outro_text": "Interests",
         }
 
 class Skill1Form(forms.ModelForm):
