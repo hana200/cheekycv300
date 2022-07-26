@@ -8,7 +8,7 @@ import django_heroku
 import dj_database_url
 from decouple import config
 from dotenv import load_dotenv
-DJANGO_LOG_LEVEL=DEBUG
+DJANGO_LOG_LEVEL= True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
