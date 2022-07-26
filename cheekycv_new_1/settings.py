@@ -2,6 +2,9 @@
 from pathlib import Path
 import os
 
+import logging
+import logging.handlers
+
 import django_heroku
 import dj_database_url
 from decouple import config
