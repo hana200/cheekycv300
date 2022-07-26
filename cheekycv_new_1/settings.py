@@ -7,7 +7,55 @@ import dj_database_url
 from decouple import config
 from dotenv import load_dotenv
 
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'formatters': {
+        'verbose': {
+            'format': '[contactor] %(levelname)s %(asctime)s %(message)s'
+        },
+    },
+    'handlers': {
+        # Send all messages to console
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        # Send info messages to syslog
+        'syslog':{
+            'level':'INFO',
+            'class': 'logging.handlers.SysLogHandler',
+            'facility': SysLogHandler.LOG_LOCAL2,
+            'address': '/dev/log',
+            'formatter': 'verbose',
+        },
+        # Warning messages are sent to admin emails
+        'mail_admins': {
+            'level': 'WARNING',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+        # critical errors are logged to sentry
+        'sentry': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'raven.contrib.django.handlers.SentryHandler',
+        },
+    },
+    'loggers': {
+        # This is the "catch all" logger
+        '': {
+            'handlers': ['console', 'syslog', 'mail_admins', 'sentry'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    }
+}
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -167,7 +215,7 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWO')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals(), staticfiles=False)
 
 # django_heroku.settings(locals())
