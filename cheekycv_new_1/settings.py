@@ -8,6 +8,14 @@ import django_heroku
 import dj_database_url
 from decouple import config
 from dotenv import load_dotenv
+
+import logging
+import logging.handlers
+logger = logging.getLogger("my_logger")
+logger.setLevel(logging.DEBUG)
+handler = logging.handlers.SysLogHandler(
+    facility=logging.handlers.SysLogHandler.LOG_DAEMON, address="/dev/log")
+    
 DJANGO_LOG_LEVEL= True
 LOGGING = {
     'version': 1,
