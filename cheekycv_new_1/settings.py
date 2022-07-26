@@ -168,4 +168,4 @@ DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
-COMPRESS_ENABLED = False
+# COMPRESS_ENABLED = False
