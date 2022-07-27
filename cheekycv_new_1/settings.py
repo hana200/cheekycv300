@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'cheekycv.urls'
+ROOT_URLCONF = 'cheekycv_new_1.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'cheekycv.wsgi.application'
+WSGI_APPLICATION = 'cheekycv_new_1.wsgi.application'
 
 
 # Database
