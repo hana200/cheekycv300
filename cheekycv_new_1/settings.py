@@ -3,71 +3,70 @@ from pathlib import Path
 import os
 
 
-
 import django_heroku
 import dj_database_url
 from decouple import config
 from dotenv import load_dotenv
 
-import logging
-import logging.handlers
-logger = logging.getLogger("my_logger")
-logger.setLevel(logging.DEBUG)
+# import logging
+# import logging.handlers
+# logger = logging.getLogger("my_logger")
+# logger.setLevel(logging.DEBUG)
 
 
-DJANGO_LOG_LEVEL= True
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'filters': {
-        'special': {
-            '()': 'project.logging.SpecialFilter',
-            'foo': 'bar',
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['special']
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        'cheekycv_new_1.custom': {
-            'handlers': ['console', 'mail_admins'],
-            'level': 'INFO',
-            'filters': ['special']
-        }
-    }
-}
+# DJANGO_LOG_LEVEL= True
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'filters': {
+#         'special': {
+#             '()': 'project.logging.SpecialFilter',
+#             'foo': 'bar',
+#         },
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'INFO',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'simple'
+#         },
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'class': 'django.utils.log.AdminEmailHandler',
+#             'filters': ['special']
+#         }
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'propagate': True,
+#         },
+#         'django.request': {
+#             'handlers': ['mail_admins'],
+#             'level': 'ERROR',
+#             'propagate': False,
+#         },
+#         'cheekycv_new_1.custom': {
+#             'handlers': ['console', 'mail_admins'],
+#             'level': 'INFO',
+#             'filters': ['special']
+#         }
+#     }
+# }
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -101,7 +100,6 @@ INSTALLED_APPS = [
     'app',
     'user_auth',
     'widget_tweaks',  
-
 ]
 
 MIDDLEWARE = [
@@ -228,20 +226,20 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWO')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-django_heroku.settings(locals(), staticfiles=False)
+# django_heroku.settings(locals(), staticfiles=False)
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 # COMPRESS_ENABLED = False
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
+# ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
 
-CORS_REPLACE_HTTPS_REFERER      = False
-HOST_SCHEME                     = "http://"
-SECURE_PROXY_SSL_HEADER         = None
-SECURE_SSL_REDIRECT             = True
-SESSION_COOKIE_SECURE           = True
-CSRF_COOKIE_SECURE              = True
-SECURE_HSTS_SECONDS             = 2592000
-SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
-SECURE_FRAME_DENY               = False
-SECURE_HSTS_PRELOAD = True
+# CORS_REPLACE_HTTPS_REFERER      = False
+# HOST_SCHEME                     = "http://"
+# SECURE_PROXY_SSL_HEADER         = None
+# SECURE_SSL_REDIRECT             = True
+# SESSION_COOKIE_SECURE           = True
+# CSRF_COOKIE_SECURE              = True
+# SECURE_HSTS_SECONDS             = 2592000
+# SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
+# SECURE_FRAME_DENY               = False
+# SECURE_HSTS_PRELOAD = True
