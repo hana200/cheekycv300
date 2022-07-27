@@ -89,6 +89,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['www.cheekycv.com','cheekycv.com','cheekycv.herokuapp.com']
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -231,4 +232,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals(), staticfiles=False)
 
 # django_heroku.settings(locals())
-# # COMPRESS_ENABLED = False
+COMPRESS_ENABLED = False
