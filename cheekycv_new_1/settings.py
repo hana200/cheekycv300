@@ -62,7 +62,7 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'myproject.custom': {
+        'cheekycv_new_1.custom': {
             'handlers': ['console', 'mail_admins'],
             'level': 'INFO',
             'filters': ['special']
