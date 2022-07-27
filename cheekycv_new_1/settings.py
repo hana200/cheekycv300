@@ -232,4 +232,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals(), staticfiles=False)
 
 # django_heroku.settings(locals())
-COMPRESS_ENABLED = False
+# COMPRESS_ENABLED = False
