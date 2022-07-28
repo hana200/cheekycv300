@@ -169,3 +169,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "img")
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
+SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = 
