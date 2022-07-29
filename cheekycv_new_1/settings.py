@@ -150,7 +150,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/img/'
 
-MEDIA_ROOT = os.path.join(BASE_STATIC, "img")
+# MEDIA_ROOT = os.path.join(BASE_STATIC, "img")
+MEDIA_ROOT = os.path.join(BASE_ROOT, "img")
 
 #-------security--------------------------------------
 
