@@ -25,15 +25,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 ALLOWED_HOSTS = ['www.cheekycv.com','cheekycv.com','cheekycv.herokuapp.com','localhost']
 
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 
 
-# SECURE_HSTS_SECONDS = 31536000
-# SECURE_HSTS_RELOAD = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_RELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 # Application definition
 
@@ -57,8 +57,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'django.middleware.security.SecurityMiddleware',
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'cheekycv_new_1.urls'
@@ -136,12 +136,12 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+#--------------------------------------------------------------------
+DISABLE_COLLECTSTATIC = 1
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-
-#-----------------------------------
+django_heroku.settings(locals())
 
 # EMAIL_BACKEND = config('EMAIL_BACKEND')
 # EMAIL_HOST = config('EMAIL_HOST')
@@ -159,6 +159,8 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 #--------------------------
 STATICFILES_DIRS = (
@@ -174,10 +176,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "img")
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-#--------------------------------------------------------------------
-DISABLE_COLLECTSTATIC = 1
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-django_heroku.settings(locals())
