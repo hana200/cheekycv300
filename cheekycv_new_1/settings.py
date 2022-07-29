@@ -28,7 +28,7 @@ BASE_STATIC = 'http://s3.amazonaws.com/cheekycv'
 # SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['www.cheekycv.com','cheekycv.com','cheekycv.herokuapp.com','localhost']
 
 
