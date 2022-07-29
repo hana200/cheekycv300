@@ -15,7 +15,7 @@
                    {%else%}
                    <a href="{% url 'create_profile_page' %}">
                    <span class="pic">
-                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt=""/>
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static '/assets/img/img0.jpg' %}" alt=""/>
                   </span>
                 </a>
                    {%endif%}
@@ -52,12 +52,12 @@
                       {%if user_ == user_req %}
                         <a href="{% url 'create_profile_page' %}">
                           <span class="pic">
-                            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt=""/>
+                            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static '/assets/img/img0.jpg' %}" alt=""/>
                           </span>
                         </a>
                        {%else%}
                           <span class="pic">
-                            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt=""/>
+                            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static '/assets/img/img0.jpg' %}" alt=""/>
                           </span>
                         {%endif%}
                    {%endif%}
@@ -104,7 +104,7 @@
             {%else%}
             <a href="{% url 'create_profile_page' %}">
             <span class="pic_phone">
-              <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
+              <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static '/assets/img/img0.jpg' %}" alt="" width="70rem"/>
             </span>
           </a>
             {%endif%}
@@ -122,12 +122,12 @@
                {%if user_ == user_req %}
                <a href="{% url 'create_profile_page' %}">
                   <span class="pic_phone">
-                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static '/assets/img/img0.jpg' %}" alt="" width="70rem"/>
                   </span>
               </a>
               {%else%}
                   <span class="pic_phone">
-                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'assets/img/img0.jpg' %}" alt="" width="70rem"/>
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static '/assets/img/img0.jpg' %}" alt="" width="70rem"/>
                   </span>
               {%endif%}
             {%endif%}
@@ -179,12 +179,12 @@
           <div class="cv-toggle" id = "cv-toggle" onclick="openNav">
                <a href="javascript:void(0)" onclick="openNav()" id = "open1">
                 <div class="open1" id = "open1_img">
-                <img src="{% static 'assets/img/bars.png' %}" class="menu-button-gray"/>
+                <img src="{% static '/assets/img/bars.png' %}" class="menu-button-gray"/>
                <!--  <i class="fas fa-bars fa-2x" style=" color: rgb(229, 236, 238);"></i> -->
               </div></a>
                <a href="javascript:void(0)" onclick="closeNav()" id="close1">
                 <div class="close1" id = "close1_img">
-                <img src="{% static 'assets/img/close.png' %}" class="menu-button-gray" />
+                <img src="{% static '/assets/img/close.png' %}" class="menu-button-gray" />
                 <!-- <i class="fa fa-times fa-2x" style=" color: rgb(229, 236, 238);"></i> -->
               </div></a>
           </div>
@@ -194,11 +194,11 @@
     <div class="cheeky-toggler" >
         <div class="cheeky-toggle" id = "cheeky-toggle" onclick="openMenu">
              <a href="javascript:void(0)" onclick="openMenu()" id = "open2"><div class="open2" id = "open2_img">
-              <img src="{% static 'assets/img/open.png' %}" class="menu-button"/>
+              <img src="{% static '/assets/img/open.png' %}" class="menu-button"/>
               <!-- <i class="fas fa-plus fa-2x" ></i> -->
             </div></a>
              <a href="javascript:void(0)" onclick="closeMenu()" id="close2"><div class="close2" id = "close2_img">
-              <img src="{% static 'assets/img/close.png' %}" class="menu-button" />
+              <img src="{% static '/assets/img/close.png' %}" class="menu-button" />
               <!-- <i class="fa fa-times fa-2x"></i> -->
             </div></a>
         </div>

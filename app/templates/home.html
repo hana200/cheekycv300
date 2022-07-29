@@ -12,7 +12,7 @@
 }
 </style>
 
-    <img class="hana_div_top11" src = "../static/assets/img/cov.png">
+    <img class="hana_div_top11" src = "{% static '/assets/img/cov.png' %}">
 <!-- SECTION REGISTER NOW / MAKE CV/ GOTO CV-->
 
 {% if user.is_authenticated %} 
@@ -168,7 +168,7 @@
           </h3><br>
           <p style="text-align:center">
           <a class="back-to-top" href="http://prickl.com" title="PRICKL DESIGN" target="_blank">
-              <img width="70px" height="70px"src="https://prickl.com/assets/img/logo_png.png">
+              <img width="70px" height="70px"src="{% static '/assets/img/favicon.jpg' %}">
             </a>
           </p>
 
