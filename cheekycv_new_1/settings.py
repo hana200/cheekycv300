@@ -19,6 +19,7 @@ from decouple import config
 # from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR1 = Path(__file__).resolve().parent.parent.parent
 BASE_STATIC = 'http://s3.amazonaws.com/cheekycv'
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +28,7 @@ BASE_STATIC = 'http://s3.amazonaws.com/cheekycv'
 # SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['www.cheekycv.com','cheekycv.com','cheekycv.herokuapp.com','localhost']
 
 
@@ -146,7 +147,7 @@ LOGOUT_REDIRECT_URL = 'home'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
     )
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = '/img/'
 
