@@ -47,10 +47,10 @@ def model_check(x,model):
 
 #------------VIEWSSSS--------------------------
 
-def home1(request):
+def home(request):
     return render(request,'base.html')
 
-def home(request):
+def home1(request):
     context={}
     context["cv_"] = 0
     context["img_p"] = 0
