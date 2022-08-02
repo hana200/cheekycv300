@@ -49,7 +49,7 @@ def image_name():
     name = str(r+'.jpg')
     return name
 def path_and_rename(instance, filename):
-    upload_to = 'pic/'+str(instance.user)
+    upload_to = '/pic/'+str(instance.user)
     ext = filename.split('.')[-1]
     # get filename
     if instance.pk:
@@ -62,8 +62,8 @@ def path_and_rename(instance, filename):
     return os.path.join(upload_to, filename)
 
 def path_and_rename_overwrite(instance, filename):
-    upload_to = 'pic/'+str(instance.user)
-    pp=os.path.join(settings.MEDIA_ROOT, 'pic/'+str(instance.user))
+    upload_to = '/pic/'+str(instance.user)
+    pp=os.path.join(settings.MEDIA_ROOT, '/pic/'+str(instance.user))
     
     # ext = filename.split('.')[-1]
     ext = "jpg"
@@ -73,7 +73,7 @@ def path_and_rename_overwrite(instance, filename):
 
     filename = '{}.{}'.format(img, ext)
     
-    return 'pic/'+str(instance.user)+'/prof_img_1.'+ext
+    return '/pic/'+str(instance.user)+'/prof_img_1.'+ext
 
 
 def R(n):

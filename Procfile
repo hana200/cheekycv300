@@ -1,1 +1,1 @@
-web: gunicorn cheekycv_new_1.wsgi
+web: python manage.py migrate && gunicorn cheekycv_new_1.wsgi

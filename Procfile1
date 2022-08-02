@@ -1,0 +1,1 @@
+web: gunicorn cheekycv_new_1.wsgi
